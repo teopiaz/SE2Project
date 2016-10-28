@@ -98,14 +98,18 @@ The system the has to be developed is called \emph{PowerEnJoy}. It is a digital 
 	\item Guest: a visitor, not authenticated user.
 	\item Driver: authenticated user that drive the requested car.
 	\item Car reservation: allocation of a car for a definited amount of time.
-	\item Safe area: \todo{Specificare}
+
+	\todo {[Andrea] Ho pensato di divedere così le aree. Nella safe area sono inclusi i parcheggi normali}
+
+	\item Safe area: area in which the User can find cars, pick them up and park them.
+	\item Special parking area: area in which the user can park the car and also charge it plugging it into the power grid. 
 	\item Car-Sharing Area: area in which users can find and park a car of the car-sharing service.
 	
 \end{itemize}
 
 \subsubsection{Acronyms}
 \todo[inline]{Copiati da controllare mentre stiliamo il documento}
-\begin{itemize}
+\begin{itemize} 
 	\item RASD: Requirements Analysis and Specification Document.
 	\item DB: Database.
 	\item DBMS: Database management system.
@@ -146,8 +150,7 @@ The structure of this document follows the IEEE standard for the editing of a RA
 \subsection{Stakeholders}
 \begin{itemize}
 	\item Citizens
-	\item Electric cars companies
-	\item Electricity providers
+	\todo {cancellati Electric cars and electricity providers (ha detto a lezione che non sono stakeholders)}
 	
 	
 \end{itemize}
@@ -159,10 +162,10 @@ The structure of this document follows the IEEE standard for the editing of a RA
 The entities identified in the problem description are the following: 
 \begin{itemize}
 	\item GUEST: is a visitor, someone that isn't signed-up yet. He can visualize
-	``PowerEnJoy'' Web site and download the mobile app but he cannot
+	"PowerEnJoy'' Web site and download the mobile app but he cannot
 	access to any service.
 	\item USER: is a client signed-up, via Web or mobile app. He accesses
-	``Passenger Area'' and, after successfully logged in, he can see
+	"Passenger Area'' and, after being successfully logged in, he can see
 	his personal section, modify his personal information. He can also
 	access to all services,view a map of available cars, make car reservations, modify or
 	cancel them.
@@ -171,20 +174,29 @@ The entities identified in the problem description are the following:
 \subsection{Goals}
 \todo{In teoria la lista dei goal deve essere presente}
 \begin{itemize}
-	\item {[}G1{]} Allow guests to register to ``PowerEnJoy'' service through
+	\item {[}G1{]} Allow guests to register to "PowerEnJoy'' service through
 	both website or mobile application.
 	\item {[}G2{]} Allow registered users to login and logout.
 	\item {[}G3{]} Allow authenticated users to modify their personal details
-	and payment informations.
-	\item {[}G4{]} Allow authenticated users to view a list of available car
+	and payment informations, such as payment method and payment records.
+	\item {[}G4{]} Allow authenticated users to view a list of available cars
 	in a configurable radius of distance from user position or specified
 	address.
-	\item {[}G5{]} Allow authenticated users to request for pick up an available
+	
+	\todo{[Andrea] Aggiunti Goal da 5 a 9}	
+
+	\item {[}G5{]} Allow authenticated users to view available cars on a map in the application.
+	\item {[}G6{]} Allow authenticated users to view special parking areas on a map in the application.
+	\item {[}G7{]} Allow authenticated users to view special parking areas while driving.	
+	\item {[}G8{]} Allow authenticated users to view the safe areas on a map in the application.
+	\item {[}G9{]} Allow authenticated users to view the safe areas while driving.
+		
+	\item {[}G10{]} Allow authenticated users to request for pick up an available
 	car for a limited time and unlock it when the User is in proximity.
-	\item {[}G6{]} Allow authenticated users to drive the unlocked car inside
+	\item {[}G11{]} Allow authenticated users to drive the unlocked car inside
 	the border of the city.
-	\item {[}G7{]} Allow driver to be constantly informed about the service through a screen on the car.
-	\item {[}G8{]} Allow driver to get discount in base of pick up/parking
+	\item {[}G12{]} Allow driver to be constantly informed about the service through a screen on the car.
+	\item {[}G13{]} Allow driver to get discount in base of pick up/parking
 	position of the ar, number of passengers and status of the battery.
 \end{itemize}
 
@@ -211,6 +223,7 @@ Because of the variety of people that will use the service, the mobile applicati
 \subsection{Assumptions}
 \todo{Da completare!}
 \begin{enumerate}
+	\item Cars can be parked in every area of the city where the parking is allowed, either it is free or chargeable. The company 		                    takes care of the payment for chargeable parkings. 
 	\item Every car can be uniquely recognized by his plate number.
 	\item The position of the users are well-known thanks to GPS.
 	\item The user is the one and only who drives the cars he reserves.
