@@ -11,6 +11,9 @@
 \usepackage{todonotes}
 \usepackage{placeins}
 
+\usepackage{catchfilebetweentags}
+
+
 \usepackage[unicode=true,
  bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
@@ -42,6 +45,18 @@
 }
 
 
+\def\CatchFBT@sanitize{%
+	\@sanitize
+	\@makeother\{%
+	\@makeother\}%
+	\ifluatex\else
+	\endlinechar=`\^^J%
+	\fi
+}% 
+
+\newcommand{\goal}[1]{
+{[}G#1{]}\ExecuteMetaData[goals]{#1}
+}
 
 
 \makeatother
@@ -69,6 +84,7 @@ Software Engineering 2 Project: \\
 \\
 Matteo Michele Piazzolla Matr. 878554\\
 Andrea Millimaggi Matr. 876062}
+
 
 \newpage{}
 \listoftodos

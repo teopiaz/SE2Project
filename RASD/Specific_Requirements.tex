@@ -9,21 +9,19 @@ the user will interact directly.
 
 
 
-\subsubsection{{[}G1{]} Allow guests to register to "PowerEnJoy'' service through both website or mobile application.}
+\subsubsection{\goal{1}}
 \begin{itemize}
 	\reqcounter The system shall allow registration only if the patent license number is provided.
 	\reqcounter The system shall provide a home page in which a guest user must be
 	able to know what the service is. 
 	\reqcounter The system shall demand the User to read and accept all term of use of the service.
-	\todo{[Andrea] New}
 	\reqcounter The system shall provide a form in which a Guest can insert his personal data for the registration to the service.
-	
 	\reqcounter The system shall provide a form in which a Guest can insert his payment information.
 	
 	
 \end{itemize}
 
-\subsubsection{{[}G2{]} Allow registered users to login and logout.}
+\subsubsection{\goal{2}}
 \begin{itemize}
 	\reqcounter The system shall show a sign-up page with a login form and a logout button if the User is already logged in.
 	\reqcounter The system shall validate any input in both client and server side.
@@ -36,7 +34,7 @@ the user will interact directly.
 
 
 
-\subsubsection{{[}G3{]} Allow authenticated users to modify their personal details and payment informations.}
+\subsubsection{\goal{3}}
 \begin{itemize}
 	\reqcounter The system shall show a an account page with all the information that the User sent during 
 	account registration.
@@ -46,22 +44,18 @@ the user will interact directly.
 
 
 
-\subsubsection{{[}G4{]} Allow authenticated users to view a list of available car in a configurable radius of 
-	distance from user position or specified address.}
+\subsubsection{\goal{4}}
 \begin{itemize}
 	\reqcounter The system shall show on a web page or a view in the application the position of the available car.
 	\reqcounter The system shall allow the User to set a search radius.
 	\reqcounter The system shall ask the User for the GPS position or to provide an address.
 \end{itemize}
 
-\subsubsection{{[}G5{]} Allow authenticated users to view available cars on a map in the
-	application.}
+\subsubsection{\goal{5}}
 
-\subsubsection{{[}G6{]} Allow authenticated users to view special parking areas and safe areas on a map in
-	the application.}
+\subsubsection{\goal{6}}
 
-\subsubsection{{[}G7{]} Allow authenticated users to request for pick up an available car for a limited time and
-	unlock it when the User is in proximity.}
+\subsubsection{\goal{7}}
 \begin{itemize}
 	\reqcounter The system shall not allow the User to request multiple cars at the same time.
 	\reqcounter The system shall check if the payment information are valid and show an error if not.
@@ -70,7 +64,7 @@ the user will interact directly.
 	allow to unlock the car.
 \end{itemize}
 
-\subsubsection{{[}G8{]} Allow authenticated users to drive the unlocked car inside the border of the city.}
+\subsubsection{\goal{8}}
 \begin{itemize}
 	\reqcounter The system shall inform the User if she is driving outside the city area.
 	\reqcounter In case of driving outside the city area the system shall charge a 100\%  more of the current charge.
@@ -78,7 +72,7 @@ the user will interact directly.
 
 
 
-\subsubsection{{[}G9{]} Allow driver to be constantly informed about the service through a screen on the car.}
+\subsubsection{\goal{9}}
 
 \begin{itemize}
 	\reqcounter The system shall inform the User if she is driving outside the city area.
@@ -87,15 +81,12 @@ the user will interact directly.
 	\reqcounter The system shall show on a map the special parking area and the safe area nerby the current car position.
 \end{itemize}
 
-\subsubsection{{[}G10{]} Allow driver to be constantly informed about the the cost of the
-	travel up to the current time.}
+\subsubsection{\goal{10}}
 
-\subsubsection{{[}G11{]} Allow driver to be constantly informed about the current position
-	of the driven car.}
+\subsubsection{\goal{11}}
 
 
-\subsubsection{{[}G12{]} Allow driver to get discount in base of pick up/parking
-	position of the ar, number of passengers and status of the battery.}\todo[inline]{Sistemare, copiati dal file del progetto}
+\subsubsection{\goal{12}}\todo[inline]{Sistemare, copiati dal file del progetto}
 \begin{itemize}
 	\reqcounter The system shall detect the number of passengers on the car
 	\reqcounter The system shall apply a discount of 10\% on the last ride if it detects the presence of two other passengers on the car in addition to the driver.
@@ -105,32 +96,31 @@ the user will interact directly.
 	\reqcounter The system shall apply a discount 	of 20\% on the last ride if it detects that the user takes care of plugging the car into the power grid when he leaves the car in a special parking area. 
 \end{itemize}
 
-\subsubsection{{[}G13{]} Allow the system to charge the user with an extra fee if he doesn't
-	pick up a car reserved within an hour from the reservation.}
+\subsubsection{\goal{13}}
 
 \begin{itemize}
 	\reqcounter The system shall charge the user with a 1 euro fee if he doesn't pick up a requested car within an hour from the reservation
 	
 \end{itemize}
 
-\subsubsection{{[}G14{]} Allow the system to make a car available again after an hour from that car reservation.}
+\subsubsection{\goal{14}}
 
 
-\subsubsection{{[}G15{]} Allow the driver to conclude his travel and stop being charged after he turns off and exits the car.}
+\subsubsection{\goal{15}}
 \begin{itemize}
 	\reqcounter The system shall detect the car turning off and the closure of the doors and stop charging the driver after this two actions are accomplished
 	
 \end{itemize}
 
 
-\subsubsection{{[}G16{]} Allow the system to charge the user with an extra fee if he leaves the car at more than 3 km from the nearest power grid station.}
+\subsubsection{\goal{16}}
 \begin{itemize}
 	\reqcounter The system shall calculate the distance from the parking position to the nearest power grid station and if that distance is more than 3 km, shall charge the 30\% on the last ride. 
 	
 \end{itemize}
 
 
-\subsubsection{{[}G17{]} Allow the user to put the car in charge when he leaves it in a special parking area.}
+\subsubsection{\goal{17}}
 
 \subsection{Non-Functional Requirement}
 
@@ -199,7 +189,7 @@ protocols such as HTTP and SSL/TLS, plus proxy support.
 
 
 \subsubsection{Hardware requirement}
-\todo[inline]{Matteo: da approfondire/inventare}
+\todo[inline]{Matteo: da togliere?}
 The communication between client and server is done using HTTPS REST API encrypted with TLS connections.
 Nginx webserver and a large use of caching.
 Google Maps API.
@@ -209,115 +199,14 @@ Google Maps API.
 \subsubsection{Concurrent operations}
 
 \pagebreak
-\subsection{Use Case}
-
-\subsubsection{User Registration}
-
-\begin{center}
-	
-	\begin{tabular}{|l|>{\raggedright}p{10cm}|}
-		\hline 
-		Use Case Name & User Registration\tabularnewline
-		\hline 
-		\hline 
-		Actors & Guest\tabularnewline
-		\hline 
-		Goal & {[}G1{]} Allow guests to register to ``PowerEnJoy'' service through both website or mobile application.\tabularnewline
-		\hline 
-		Preconditions & Guest hasn't registered to the webapp yet.\tabularnewline
-		\hline 
-		Postconditions & Guest is signed-up and promoted to ``PowerEnJoy'' User.\tabularnewline
-		\hline 
-		Normal Flow & \begin{enumerate}
-			\item Guest accesses to the webapp or the mobile application
-			\item Guest clicks on ``Sign Up'' button
-			\item Guest fill Sign-up form fields, entering\\
-			-Name\\
-			-Surname\\
-			-Email address\\
-			-Password\\
-			-Telephone Number\\
-			-Driving License number
-			\item Guest accepts the term of use
-			\item Guest clicks on ``Confirm'' button\end{enumerate}
-		\tabularnewline
-		\hline 
-		Exceptions & \begin{enumerate}
-			\item At least one field is empty
-			\item At least one field is invalid
-			\item Entered email is already associated to another account\end{enumerate}
-		\tabularnewline
-		\hline 
-	\end{tabular}
-	\par\end{center}
+\input{UseCase}
 
 \pagebreak
-\subsubsection{User Login}
-\begin{center}
-	\begin{tabular}{|l|>{\raggedright}p{10cm}|}
-		\hline 
-		Use Case Name & User Login\tabularnewline
-		\hline 
-		\hline 
-		Actors & User\tabularnewline
-		\hline 
-		Goal & {[}G2{]} Allow registered users to login and logout.\tabularnewline
-		\hline 
-		Preconditions & User has signed-up as PowerEnJoy User.\tabularnewline
-		\hline 
-		Postconditions & User is redirected to personal area.\tabularnewline
-		\hline 
-		Normal Flow & \begin{enumerate}
-			\item User accesses to the webapp or the mobile application
-			\item User clicks on ``Log-in' button
-			\item User fills username and password fields of Log-in form
-			\item User clicks on ``Submit'' button
-			\end{enumerate}
-		\tabularnewline
-		\hline 
-		Exceptions & \begin{enumerate}
-		\item Invalid username and/or password
-		\item At least one field is empty\end{enumerate}
-		\tabularnewline
-		\hline 
-	\end{tabular}
-	\par\end{center}
-
+\subsection{Class Diagram}
+\subsubsection{PowerEnJoy server}
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{img/usecase_login_registration}
-	\caption{Use Case Login and Registration procedure. Refer to Goal 1 and 2}
+	\includegraphics[scale=0.53]{img/classdiagram_server}
+	\caption{PowerEnJoy Server Class Diagram}
 \end{figure}
 \FloatBarrier
-
-\subsubsection{User Login}
-\begin{center}
-	\begin{tabular}{|l|>{\raggedright}p{10cm}|}
-		\hline 
-		Use Case Name & Personal information update\tabularnewline
-		\hline 
-		\hline 
-		Actors & User\tabularnewline
-		\hline 
-		Goal & {[}G3{]} Allow authenticated users to modify their personal details and payment informations.\tabularnewline
-		\hline 
-		Preconditions & User has signed-up as PowerEnJoy User.\tabularnewline
-		\hline 
-		Postconditions & User's personal and payment information are updated with confirmation.\tabularnewline
-		\hline 
-		Normal Flow & \begin{enumerate}
-			\item User accesses to the webapp or the mobile application
-			\item User clicks on ``Log-in' button
-			\item User fills username and password fields of Log-in form
-			\item User clicks on ``Submit'' button
-		\end{enumerate}
-		\tabularnewline
-		\hline 
-		Exceptions & \begin{enumerate}
-			\item Invalid username and/or password
-			\item At least one field is empty\end{enumerate}
-		\tabularnewline
-		\hline 
-	\end{tabular}
-	\par\end{center}
-

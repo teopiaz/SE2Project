@@ -19,13 +19,10 @@ The system the has to be developed is called \emph{PowerEnJoy}. It is a digital 
 	\item Registered User: a user that have completed the registration process.
 	\item Guest: a visitor, not authenticated user.
 	\item Driver: authenticated user that drive the requested car.
-	\item Car reservation: allocation of a car for a definited amount of time.
-
-	\todo {[Andrea] Ho pensato di divedere così le aree. Nella safe area sono inclusi i parcheggi normali}
-
+	\item Car reservation: allocation of a car for a defined amount of time.
 	\item Safe area: area in which the User can find cars, pick them up and park them.
 	\item Special parking area: area in which the user can park the car and also charge it plugging it into the power grid. 
-	\item Car-Sharing Area: area in which users can find and park a car of the car-sharing service.
+
 	
 \end{itemize}
 
@@ -72,8 +69,6 @@ The structure of this document follows the IEEE standard for the editing of a RA
 \subsection{Stakeholders}
 \begin{itemize}
 	\item Citizens
-	\todo {cancellati Electric cars and electricity providers (ha detto a lezione che non sono stakeholders)}
-	
 	
 \end{itemize}
 
@@ -96,43 +91,33 @@ The entities identified in the problem description are the following:
 \subsection{Goals}
 \todo{In teoria la lista dei goal deve essere presente}
 \begin{itemize}
-	\item {[}G1{]} Allow guests to register to "PowerEnJoy'' service through
-	both website or mobile application.
-	\item {[}G2{]} Allow registered users to login and logout.
-	\item {[}G3{]} Allow authenticated users to modify their personal details
-	and payment informations.
-	\item {[}G4{]} Allow authenticated users to view a list of available cars
-	in a configurable radius of distance from user position or specified
-	address.
+	\item \goal{1}
+	\item \goal{2}
+	\item \goal{3}
+	\item \goal{4}
 	
 	\todo{[Andrea] Aggiunti Goal da 5 a 7}	
 	
-	\item {[}G5{]} Allow authenticated users to view available cars on a map in the application.
-	\item {[}G6{]} Allow authenticated users to view special parking areas and safe areas on a map in the application.
-	
-	\item {[}G7{]} Allow authenticated users to request for pick up an available
-	car for a limited time and unlock it when the User is in proximity.
+	\item \goal{5}
+	\item \goal{6}
+	\item \goal{7}
 	\todo{Forse meglio dividere G10 in 2 (una per la request e uno per lo sblocco}
 	
-	\item {[}G8{]} Allow authenticated users to drive the unlocked car inside
-	the border of the city.
+	\item \goal{8}
+	\item \goal{9}
+	\item \goal{10}
+	\item \goal{11}
 	
-	\item {[}G9{]} Allow driver to be constantly informed about the service through a screen on the car.
-	\item {[}G10{]} Allow driver to be constantly informed about the the cost of the travel up to the current time.
-	\item {[}G11{]} Allow driver to be constantly informed about the current position of the driven car.
 	\todo{[Andrea] Aggiunti G11 e G10, specificano meglio le informazioni riguardanti il servizio del G12-->forse di può togliere G12 e tenerne 2 più specifici}
-	\item {[}G12{]} Allow driver to get discount in base of the position of the area in which he parks the car, 
-	number of passengers and status of the battery at the end of the travel.
+	\item \goal{12}
 	\todo{[Andrea] Riformulato il G15, tolta la posizione in cui si prende la macchina come discriminante per lo sconto perchè
 		non è scritto nell'assignment}
-	
-	\item {[}G13{]} Allow the system to charge the user with an extra fee if he don't pick up a car reserved within an hour from the reservation.
-	\item {[}G14{]} Allow the system to make a car available again after an hour from that car reservation.
-	\item {[}G15{]} Allow the driver to conclude his travel and stop being charged after he turns off and exits the car.
-	\item {[}G16{]} Allow the system to charge the user with an extra fee if he leaves the car at more than 3 km from the nearest power grid station. 
-	or if he left the car with more than the 80\% of the battery empty.
-	\item {[}G17{]} Allow the user to put the car in charge when he leave it in a special parking area.
-	\todo{[Andrea] Aggiunti Goals da 13 a 17, non sicurissimo che siano giusti}
+	\item \goal{13}
+	\item \goal{14}
+	\item \goal{15}
+	\item \goal{16}
+	\item \goal{17}
+\todo{[Andrea] Aggiunti Goals da 13 a 17, non sicurissimo che siano giusti}
 \end{itemize}
 
 
