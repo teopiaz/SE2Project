@@ -10,7 +10,7 @@
 \usepackage{setspace}
 \usepackage{todonotes}
 \usepackage{placeins}
-
+\usepackage[tocentry, tablegrid]{vhistory} 
 \usepackage{catchfilebetweentags}
 
 
@@ -21,6 +21,17 @@
 \hypersetup{pdftitle={RASD},
  pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
  pdfsubject={RASD Documentation}}
+
+\usepackage{fancyhdr,graphicx,lastpage}% http://ctan.org/pkg/{fancyhdr,graphicx,lastpage}
+\fancypagestyle{plain}{
+	\fancyhf{}% Clear header/footer
+	\fancyhead[L]{Requirements Analysis and Specification Document }% Right header
+	\fancyhead[R]{\emph{Issue 1}}% Right header
+	\fancyfoot[L]{Piazzolla Matteo Michele - Millimaggi Andrea}% Left footer
+	\fancyfoot[R]{\thepage\  / \pageref{LastPage}}% Right footer
+}
+\pagestyle{plain}% Set page style to plain.
+
 
 \makeatletter
 
@@ -35,7 +46,7 @@
 \par}
 }
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% contatore requirement
 \newcounter{requirement}
 \setcounter {requirement} {0} 
 
@@ -45,6 +56,7 @@
 }
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% comando per generare i goal
 \def\CatchFBT@sanitize{%
 	\@sanitize
 	\@makeother\{%
@@ -58,7 +70,7 @@
 {[}G#1{]}\ExecuteMetaData[goals]{#1}
 }
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% comando per la tabella degli use case
 \newcommand{\usecase}[7]{
 	\begin{center}
 		\begin{tabular}{|l|>{\raggedright}p{10cm}|}
@@ -84,9 +96,17 @@
 	\par\end{center}
 	}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
+\newcommand{\revisionhistory}{
+	\begin{versionhistory}
+		\vhEntry{1.0}{22.01.04}{JPW|KW}{created}
+		\vhEntry{ }{ }{ }{ }
+		\vhEntry{ }{ }{ }{ }
+	\end{versionhistory}}
 
 \makeatother
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% inizio documento
 \begin{document}
 
 \title{\includegraphics[scale=0.4]{img/polimi}\\
@@ -105,22 +125,33 @@ Software Engineering 2 Project: \\
 \end{doublespace}
 
 \maketitle
-
+\thispagestyle{empty}
 \lyxrightaddress{Prof.Luca Mottola\\
 \\
 Matteo Michele Piazzolla Matr. 878554\\
 Andrea Millimaggi Matr. 876062}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage{}
+
 \listoftodos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{}
+
+\revisionhistory
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage{}
 
 \tableofcontents{}
 
-\newpage{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
 \listoffigures
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage{}
 
 \input{Introduction}
