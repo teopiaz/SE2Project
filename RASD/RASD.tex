@@ -9,6 +9,8 @@
 \usepackage{graphicx}
 \usepackage{setspace}
 \usepackage{todonotes}
+\usepackage{placeins}
+
 \usepackage[unicode=true,
  bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=false,pdfborder={0 0 1},backref=false,colorlinks=false]
@@ -400,15 +402,14 @@ All the system data must be constantly backed up to assure the data recovery in 
 	\item The User must be able to use the system with mouse, keyboard and touchscreen.
 	\item The User must be able to choose from several language.
 	\item At the first login the system must provide a simple and skippable 3-views tutorial of the service.
-	
 \end{itemize}
 
-\begin{figure}[t]
+\begin{figure}[h]
 	\centering
 \includegraphics[scale=0.4]{img/webhome}
 	\caption{PowerEnJoy website homepage}
 \end{figure}
-
+\FloatBarrier
 
 
 
@@ -434,8 +435,6 @@ protocols such as HTTP and SSL/TLS, plus proxy support.
 
 \subsubsection{Maintainability and Portability}
 
-\pagebreak{}
-
 
 
 
@@ -455,6 +454,119 @@ Google Maps API.
 
 
 \subsubsection{Concurrent operations}
+
+\pagebreak
+\subsection{Use Case}
+
+\subsubsection{User Registration}
+
+\begin{center}
+	
+	\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+		\hline 
+		Use Case Name & User Registration\tabularnewline
+		\hline 
+		\hline 
+		Actors & Guest\tabularnewline
+		\hline 
+		Goal & {[}G1{]} Allow guests to register to ``PowerEnJoy'' service through both website or mobile application.\tabularnewline
+		\hline 
+		Preconditions & Guest hasn't registered to the webapp yet.\tabularnewline
+		\hline 
+		Postconditions & Guest is signed-up and promoted to ``PowerEnJoy'' User.\tabularnewline
+		\hline 
+		Normal Flow & \begin{enumerate}
+			\item Guest accesses to the webapp or the mobile application
+			\item Guest clicks on ``Sign Up'' button
+			\item Guest fill Sign-up form fields, entering\\
+			-Name\\
+			-Surname\\
+			-Email address\\
+			-Password\\
+			-Telephone Number\\
+			-Driving License number
+			\item Guest accepts the term of use
+			\item Guest clicks on ``Confirm'' button\end{enumerate}
+		\tabularnewline
+		\hline 
+		Exceptions & \begin{enumerate}
+			\item At least one field is empty
+			\item At least one field is invalid
+			\item Entered email is already associated to another account\end{enumerate}
+		\tabularnewline
+		\hline 
+	\end{tabular}
+	\par\end{center}
+
+\pagebreak
+\subsubsection{User Login}
+\begin{center}
+	\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+		\hline 
+		Use Case Name & User Login\tabularnewline
+		\hline 
+		\hline 
+		Actors & User\tabularnewline
+		\hline 
+		Goal & {[}G2{]} Allow registered users to login and logout.\tabularnewline
+		\hline 
+		Preconditions & User has signed-up as PowerEnJoy User.\tabularnewline
+		\hline 
+		Postconditions & User is redirected to personal area.\tabularnewline
+		\hline 
+		Normal Flow & \begin{enumerate}
+			\item User accesses to the webapp or the mobile application
+			\item User clicks on ``Log-in' button
+			\item User fills username and password fields of Log-in form
+			\item User clicks on ``Submit'' button
+			\end{enumerate}
+		\tabularnewline
+		\hline 
+		Exceptions & \begin{enumerate}
+		\item Invalid username and/or password
+		\item At least one field is empty\end{enumerate}
+		\tabularnewline
+		\hline 
+	\end{tabular}
+	\par\end{center}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{img/usecase_login_registration}
+	\caption{Use Case Login and Registration procedure. Refer to Goal 1 and 2}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{User Login}
+\begin{center}
+	\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+		\hline 
+		Use Case Name & Personal information update\tabularnewline
+		\hline 
+		\hline 
+		Actors & User\tabularnewline
+		\hline 
+		Goal & {[}G3{]} Allow authenticated users to modify their personal details and payment informations.\tabularnewline
+		\hline 
+		Preconditions & User has signed-up as PowerEnJoy User.\tabularnewline
+		\hline 
+		Postconditions & User's personal and payment information are updated with confirmation.\tabularnewline
+		\hline 
+		Normal Flow & \begin{enumerate}
+			\item User accesses to the webapp or the mobile application
+			\item User clicks on ``Log-in' button
+			\item User fills username and password fields of Log-in form
+			\item User clicks on ``Submit'' button
+		\end{enumerate}
+		\tabularnewline
+		\hline 
+		Exceptions & \begin{enumerate}
+			\item Invalid username and/or password
+			\item At least one field is empty\end{enumerate}
+		\tabularnewline
+		\hline 
+	\end{tabular}
+	\par\end{center}
 
 \section{ORE}\todo{da mettere poi in un file a parte}
 23/10/16 
