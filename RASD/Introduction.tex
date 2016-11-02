@@ -1,0 +1,142 @@
+
+\section{Introduction}
+
+
+\subsection{Purpose}
+\todo{forse sbagliato, nelle slide c'è scritto di mettere qui i goals}
+
+This document is the RASD (Requirement Analysis and Specification Document). The goal of this document is to describe the functional and non-functional requirements of the system in order to show the constraints on the software that the developer has to take into account. This document can have a legal value and can be used as a contractual basis between the customers and the developers.
+
+\subsection{Scope}
+The system the has to be developed is called \emph{PowerEnJoy}. It is a digital system for the management of a car-sharing service that only employs electric cars. In particular the aim is to develop a mobile application that allows the user to pick up and use electric cars in the areas reached by the service. 
+
+\subsection{Definitions, Acronyms, Abbreviations}
+
+
+\subsubsection{Definitions}
+\begin{itemize}
+	\item User: is a general person who uses ``PowerEnJoy''.
+	\item Registered User: a user that have completed the registration process.
+	\item Guest: a visitor, not authenticated user.
+	\item Driver: authenticated user that drive the requested car.
+	\item Car reservation: allocation of a car for a definited amount of time.
+
+	\todo {[Andrea] Ho pensato di divedere così le aree. Nella safe area sono inclusi i parcheggi normali}
+
+	\item Safe area: area in which the User can find cars, pick them up and park them.
+	\item Special parking area: area in which the user can park the car and also charge it plugging it into the power grid. 
+	\item Car-Sharing Area: area in which users can find and park a car of the car-sharing service.
+	
+\end{itemize}
+
+\subsubsection{Acronyms}
+\todo[inline]{Copiati da controllare mentre stiliamo il documento}
+\begin{itemize} 
+	\item RASD: Requirements Analysis and Specification Document.
+	\item DB: Database.
+	\item DBMS: Database management system.
+	\item API: Application Programming Interface.
+	\item OS: Operating System.
+	\item JVM: Java Virtual Machine.
+	\item J2EE: Java Enterprise Edition.
+\end{itemize}
+
+\subsubsection{Abbreviations}
+\begin{itemize}
+	\item {[}Gn{]}: n-goal.
+\end{itemize}
+
+
+\subsection{Reference documents}
+\begin{itemize}
+	\item IEEE Std 830-1998 IEEE Recommended Practice for Software Requirements Specifications.
+	\item IEEE Std 1016 tm -2009 Standard for Information Technology-System Design-Software Design Descriptions.
+	\item ISO/IEC/IEEE International Standard - Systems and software engineering -- Life cycle processes --Requirements engineering
+\end{itemize}
+
+\subsection{Document Overview}
+The structure of this document follows the IEEE standard for the editing of a RASD document. In particular the structure is:
+
+\begin{itemize}
+	\item Introduction: it provides a general description of the document and the system that has to be developed
+	\item Overall Description: it provides a general description of all the things that  affects the work on the project and the elaboration of the requirements. So it gives information about hardware and software choices and availability, the main functions of the product, the description of the people at whom the product is addressed, the constraints that will limit the work of the developer, the assumptions done before the development and the dependencies that the use of the product will have from hardware and software entities
+	\item Specific Requirements: it provides a detailed description of the requirements of the product
+\end{itemize}
+
+
+\subsection{Given Problem}
+
+\subsection{Proposed System}
+
+
+\subsection{Stakeholders}
+\begin{itemize}
+	\item Citizens
+	\todo {cancellati Electric cars and electricity providers (ha detto a lezione che non sono stakeholders)}
+	
+	
+\end{itemize}
+
+
+
+\subsection{Actors}
+\todo[inline]{aggiungiamo la macchina e le safe area?}
+The entities identified in the problem description are the following: 
+\begin{itemize}
+	\item GUEST: is a visitor, someone that isn't signed-up yet. He can visualize
+	"PowerEnJoy'' Web site and download the mobile app but he cannot
+	access to any service.
+	\item USER: is a client signed-up, via Web or mobile app. He accesses
+	"Passenger Area'' and, after being successfully logged in, he can see
+	his personal section, modify his personal information. He can also
+	access to all services,view a map of available cars, make car reservations, modify or
+	cancel them.
+\end{itemize}
+
+\subsection{Goals}
+\todo{In teoria la lista dei goal deve essere presente}
+\begin{itemize}
+	\item {[}G1{]} Allow guests to register to "PowerEnJoy'' service through
+	both website or mobile application.
+	\item {[}G2{]} Allow registered users to login and logout.
+	\item {[}G3{]} Allow authenticated users to modify their personal details
+	and payment informations.
+	\item {[}G4{]} Allow authenticated users to view a list of available cars
+	in a configurable radius of distance from user position or specified
+	address.
+	
+	\todo{[Andrea] Aggiunti Goal da 5 a 7}	
+	
+	\item {[}G5{]} Allow authenticated users to view available cars on a map in the application.
+	\item {[}G6{]} Allow authenticated users to view special parking areas and safe areas on a map in the application.
+	
+	\item {[}G7{]} Allow authenticated users to request for pick up an available
+	car for a limited time and unlock it when the User is in proximity.
+	\todo{Forse meglio dividere G10 in 2 (una per la request e uno per lo sblocco}
+	
+	\item {[}G8{]} Allow authenticated users to drive the unlocked car inside
+	the border of the city.
+	
+	\item {[}G9{]} Allow driver to be constantly informed about the service through a screen on the car.
+	\item {[}G10{]} Allow driver to be constantly informed about the the cost of the travel up to the current time.
+	\item {[}G11{]} Allow driver to be constantly informed about the current position of the driven car.
+	\todo{[Andrea] Aggiunti G11 e G10, specificano meglio le informazioni riguardanti il servizio del G12-->forse di può togliere G12 e tenerne 2 più specifici}
+	\item {[}G12{]} Allow driver to get discount in base of the position of the area in which he parks the car, 
+	number of passengers and status of the battery at the end of the travel.
+	\todo{[Andrea] Riformulato il G15, tolta la posizione in cui si prende la macchina come discriminante per lo sconto perchè
+		non è scritto nell'assignment}
+	
+	\item {[}G13{]} Allow the system to charge the user with an extra fee if he don't pick up a car reserved within an hour from the reservation.
+	\item {[}G14{]} Allow the system to make a car available again after an hour from that car reservation.
+	\item {[}G15{]} Allow the driver to conclude his travel and stop being charged after he turns off and exits the car.
+	\item {[}G16{]} Allow the system to charge the user with an extra fee if he leaves the car at more than 3 km from the nearest power grid station. 
+	or if he left the car with more than the 80\% of the battery empty.
+	\item {[}G17{]} Allow the user to put the car in charge when he leave it in a special parking area.
+	\todo{[Andrea] Aggiunti Goals da 13 a 17, non sicurissimo che siano giusti}
+\end{itemize}
+
+
+
+\pagebreak{}
+
+

@@ -1,0 +1,85 @@
+\section{Overall Description}
+
+
+
+\subsection{Product perspective}\todo[inline]{(further details on the shared phenomena and a domain model{-->}class diagrams and statecharts)}
+The system that we are going to develop is made of several parts. 
+\begin{itemize}
+	\item A Mobile Application usable from every Tablet or Smartphone that has access to an internet connection. The application will be available on Android and iOS. 
+	\item A Website where a user can find information about the service.
+	\item A Server backend to manage the service.
+\end{itemize}
+
+\subsubsection{System interfaces}
+The system will depend on a device installed onboard every 'PowerEnJoy car. That onboad device will communicate with the user and via internet to the server.
+
+\subsubsection{User interfaces}
+The available interfaces will be:
+\begin{itemize}
+	\item the mobile application
+	\item the website
+\end{itemize}
+The website will be implemented with a responsive design to adapt to all most common screen aspect and resolution with clear and minimal UI to favorite accessibility.
+The mobilie application will be graphically similar to the website with a few views.
+The use of the website or the mobile application won't be necessary during driving. 
+
+\subsubsection{Hardware interfaces}
+The main hardware interaction concerns the geolocalization feature, and in particular the GPS hardware on the smartphone device.
+The application need an internet connection so a smart device with a 3G or LTE connectivity is required.
+
+\subsubsection{Software interfaces}
+To provide the best use of the service through the website an HTML5 compliant browser is required and an up to-to-date version of Android or iOS operating system for the mobile application.
+
+
+
+
+
+\subsection{User characteristics}
+Everyone who has a car license will be able to register to the car-sharing service and drive one of the electric car available.
+Because of the variety of people that will use the service, the mobile application must be simple and user-friendly, so that anyone can use it even if it has a little knowledge about the use of a mobile device.
+
+\subsection{Constraints}
+
+
+
+\subsection{Assumptions}
+\todo{Da completare!}
+\begin{enumerate}
+	\item Cars can be parked in every area of the city where the parking is allowed, either it is free or chargeable. The company 		                    takes care of the payment for chargeable parkings. 
+	\item Every car can be uniquely recognized by his plate number.
+	\item The position of the users are well-known thanks to GPS.
+	\item The user is the one and only who drives the cars he reserves.
+	\item Any user who reserves a car has enough money on his credit card to pay the travel.
+	\item Every car is periodically checked to ensure proper operation.
+	\item The travel of a driver is considered finished when the the engine is off and after a minute from the moment in which he closes the car doors.
+\end{enumerate}
+
+\subsection{Regulatory policies}
+It’s user responsibility to ensure that the use of the system complies with the local laws and policies. If the user register to the service must allow for the permission to acquire, store and process personal data and web cookies. The system must offer to the user the possibility to delete the account and all the personal data.
+
+
+\subsubsection{Possible Future Implementations}
+Depending on the success that the developed system will have, it will be possible to extend the car-sharing to Scooters and Mini-Cars, in order to reach also younger customers.
+\\ \noindent 
+Another possibility for the future is to allow users to get in touch with strangers and pick them up in the middle of the travel.
+\todo {da sistemare la seconda frase} 
+\pagebreak{}
+
+\subsection{Product requirements}
+\subsubsection{Functional Requirements}
+
+\begin{itemize}
+	\item User registration
+	\item Login
+	\item Check for cars availability using user's position
+	\item Check for cars availability using address
+	\item Reserve a car
+	\item Cancel a reservation
+	\item Check the amount paid for a travel
+	\item Check the log of reservations done
+	\item View the details of cars available (level of the charge)
+	
+	
+\end{itemize}
+
+
