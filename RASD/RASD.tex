@@ -75,7 +75,9 @@ Andrea Millimaggi Matr. 876062}
 \tableofcontents{}
 
 \newpage{}
+\listoffigures
 
+\newpage{}
 
 \section{Introduction}
 
@@ -209,7 +211,35 @@ The entities identified in the problem description are the following:
 
 
 \subsection{Product perspective}\todo[inline]{(further details on the shared phenomena and a domain model{-->}class diagrams and statecharts)}
-The system that we are going to develop is a Mobile Application, so an application usable from every Tablet or Smartphone that has access to an internet connection. The application will be available on Android and iOS. There also will be a website where a user can find information about the service.
+The system that we are going to develop is made of several parts. 
+\begin{itemize}
+	\item A Mobile Application usable from every Tablet or Smartphone that has access to an internet connection. The application will be available on Android and iOS. 
+	\item A Website where a user can find information about the service.
+	\item A Server backend to manage the service.
+\end{itemize}
+
+\subsubsection{System interfaces}
+The system will depend on a device installed onboard every 'PowerEnJoy car. That onboad device will communicate with the user and via internet to the server.
+
+\subsubsection{User interfaces}
+The available interfaces will be:
+\begin{itemize}
+	\item the mobile application
+	\item the website
+\end{itemize}
+The website will be implemented with a responsive design to adapt to all most common screen aspect and resolution with clear and minimal UI to favorite accessibility.
+The mobilie application will be graphically similar to the website with a few views.
+The use of the website or the mobile application won't be necessary during driving. 
+
+\subsubsection{Hardware interfaces}
+The main hardware interaction concerns the geolocalization feature, and in particular the GPS hardware on the smartphone device.
+The application need an internet connection so a smart device with a 3G or LTE connectivity is required.
+
+\subsubsection{Software interfaces}
+To provide the best use of the service through the website an HTML5 compliant browser is required and an up to-to-date version of Android or iOS operating system for the mobile application.
+
+
+
 
 
 \subsection{User characteristics}
@@ -370,7 +400,15 @@ All the system data must be constantly backed up to assure the data recovery in 
 	\item The User must be able to use the system with mouse, keyboard and touchscreen.
 	\item The User must be able to choose from several language.
 	\item At the first login the system must provide a simple and skippable 3-views tutorial of the service.
+	
 \end{itemize}
+
+\begin{figure}[t]
+	\centering
+\includegraphics[scale=0.4]{img/webhome}
+	\caption{PowerEnJoy website homepage}
+\end{figure}
+
 
 
 
@@ -425,5 +463,7 @@ Andrea XX\\
 24/10/16 
 Matteo 3h\\
 25/10/16 
+Matteo 1h\\
+01/11/16
 Matteo 1h\\
 \end{document}
