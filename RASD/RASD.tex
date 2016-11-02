@@ -10,7 +10,7 @@
 \usepackage{setspace}
 \usepackage{todonotes}
 \usepackage{placeins}
-\usepackage[tocentry, tablegrid]{vhistory} 
+\usepackage[tocentry, tablegrid,nochapter]{vhistory} 
 \usepackage{catchfilebetweentags}
 
 
@@ -98,8 +98,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
 \newcommand{\revisionhistory}{
+
+	\begingroup
+	\fontsize{15pt}{12pt}\selectfont
+	\textbf{Revision History}
+	\endgroup
+
 	\begin{versionhistory}
-		\vhEntry{1.0}{22.01.04}{JPW|KW}{created}
+		\vhEntry{1.0}{13/11/16}{Piazzolla  Millimaggi }{First document issue}
 		\vhEntry{ }{ }{ }{ }
 		\vhEntry{ }{ }{ }{ }
 	\end{versionhistory}}
