@@ -39,7 +39,7 @@
 
 
 \pagebreak
-\subsubsection{User Login}
+\subsubsection{User Login}\label{login}
 
 \usecase{User Login}
 {User}
@@ -81,9 +81,7 @@
 {User is redirected to the modifications area where he can modify his personal information}
 {
 \begin{enumerate}
-	\item User accesses to the webapp or the mobile application
-	\item User logs in
-	\item User clicks on ``Personal Details'. A page with the personal data of the user is shown'
+	\item User clicks on ``Personal Details' button in his personal area. A page with the personal data of the user is shown'
 	\item User clicks on ``Modify Data'' button. A form for modifications is shown
 	\item User fills fields he wants to modify
 	\item User clicks on ``Confirm'' button
@@ -104,9 +102,7 @@
 {User is redirected to a page with the list of the available cars}
 {
 \begin{enumerate}
-	\item User accesses to the webapp or the mobile application
-	\item User logs in
-	\item User clicks on ``Search a car'' button. A form is shown
+	\item User clicks on ``Search a car'' button in his personal area. A form is shown
 	\item User select a distance from the ``Distance from your position'' field
 	\item User clicks on ``Confirm'' button
 	\item User is redirected to a page showing the available cars
@@ -114,11 +110,11 @@
 }
 {
 \begin{itemize}
-\item Different flow from step 4:
+\item Different flow from step 2:
 	\begin{enumerate}
-	\item[4] User write an address in the ``Address'' field 
-	\item[5] User clicks on ``Confirm'' button
-	\item[6] User is redirected to a page showing the available cars
+	\item[2] User write an address in the ``Address'' field 
+	\item[3] User clicks on ``Confirm'' button
+	\item[4] User is redirected to a page showing the available cars
  
 \end{enumerate}
 
@@ -142,8 +138,6 @@
 {User is redirected to a page with a map where resources (available cars, safe areas, special parking areas)  are shown}
 {
 \begin{enumerate}
-	\item User accesses to the webapp or the mobile application
-	\item User logs in
 	\item User clicks on ``Search resources on the map'' button. A form is shown
 	\item User select a distance from the ``Distance from your position'' field
 	\item User clicks on ``Confirm'' button
@@ -152,11 +146,11 @@
 }
 {
 \begin{itemize}
-\item Different flow from step 4:
+\item Different flow from step 2:
 	\begin{enumerate}
-	\item[4] User write an address in the ``Address'' field 
-	\item[5] User clicks on ``Confirm'' button	
-	\item[6] User is redirected to a page showing the resources on a map.
+	\item[2] User write an address in the ``Address'' field 
+	\item[3] User clicks on ``Confirm'' button	
+	\item[4] User is redirected to a page showing the resources on a map.
  
 \end{enumerate}
 
@@ -172,30 +166,29 @@
 
 }
 
-\subsubsection{Request}
+\subsubsection{Request and Unlock}\label{request}
 
-\usecase{Request}
+\usecase{Request and Unlock}
 {User}
 {\goal{6}}
-{User is logged in}
+{User is logged in and has searched a car (\ref{search}, \ref{search2}}
 {The car requested is reserved for the user}
 {
 \begin{enumerate}
-	\item User accesses to the webapp or the mobile application
-	\item User logs in
-	\item User searches a car (use case ~\ref{search})
-	\item User select a car from the list. 
-	\item A page with information about the car (battery level, model) is shown
+	\item User selects a car from the list. 
+	\item A page with information about the car (battery level, model, engine size) is shown
 	\item User clicks the ``Request'' Button''
 	\item The car is reserved for the user
+	\item User reaches the car and is less than 3 meters far from the car
+	\item User unlocks the car clicking on the ``Unlock'' button in the application
+
 \end{enumerate}
 }
 {
 \begin{itemize}
-\item Steps 3 and 4 are different:
+\item Steps 1 is different:
 	\begin{enumerate}
-	\item[3] User searches a car (use case ~\ref{search2})
-	\item[4] User select a car on the map.   
+	\item[1] User select a car on the map.   
 	\end{enumerate}
 
 \end{itemize}
@@ -205,6 +198,30 @@
 {
 \begin{enumerate}
 \item The car selected has been requested by another user before the User has clicked on the ``Request'' button.
+\end{enumerate}
+
+}
+
+\subsubsection{Driving}
+
+\usecase{Driving}
+{User}
+{\goal{7}}
+{User is logged in and has searched, requested and unlocked a car}
+{User drives the car}
+{
+\begin{enumerate}
+	
+\end{enumerate}
+}
+{
+\begin{itemize}
+
+\end{itemize}
+}
+{
+\begin{enumerate}
+
 \end{enumerate}
 
 }
