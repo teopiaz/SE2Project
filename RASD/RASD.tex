@@ -12,6 +12,8 @@
 \usepackage{placeins}
 \usepackage[tocentry, tablegrid,nochapter]{vhistory} 
 \usepackage{catchfilebetweentags}
+\usepackage{adjustbox}
+
 
 
 
@@ -76,14 +78,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% comando per la tabella degli use case
 \newcommand{\usecase}[8]{
 	\begin{center}
-		\begin{tabular}{|l|>{\raggedright}p{10cm}|}
+	\begin{adjustbox}{max width=\textwidth}	
+		\begin{tabular}{|l|>{\raggedright}p{15cm}|}
 			\hline 
 			Use Case Name & #1\tabularnewline
 			\hline 
 			\hline 
 			Actors & #2\tabularnewline
 			\hline 
-			Goal & #3\tabularnewline
+			Goals & #3\tabularnewline
 			\hline 
 			Preconditions & #4\tabularnewline
 			\hline 
@@ -99,6 +102,7 @@
 			\tabularnewline
 			\hline 
 		\end{tabular}
+		\end{adjustbox}	
 	\par\end{center}
 	}
 
