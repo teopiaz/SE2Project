@@ -1,4 +1,4 @@
-sig String{}
+sig Strings{}
 
 sig Time{
 	minutes: one Int,
@@ -47,10 +47,10 @@ sig Travel{
  	reqNumber: one String,
 	car: Car,
 	driverId: String,
-	passengers: Passenger
+	passengers: one Int
 }
 
-sig FinishedTravel extends{
+sig FinishedTravel extends Travel{
 	normalFee: one Float,
 	leftSpecialParking: one Bool,
 	plugged: one Bool,
@@ -68,7 +68,7 @@ sig Charge{
 }
 
 sig Car{
-
+	isAvailable: one Bool,
 	plateNumber: one String,
 	model: one String,
 	engineSize: one Int,
@@ -102,7 +102,7 @@ no u:User | u.age < 18
 }
 
 fact noDuplicateReq{
-no u:User	, r1,r2: Request | r1.driverId = r2.driverId
+no r1,r2: Request | r1.driverId = r2.driverId
 }
 
 fact noTooManyPassenger{
@@ -117,6 +117,14 @@ fact uniqueDriverForARequest{
 no t:Travel, r:Request| t.reqNumber = r.reqNumber && t.driverId != r.driverId  
 }
 
+fact carInTravelNotAvailable{
+no t:Travel | t.car.isAvailable = True
+}
+
+
+
+
+// not sure
 
 fact passengersDiscount{
 all f: FinishedTravel | (f.passengers > 1) implies (f.(discounts.passengersDiscount)) = 10
@@ -128,4 +136,5 @@ all f: FinishedTravel | (f.car.charge.batteryLevel > 50) implies (f.(discounts.b
 }
 
 
-
+pred show{}
+run show for 3
