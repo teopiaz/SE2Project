@@ -43,9 +43,13 @@
 				{-}
 				{
 				\begin{enumerate}
-					\item At least one field is empty
-					\item At least one field is invalid
-					\item Entered email is already associated to another account\end{enumerate}
+					\item At least one field is empty when the guest has confirmed. The system shows again the 									registration form, showing in addition a message advising the guest that she missed a field. 
+					\item At least one field is invalid when the guest has confirmed. The system shows again the 									registration form, indicating the invalid field.
+					\item Entered email is already associated to another account. The system shows again the 									registration form, showing in addition a message advising the guest that the email is already 								associated to another account.
+					
+					
+					
+					\end{enumerate}
 				}
 \pagebreak
 
@@ -68,8 +72,8 @@
 {-}
 {
 	\begin{enumerate}
-		\item Invalid username and/or password
-		\item At least one field is empty
+		\item Invalid username and/or password. User is redirected by the system again to the page of Login form.
+		\item At least one field is empty. User is redirected by the system again to the page of Login form.
 	\end{enumerate}
 }
 
@@ -265,6 +269,7 @@
 \todo{C'è da fare chiarezza su city area/ safe area}
 
 \input{Sequence_diagram}
+
 \input{Scenarios}
 
 
