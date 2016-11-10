@@ -4,4 +4,4 @@ out/
 *.aux
 *.synctex.gz
 *.pdf
-
+*.bak
