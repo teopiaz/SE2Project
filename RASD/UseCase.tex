@@ -4,9 +4,9 @@
 	
 	
 \begin{figure}[h]
-
+	\centering
 	\includegraphics[width=300px, height=400px]{img/UseCase_Diagram}
-	
+	\caption{General Use Case Diagram}
 \end{figure}
 	
 \pagebreak
@@ -74,7 +74,7 @@
 }
 
 \begin{figure}[h]
-
+	\centering
 	\includegraphics[width=380px]{img/usecase_login_registration}
 	\caption{Use Case Login and Registration procedure. Refer to Goal 1 and 2}
 \end{figure}
@@ -97,7 +97,13 @@
 \end{enumerate}
 }
 {-}
-{-}
+{
+	\begin{enumerate}
+		\item At least one field is empty
+		\item At least one field is invalid
+		\item Entered email is already associated to another account
+	\end{enumerate}
+	}
 \pagebreak
 
 
