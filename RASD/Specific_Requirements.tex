@@ -78,7 +78,7 @@ the user will interact directly.
 \end{itemize}
 
 
-\subsubsection{\goal{8}}\todo[inline]{Sistemare, copiati dal file del progetto}
+\subsubsection{\goal{8}}
 \begin{itemize}
 	\reqcounter The system shall detect the number of passengers on the car
 	\reqcounter The system shall apply a discount of 10\% on the last ride if it detects the presence of two other passengers on the car in addition to the driver.
@@ -120,13 +120,12 @@ If a Backend API change must guarantee support for client that implement older A
 All the system data must be constantly backed up to assure the data recovery in case of fault.
 
 
-\subsubsection{Performance}
 
 \subsubsection{Usability}
 \begin{itemize}
 	\item The User must be able to use the system with mouse, keyboard and touchscreen.
 	\item The User must be able to choose from several language.
-	\item At the first login the system must provide a simple and skippable 3-views tutorial of the service.
+	\item At the first login the system must provide a simple and skippable 3-views guided tutorial of the service.
 \end{itemize}
 
 \begin{figure}[h]
@@ -155,35 +154,6 @@ protocols such as HTTP and SSL/TLS, plus proxy support.
 \fi
 \end{itemize}
 
-
-
-
-
-
-\subsubsection{Performance}
-
-
-\subsubsection{Maintainability and Portability}
-
-
-
-
-\subsubsection{Network connections}
-
-
-\subsubsection{Cookies}
-
-
-
-\subsubsection{Hardware requirement}
-\todo[inline]{Matteo: da togliere?}
-The communication between client and server is done using HTTPS REST API encrypted with TLS connections.
-Nginx webserver and a large use of caching.
-Google Maps API.
-
-
-
-\subsubsection{Concurrent operations}
 
 \pagebreak
 \input{UseCase}

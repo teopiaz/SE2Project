@@ -40,26 +40,20 @@ Everyone who has a car license will be able to register to the car-sharing servi
 Because of the variety of people that will use the service, the mobile application must be simple and user-friendly, so that anyone can use it even if it has a little knowledge about the use of a mobile device.
 
 \subsection{Constraints}
-\todo{Constraints da scrivere bene}
-
-internet e pochi dati
-l'applicazione deve pesare poco per essere scaricabile in mobilità 
-deve essere lightweight per essere utilizzata su tutte le fascie di telefoni
-il sito deve essere fico in tutti i principali browser
-
-
+The mobile implementation of the system need to be lightweight to allow compatibility for every range of smartphone. The application must communicate with a small amount of data via 3G or LTE and must be small in terms of size to allow a User to download it without a Wi-Fi connection.
+The website must be reactive and usable with the major version of the most common web browser.
 
 \subsection{Assumptions}
-\todo{Da completare!}
+
 \begin{enumerate}
 	\item Cars can be parked in every area of the city where the parking is allowed, either it is free or chargeable. The company 		                    takes care of the payment for chargeable parkings. 
 	\item Every car can be uniquely recognized by his plate number.
 	\item The position of the users are well-known thanks to GPS.
 	\item The user is the one and only who drives the cars he reserves.
-	\item Any user who reserves a car can afford, using his preferred payment method, the payment of a 						         travel out of the safe areas for an hour.
+	\item Any user who reserves a car has enough money on his credit card to pay the travel.
 	\item Every car is periodically checked to ensure proper operation.
-	\item The travel of a driver is considered finished when the the engine is off and after a minute from the moment in which he 			         closes the car doors.
-	\item Power EnJoy offers different models of cars with different engine sizes
+	\item The travel of a driver is considered finished when the the engine is off and after a minute from the moment in which he closes the car doors.
+	\item Power EnJoy offers various models of cars with different engine sizes
 \end{enumerate}
 
 \subsection{Regulatory policies}
