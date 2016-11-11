@@ -9,10 +9,6 @@ sig CurrentTime extends Time{}
 
 abstract sig Bool{}
 
-sig Float{
- 	intPart: one Int,
-	decimalPart: one Int
-}
 
 sig True extends Bool{}
 sig False extends Bool{}
@@ -53,11 +49,12 @@ sig Travel{
 }
 
 sig FinishedTravel extends Travel{
-	normalFee: one Float,
+	normalFee: one Int,
 	leftSpecialParking: one Bool,
 	plugged: one Bool,
 	discounts: Discounts,
-	finalFee: one Float
+	penalty: Penalty,
+	finalFee: one Int
 }
 
 
@@ -80,11 +77,8 @@ sig Car{
 
 sig Discounts{
  	passengersDiscount: one Int,
-	batteryDiscount: one Int
-}
-
-sig Fee{
- 	value: one Int
+	batteryDiscount: one Int,
+	plugDiscount: one Int
 }
 
 sig Penalty{
@@ -107,11 +101,6 @@ fact noMinors{
 no u:User | u.age < 18
 }
 
-//A user can do only one request at a time
-fact noDuplicateReq{
-no r1,r2: Request | r1.driverId = r2.driverId
-}
-
 // The number of passengers can't exceed the number of seats
 fact noTooManyPassenger{
  all t:Travel | t.passengers <= t.car.seats
@@ -123,7 +112,6 @@ fact noDuplicateCars{
 no c1,c2:Car | c1.plateNumber = c2.plateNumber
 }
 
-
 // The user has done the request is also the only who drives the car
 fact uniqueDriverForARequest{
 no t:Travel, r:Request| t.reqNumber = r.reqNumber && t.driverId != r.driverId  
@@ -131,31 +119,58 @@ no t:Travel, r:Request| t.reqNumber = r.reqNumber && t.driverId != r.driverId
 
 // If a car is driven by a driver, it can't be available
 fact carInTravelNotAvailable{
-no t:Travel | t.car.isAvailable = True
+no t:Travel | t.car.isAvailable = False
 }
 
-//!!! da sistemare il calcolo del tempo !!!!s
+
+// If a car has been requested, it can't be available
+fact carRequestedNotAvailable{
+no r:Request | r.car.isAvailable = False
+}
+
+//If a car is driven, it has been requested before
+fact carDrivenisRequested{
+all t:Travel | one r: Request| t.reqNumber = r.reqNumber
+}
+
+fact finalFeeResult{
+all f:FinishedTravel | f.finalFee = f.normalFee  - (f.normalFee- f.normalFee.mul[f.discounts.passengersDiscount])
+                                                                      - (f.normalFee- f.normalFee.mul[f.discounts.batteryDiscount])	
+																	  - (f.normalFee- f.normalFee.mul[f.discounts.plugDiscount])	
+																	  +(f.normalFee- f.normalFee.mul[f.penalty.distancePenalty])
+}
+
+
+////ASSERTIONS ////
+
+//If the requested car has not been picked up within an hour, the system makes the car available again
 assert requestTimeExcedeed{
-
-all r:Request, c:CurrentTime | (c.minutes - r.start.minutes > 60) implies r.car.isAvailable = True
-
-
+all r:Request, c:CurrentTime | (((c.hours = r.start.hours) && (c.minutes - r.start.minutes > 60) || ((c.hours < r.start.hours) && (c.minutes < r.start.minutes))) implies r.car.isAvailable = True)
 }
-check requestTimeExcedeed for 3 
 
-
-
-// not sure
+// A driver can't do 2 requests in 1 hour
+assert noTwoCloseRequests{
+no r1, r2: Request | r1.driverId = r2.driverId && ( 
+	((r1.start.hours < r2.start.hours) && (r1.start.minutes < r2.start.minutes)) ||
+	((r2.start.hours < r1.start.hours) && (r2.start.minutes < r1.start.minutes))
+	) 
+}
 
 fact passengersDiscount{
 all f: FinishedTravel | (f.passengers > 1) implies (f.(discounts.passengersDiscount)) = 10
 }
 
-
 fact batteryDiscount{
 all f: FinishedTravel | (f.car.charge.batteryLevel > 50) implies (f.(discounts.batteryDiscount)) = 20
 }
 
+fact pluggedDiscount{
+all f: FinishedTravel | (f.car.charge.batteryLevel > 50) implies (f.(discounts.batteryDiscount)) = 20
+}
 
 pred show{}
+
 run show for 3
+
+check requestTimeExcedeed for 3
+check noTwoCloseRequests for 3
