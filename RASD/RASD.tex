@@ -55,6 +55,50 @@
 
 \usepackage[font=small,labelfont=bf]{caption}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% alloy listing
+
+
+\usepackage{color}
+\definecolor{eclipseBlue}{RGB}{42,0,255}
+\definecolor{eclipseGreen}{RGB}{63,127,95}
+\definecolor{eclipsePurple}{RGB}{127,0,85}
+
+\usepackage{listings}
+\lstdefinelanguage{alloy}{
+	keywords={%
+		assert, pred, all, no, lone, one, some, check, run,
+		but, let, implies, not, iff, in, and, or, set, sig, Int, int,
+		if, then, else, exactly, disj, fact, fun, module, abstract,
+		extends, open, none, univ, iden, seq,
+	},
+	sensitive=true,  % case sensitive
+	morecomment=[l]//,%
+	morecomment=[l]{--},%
+	morecomment=[s]{/*}{*/},%
+	morestring=[b]",
+	numbers=none,
+	firstnumber=1,
+	numberstyle=\tiny,
+	stepnumber=2,
+ basicstyle= \small%\tiny, %or \small or \footnotesize etc.
+%	basicstyle=\scriptsize\texttt,
+	commentstyle=\textit,
+	keywordstyle=\textbf,
+	ndkeywordstyle=\textbf,
+}
+
+\lstset{%
+	language=alloy, 
+	basicstyle=\ttfamily,
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,
+	captionpos=b, 
+	frame=single,
+	floatplacement={tbp},
+	numberstyle=\color{red}, %style of numbers
+	commentstyle=\color{eclipseGreen}, % style of comments
+	keywordstyle=\color{eclipseBlue}, % style of keywords
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% contatore requirement
@@ -187,7 +231,9 @@ Andrea Millimaggi Matr. 876062}
 \input{Specific_Requirements}
 
 \pagebreak
+\input{Alloy}
 
+\pagebreak
 \input{ore}
 
 
