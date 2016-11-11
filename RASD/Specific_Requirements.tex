@@ -51,19 +51,17 @@ the user will interact directly.
 	\reqcounter The system shall ask the User for the GPS position or to provide an address.
 \end{itemize}
 
+
 \subsubsection{\goal{5}}
-
-
-\subsubsection{\goal{6}}
 \begin{itemize}
 	\reqcounter The system shall not allow the User to request multiple cars at the same time.
 	\reqcounter The system shall check if the payment information are valid and show an error if not.
-	\reqcounter The system shall automatically cancel a car reservation if the User don't unlock the car in one hour without charging the User.
+	\reqcounter The system shall automatically cancel a car reservation and make the car available again if the User don't unlock the car in one hour and charge with a 1 euro fee.
 	\reqcounter The system shall check for the User position and if the distance from the car is less than 50 meters
 	allow to unlock the car.
 \end{itemize}
 
-\subsubsection{\goal{7}}
+\subsubsection{\goal{6}}
 \begin{itemize}
 	\reqcounter The system shall inform the User if she is driving outside the city area.
 	\reqcounter In case of driving outside the city area the system shall charge a 100\%  more of the current charge.
@@ -71,7 +69,7 @@ the user will interact directly.
 
 
 
-\subsubsection{\goal{8}}
+\subsubsection{\goal{7}}
 
 \begin{itemize}
 	\reqcounter The system shall inform the User of the amount that will be charged.
@@ -80,7 +78,7 @@ the user will interact directly.
 \end{itemize}
 
 
-\subsubsection{\goal{9}}\todo[inline]{Sistemare, copiati dal file del progetto}
+\subsubsection{\goal{8}}\todo[inline]{Sistemare, copiati dal file del progetto}
 \begin{itemize}
 	\reqcounter The system shall detect the number of passengers on the car
 	\reqcounter The system shall apply a discount of 10\% on the last ride if it detects the presence of two other passengers on the car in addition to the driver.
@@ -88,33 +86,19 @@ the user will interact directly.
 	\reqcounter The system shall apply a discount 	of 20\% on the last ride if it detects that the car was left with no more than 50\% of the battery empty.
 	\reqcounter The system shall check if the user plugges the car into the power grid when he left the car in a special parking area.
 	\reqcounter The system shall apply a discount 	of 20\% on the last ride if it detects that the user takes care of plugging the car into the power grid when he leaves the car in a special parking area. 
+	\reqcounter The system shall calculate the distance from the parking position to the nearest power grid station and if that distance is more than 3 km, shall charge the 30\% on the last ride. 
+		
 \end{itemize}
 
-\subsubsection{\goal{10}}
 
-\begin{itemize}
-	\reqcounter The system shall charge the user with a 1 euro fee if he doesn't pick up a requested car within an hour from the reservation
-	
-\end{itemize}
-
-\subsubsection{\goal{11}}
-
-
-\subsubsection{\goal{12}}
+\subsubsection{\goal{9}}
 \begin{itemize}
 	\reqcounter The system shall detect the car turning off and the closure of the doors and stop charging the driver after this two actions are accomplished
 	
 \end{itemize}
 
 
-\subsubsection{\goal{13}}
-\begin{itemize}
-	\reqcounter The system shall calculate the distance from the parking position to the nearest power grid station and if that distance is more than 3 km, shall charge the 30\% on the last ride. 
-	
-\end{itemize}
-
-
-\subsubsection{\goal{14}}
+\subsubsection{\goal{10}}
 \begin{itemize}
 	\reqcounter The system shall detect that the car is plugged into the power grid and start charging the battery
 

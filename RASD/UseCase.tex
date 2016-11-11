@@ -77,11 +77,6 @@
 	\end{enumerate}
 }
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=380px]{img/usecase_login_registration}
-	\caption{Use Case Login and Registration procedure. Refer to Goal 1 and 2}
-\end{figure}
 \pagebreak
 
 
@@ -116,7 +111,7 @@
 {User}
 {\goal{4}}
 {User is logged in}
-{User is redirected to a page with the list of the available cars}
+{User is redirected to a page with the available cars}
 {
 \begin{enumerate}
 	\item User clicks on ``Search a car'' button in his personal area. A form is shown
@@ -147,49 +142,12 @@
 }
 \pagebreak
 
-\subsubsection{Search of resources on a map}\label{search2}
-\usecase{Search of resources on a map}
-{User}
-{\goal{5}}
-{User is logged in}
-{User is redirected to a page with a map where resources (available cars, safe areas, special parking areas)  are shown}
-{
-\begin{enumerate}
-	\item User clicks on ``Search resources on the map'' button. A form is shown
-	\item User select a distance from the ``Distance from your position'' field
-	\item User clicks on ``Confirm'' button
-	\item User is redirected to a page showing the resources on a map.
-\end{enumerate}
-}
-{
-\begin{itemize}
-\item Different flow from step 2:
-	\begin{enumerate}
-	\item[2] User write an address in the ``Address'' field 
-	\item[3] User clicks on ``Confirm'' button	
-	\item[4] User is redirected to a page showing the resources on a map.
- 
-\end{enumerate}
-
-\end{itemize}
-
-
-}
-{
-\begin{enumerate}
-\item There aren't available cars within the distance set 
-\item There aren't available cars near the address set
-\end{enumerate}
-
-}
-\pagebreak
-
 
 \subsubsection{Request and Unlock}\label{request}
 \usecase{Request and Unlock}
 {User}
-{\goal{6} \newline \goal{10} \newline \goal{11}}
-{User is logged in and has searched a car (\ref{search}, \ref{search2}}
+{\goal{5}}
+{User is logged in and has searched a car (ref. 3.3.5)}
 {The car requested is reserved for the user}
 {
 \begin{enumerate}
@@ -229,7 +187,7 @@
 \subsubsection{Driving}
 \usecase{Driving}
 {Driver}
-{\goal{7} \newline \goal{9} \newline \goal{12} \newline \goal{13}}
+{\goal{6} \newline \goal{8} \newline \goal{9}}
 {Driver is logged in and has searched, requested and unlocked a car}
 {-}
 {
