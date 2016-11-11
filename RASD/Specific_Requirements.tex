@@ -1,4 +1,4 @@
-
+\pagebreak
 \section{Specific Requirements}
 
 
@@ -119,13 +119,23 @@ All the critical software bugs found must be patched in at least 48h.
 If a Backend API change must guarantee support for client that implement older API.
 All the system data must be constantly backed up to assure the data recovery in case of fault.
 
+\subsubsection{Security}
 
+The system must ensure that all data is protected from unauthorized
+access. Password should be saved on a DB hashed and salted.
+Every input from the user and every request must be sanitized 
+\iffalse
+It must support communication protocols used by web applications and
+devices on or within the network edge. These include network transport
+protocols such as HTTP and SSL/TLS, plus proxy support.
+\fi
 
 \subsubsection{Usability}
 \begin{itemize}
 	\item The User must be able to use the system with mouse, keyboard and touchscreen.
 	\item The User must be able to choose from several language.
 	\item At the first login the system must provide a simple and skippable 3-views guided tutorial of the service.
+\end{itemize}
 \end{itemize}
 
 \begin{figure}[h]
@@ -142,17 +152,7 @@ All the system data must be constantly backed up to assure the data recovery in 
 \end{figure}
 \FloatBarrier
 
-\subsubsection{Security}
 
-The system must ensure that all data is protected from unauthorized
-access. Password should be saved on a DB hashed and salted.
-Every input from the user and every request must be sanitized 
-\iffalse
-It must support communication protocols used by web applications and
-devices on or within the network edge. These include network transport
-protocols such as HTTP and SSL/TLS, plus proxy support.
-\fi
-\end{itemize}
 
 
 \pagebreak
