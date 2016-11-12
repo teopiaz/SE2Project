@@ -186,26 +186,26 @@
 
 \subsubsection{Driving}
 \usecase{Driving}
-{Driver}
+{User}
 {\goal{6} \newline \goal{8} \newline \goal{9}}
-{Driver is logged in and has searched, requested and unlocked a car}
+{User is logged in and has searched, requested and unlocked a car}
 {-}
 {
 \begin{enumerate}
-\item Driver enters the car, eventually also other passengers enter the car
-\item Driver starts driving
+\item User enters the car, eventually also other passengers enter the car
+\item User starts driving
 \item The system detects the number of passengers
 \item The screen shows a map with the position of the car, the safe areas and special parking areas near the car position
 \item The screen shows the money to be charged up to the current moment
 \item The system charges the standard fee every minute.
-\item Driver parks and exit the car and, if any, the other passengers exit the car
+\item User parks and exit the car and, if any, the other passengers exit the car
 \item The system locks the car
 \item The system detects the level of the battery
 \item The system detects if the car has been plugged in a power grid
 \item The system detects the position of the left car
 \item The system applies a discount on the ride of the:
 	\begin{itemize}
-	\item 10\%, if it has detected the presence of at least two other passengers in addition to the driver during the travel
+	\item 10\%, if it has detected the presence of at least two other passengers in addition to the user during the travel
 	\item 20\%, if it has detected that the car was left with no more than the 50\% of the battery empty
 	
 	\end{itemize}
@@ -216,15 +216,15 @@
 }
 {
 	\begin{itemize}
-	\item Before the last step, the system detects the presence of at least two other passengers in addition to the driver during the 		         travel and so applies a 10\% discount on the ride
+	\item Before the last step, the system detects the presence of at least two other passengers in addition to the user during the 		         travel and so applies a 10\% discount on the ride
 	\item Before the last step, the system detects that the car was left with no more than the 50\% of the battery empty and so 			         applies a 10\% discount on the ride
-	\item At step 7 the Driver parks the car in a special parking area and plugs the car into the power grid. Before the last step the 
+	\item At step 7 the User parks the car in a special parking area and plugs the car into the power grid. Before the last step the 
 	         the system detects that the car has been plugged into the power grid and so applies a 20\% discount on the ride
-	\item While driving the Driver exits the city area. So:
+	\item While driving the User exits the city area. So:
 		\begin{enumerate}
 		\item An acoustic signal is emitted by the screen
-		\item A message is shown on the screen, warning the Driver that he has exited the city area
-		\item The system charges the 100\% more than the standard fee every minute until the driver re-enters in the city area
+		\item A message is shown on the screen, warning the User that he has exited the city area
+		\item The system charges the 100\% more than the standard fee every minute until the user re-enters in the city area
 		\end{enumerate} 
 	\end{itemize}
 

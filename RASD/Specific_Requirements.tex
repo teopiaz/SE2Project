@@ -4,7 +4,7 @@
 
 \subsection{Functional Requirement}
 
-With these requirements are defined features and functions with which
+With these requirements, we define features and functions with which
 the user will interact directly.
 
 
@@ -59,13 +59,14 @@ the user will interact directly.
 	\reqcounter The system shall automatically cancel a car reservation and make the car available again if the User don't unlock the car in one hour and charge with a 1 euro fee.
 	\reqcounter The system shall check for the User position and if the distance from the car is less than 50 meters
 	allow to unlock the car.
+	\reqcounter The system shall allow the user to be informed about the autonomy,the battery level, the model, the engine size of 		the available cars 
 \end{itemize}
 
 \subsubsection{\goal{6}}
 \begin{itemize}
 	\reqcounter The system shall inform the User if she is driving outside the city area.
 	\reqcounter In case of driving outside the city area the system shall charge a 100\%  more of the current charge.
-\end{itemize}
+	\end{itemize}
 
 
 
@@ -75,13 +76,15 @@ the user will interact directly.
 	\reqcounter The system shall inform the User of the amount that will be charged.
 	\reqcounter The system shall inform the User of the position of charging stations nearby the current car position.
 	\reqcounter The system shall show on a map the special parking area and the safe area nerby the current car position.
+           \reqcounter The system shall inform the user if she's driving more than 3 km far from the nearest power grid station
+ 
 \end{itemize}
 
 
 \subsubsection{\goal{8}}
 \begin{itemize}
 	\reqcounter The system shall detect the number of passengers on the car
-	\reqcounter The system shall apply a discount of 10\% on the last ride if it detects the presence of two other passengers on the car in addition to the driver.
+	\reqcounter The system shall apply a discount of 10\% on the last ride if it detects the presence of two other passengers on the car in addition to the user.
 	\reqcounter The system shall check the level of the battery when a car is left.
 	\reqcounter The system shall apply a discount 	of 20\% on the last ride if it detects that the car was left with no more than 50\% of the battery empty.
 	\reqcounter The system shall check if the user plugges the car into the power grid when he left the car in a special parking area.
@@ -93,7 +96,7 @@ the user will interact directly.
 
 \subsubsection{\goal{9}}
 \begin{itemize}
-	\reqcounter The system shall detect the car turning off and the closure of the doors and stop charging the driver after this two actions are accomplished
+	\reqcounter The system shall detect the car turning off and the closure of the doors and stop charging the user after this two actions are accomplished
 	
 \end{itemize}
 
@@ -116,7 +119,7 @@ the user will interact directly.
 
 The service has to guarantee an 24h/7d availability. Components of the project code will be tested after the implementation phase to ensure that they are functional. 
 All the critical software bugs found must be patched in at least 48h.
-If a Backend API change must guarantee support for client that implement older API.
+If a Back-End API change occurs, it must be guaranteed a support for clients that implement older API.
 All the system data must be constantly backed up to assure the data recovery in case of fault.
 
 \subsubsection{Security}
@@ -158,8 +161,8 @@ protocols such as HTTP and SSL/TLS, plus proxy support.
 \pagebreak
 \input{UseCase}
 
-\subsection{Activity Diagram}
-\subsubsection{PowerEnJoy Trip}
+\section{Activity Diagram}
+\subsection{PowerEnJoy Trip}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=345px]{img/activity_trip}
@@ -168,7 +171,7 @@ protocols such as HTTP and SSL/TLS, plus proxy support.
 \FloatBarrier
 
 \pagebreak
-\subsection{Class Diagram}
+\section{Class Diagram}
 \subsubsection{PowerEnJoy server}
 \begin{figure}[h]
 	\centering
