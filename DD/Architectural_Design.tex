@@ -1,14 +1,25 @@
 \section{ARCHITECTURAL DESIGN}
-	\subsection{Overview}
-	High level components and their interaction
-	\subsection{Component view} 
-	\subsection{Deployment view}
-	\subsection{Runtime view}
-	You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases F. 
-	\subsection{Component interfaces} 
-	\subsection{Selected architectural styles and patterns}
-	Please explain which styles/patterns you used, why, and how   
-	\subsection{Other design decisions } 
+\subsection{Overview}
+In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service.
 
-    
+\subsection{Component view} 
+From an high level prospective the service is composed by different modules allowing development and maintenance flexibility.
+This modularity allow also scalability for future service expansion, \todo{espandere il concetto}
+\\The main components of the system are:
+\begin{itemize}
+\item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
+\item{\textbf{Application Server:}} this component will manage the applicative logic.
+\item{\textbf{Web Server:}} this layer is the interface with the world. It will manage the requests from the users and the website.
+\item{\textbf{Mobile Application:}} this component will be a simple view that generate request and show data. \todo{espandere xD, oggi zero fantasia}
+\item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the server and with the car ECU.
+\end{itemize}
 
+
+
+\subsection{Deployment view}
+\subsection{Runtime view}
+You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases F. 
+\subsection{Component interfaces} 
+\subsection{Selected architectural styles and patterns}
+Please explain which styles/ pattern you used, why, and how
+\subsection{Other design decisions }
