@@ -1,10 +1,12 @@
 \section{ARCHITECTURAL DESIGN}
-\subsection{Overview}
+\subsection{Overview} 
 In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service.
+
 
 \subsection{Component view} 
 From an high level prospective the service is composed by different modules allowing development and maintenance flexibility.
 This modularity allow also scalability for future service expansion, \todo{espandere il concetto}
+
 \\The main components of the system are:
 \begin{itemize}
 \item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
@@ -14,15 +16,17 @@ This modularity allow also scalability for future service expansion, \todo{espan
 \item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the server and with the car ECU.
 \end{itemize}
 
-
-
-
-	
 	\begin{figure}[H]	
 	\centering
 	\includegraphics[scale=0.5]{img/architecture_diagram}
 	\caption{Architecture Diagram}
 \end{figure}
+
+
+
+\todo{Queste cose vanno nell'overview (descrizione di alto livello)}
+
+\todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
 
 
 \subsection{Deployment view}
