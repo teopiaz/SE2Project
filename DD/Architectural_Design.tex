@@ -9,8 +9,9 @@ In this section is provided a complete overview of all the system components, fr
 \item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
 \item{\textbf{Application Server:}} this component will manage the applicative logic.
 \item{\textbf{Web Server:}} this layer is the interface with the world. It will manage the requests from the users and the website.
-\item{\textbf{Mobile Application:}} this component will be a simple view that generate request and show data. \todo{espandere xD, oggi zero fantasia}
+\item{\textbf{Mobile Application Interface:}} this is the interface between the Mobile User and the system. The user will use it to send requests to the web Server and see the results sent back through his mobile device. 
 \item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the server and with the car ECU.
+\item{\textbf{Web Site Interface:}} this is the interface between the Web User and the system.The user will use it to send requests to the web Server and see the results sent back through the web site. 
 \end{itemize}
 
 	\begin{figure}[H]	
@@ -19,6 +20,15 @@ In this section is provided a complete overview of all the system components, fr
 	\caption{Architecture Diagram}
 \end{figure}
 
+All together, these components realize a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reason why we made this choice concern:
+
+\begin{itemize}
+\item {\textbf{Security:}}
+\item {\textbf{Scalability:}}
+\item {\textbf{Performance:}}
+\item {\textbf{Reliability:}}
+\item {\textbf{Availability:}}
+\end{itemize}
 
 \todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
 
