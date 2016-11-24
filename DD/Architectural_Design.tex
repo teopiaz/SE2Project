@@ -1,13 +1,10 @@
 \section{ARCHITECTURAL DESIGN}
 \subsection{Overview} 
-In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service.
+In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service. First of all we give a description of the high level components and their interaction.\newline
 
+\noindent From an high level prospective the service is composed by different modules allowing development and maintenance flexibility.This modularity allow also scalability for future service expansion, \todo{espandere il concetto} \newline
 
-\subsection{Component view} 
-From an high level prospective the service is composed by different modules allowing development and maintenance flexibility.
-This modularity allow also scalability for future service expansion, \todo{espandere il concetto}
-
-\\The main components of the system are:
+\noindent The main components of the system are:
 \begin{itemize}
 \item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
 \item{\textbf{Application Server:}} this component will manage the applicative logic.
@@ -23,10 +20,10 @@ This modularity allow also scalability for future service expansion, \todo{espan
 \end{figure}
 
 
-
-\todo{Queste cose vanno nell'overview (descrizione di alto livello)}
-
 \todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
+
+
+\subsection{Component view} 
 
 
 \subsection{Deployment view}
