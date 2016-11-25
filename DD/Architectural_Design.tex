@@ -20,7 +20,7 @@ In this section is provided a complete overview of all the system components, fr
 	\caption{Architecture Diagram}
 \end{figure}
 
-All together, these components realize a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reason why we made this choice concern:
+All together, these components realize a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reasons why we made this choice concern:
 
 \begin{itemize}
 \item {\textbf{Security:}}
@@ -34,6 +34,29 @@ All together, these components realize a 4-tiered architecture. In particular, t
 
 
 \subsection{Component view} 
+From a lower level perspective, the components of the system are:
+\todo{Dubbio: Cosa va nel Web Server?}
+
+\begin{itemize}
+\item User Web Client GUI:
+\item User Mobile Client GUI:
+\item Driver Client GUI:
+\item Data Manager:
+\item Request Manager:
+\item Account Manager:
+\item Discount Manager:
+\item Position Manager:
+\item Travel Manager:
+
+	\begin{figure}[H]	
+	\centering
+	\includegraphics[scale=0.5]{img/Component_Diagram}
+	\caption{Component Diagram}
+	
+	
+\end{figure}
+
+\end{itemize}
 
 
 \subsection{Deployment view}
