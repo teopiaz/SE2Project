@@ -20,17 +20,6 @@ In this section is provided a complete overview of all the system components, fr
 	\caption{Architecture Diagram}
 \end{figure}
 
-All together, these components realize a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reasons why we made this choice concern:
-
-\begin{itemize}
-\item {\textbf{Security:}}
-\item {\textbf{Scalability:}}
-\item {\textbf{Performance:}}
-\item {\textbf{Reliability:}}
-\item {\textbf{Availability:}}
-\end{itemize}
-
-\todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
 
 
 \subsection{Component view} 
@@ -44,17 +33,9 @@ From a lower level perspective, the components of the system are:
 \item Data Manager:
 \item Request Manager:
 \item Account Manager:
-\item Discount Manager:
 \item Position Manager:
 \item Travel Manager:
 
-	\begin{figure}[H]	
-	\centering
-	\includegraphics[scale=0.5]{img/Component_Diagram}
-	\caption{Component Diagram}
-	
-	
-\end{figure}
 
 \end{itemize}
 
@@ -65,4 +46,17 @@ You can use sequence diagrams to describe the way components interact to accompl
 \subsection{Component interfaces} 
 \subsection{Selected architectural styles and patterns}
 Please explain which styles/ pattern you used, why, and how
+
+We realized a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reasons why we made this choice concern:
+
+\begin{itemize}
+\item {\textbf{Security:}}
+\item {\textbf{Scalability:}}
+\item {\textbf{Performance:}}
+\item {\textbf{Reliability:}}
+\item {\textbf{Availability:}}
+\end{itemize}
+
+\todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
+
 \subsection{Other design decisions }
