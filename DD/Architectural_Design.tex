@@ -24,7 +24,7 @@ In this section is provided a complete overview of all the system components, fr
 \newpage
 \subsection{Component view} 
 From a lower level perspective, the components of the system are:
-\todo{Dubbio: Cosa va nel Web Server?}
+\todo{Tutto ok, però qui c'è sia component che deployment. Bisogna splittare le due cose}
 
 \begin{itemize}
 \item User Web Client GUI:
@@ -110,17 +110,30 @@ The Java Persistence API (JPA) is a Java application programming interface speci
 
 \subsection{Selected architectural styles and patterns}
 Please explain which styles/ pattern you used, why, and how
+\subsubsection{Architecture}
 
 We realized a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reasons why we made this choice concern:
 
 \begin{itemize}
-\item {\textbf{Security: Is possible to setup a DMZ for the webserver and filter malicious requests before they reach the application server.}}
-\item {\textbf{Scalability:}}
+\item {\textbf{Security:}} Is possible to setup a DMZ for the webserver and filter malicious requests before they reach the application server.
+\item {\textbf{Scalability:}} Because of the separation of the layers, developers can modify existing functions or introduce new ones in any level (presentation, logic or data), leaving the other layers untouched.
 \item {\textbf{Performance: The webserver do a massive use of cache and load balancer to serve only static content to minimize resource and traffic}}
-\item {\textbf{Reliability:}}
+\item {\textbf{Reliability:}} \todo{se introduciamo ridondanza con più di un server, possiamo dire che aumentano reliability}
 \item {\textbf{Availability:}}
 \end{itemize}
 
 \todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
+
+\subsubsection{Patterns}
+
+\begin{itemize}
+\item {\textbf{Client-Server:}} According to this pattern, in the system there should be 2 entities: a Client, that sends requests, and a Server, that elaborates requests and sends back results to the client. In our architecture there 3 Clients: the Mobile Client, the Web Client and the Driver Client. These all three  clients send requests to the Web Server, that takes care of forward it to the Request Handler and send back and show to the clients the results.
+
+
+\item{\textbf{Model-View-Controller:}} In the MVC pattern there are 3 entities: The Model, that contains methods to access the data, the View, that shows data to the user and allow him to perform actions, and the Controller, that elaborates the commands sended by the view manipulating and modifying  the data of the model.
+In our system the View is the Client, the Model is the Data Manager and the Controller is the Service Manager. Furthermore, between the View and the Controller we have put 2 middle components, to improve the quality and the performance of the system. The Web Server act as a request receiver and sends the commands of the View to the Request Handler. The Request Handler act as validator and activates the forwarding of the command to the Controller only if the request respects integrity and authentication constraints.
+\end{itemize}
+
+
 
 \subsection{Other design decisions }
