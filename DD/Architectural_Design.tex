@@ -23,23 +23,45 @@ In this section is provided a complete overview of all the system components, fr
 
 \newpage
 \subsection{Component view} 
-From a lower level perspective, the components of the system are:
+From a lower level perspective, the components of the system can be divided in 2 subsystems: the Frontend system and the Backend system
 \todo{Tutto ok, però qui c'è sia component che deployment. Bisogna splittare le due cose}
 
+\subsubsection{Frontend}
+In the Frontend there are all those components that will work as interfaces between the user and system and will allow the user to use the functions of the service. So the Frontend is made by three GUIs:
 \begin{itemize}
-\item User Web Client GUI:
-\item User Mobile Client GUI:
-\item Driver Client GUI:
-\item Data Manager:
-\item Request Manager:
-\item Account Manager:
-\item Position Manager:
-\item Travel Manager:
-
-
+\item Web Client GUI: It is the graphic interface used by the user that access the service through the Website
+\item Mobile Client GUI: It is the graphic interface used by the user that access the service through the Mobile Application.
+\item Driver Client GUI: It is the graphic interface used by the user when he interact with the system using the OnBoard Device.
 \end{itemize}
+
+\subsubsection{Backend}
+In the Backend there all those component that aren't used directly by the user, but they perform operations that allow to satisfy the requests of the users. The components of the Backend are:
+\begin{itemize}
+\item Data Manager: This component is the one that can access the database. It has the function of inserting, deleting and updating data in the database, when asked by other components. Furthermore, it provides to other components the data needed for their operations.
+\item Request Manager: This component is the one that has the function of managing the requests for reservations coming from the clients.
+\item Account Manager: This component is responsible of managing all the operations concerning the accounts, such as registration, login and logout, modification of personal data.
+\item Position Manager: This component has the task of managing the position of the cars provided by the GPS and provide it to the other components that need it. 
+\item Travel Manager: This component is responsible of managing all the information about the travel, such as the current current position of the car, the safe areas and the special parking area. It has to communicate all this information to the Driver Client GUI.
+\item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system. \todo{Forse dobbiamo decidere un sistema di pagamento}
+\end{itemize}
+
+
+	\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/Component_Diagram}
+	\caption{Component Diagram}
+\end{figure}
+
+
+
+\newpage
+
+\subsection{Deployment view}
+
+
 The communication between the clients (both mobile application and web site) are realized using a request-response methodology. The client ask for information or make action related to the server using \textbf{REST} requests and obtain a response from the server formatted as a \textbf{JSON} object, today the state of the art for web services communications.
 All the REST requests received by the \textbf{HTTP Server} are processed by the Request Handler component. The Request Handler component is in charge of validate the request integrity, parse it using the \textbf{REST Parser }component and check the authentication for the requests type that need a valid session.
+
 
 
 When a requests pass those check is forwarded to the Service Manager where the application logic is applied.
@@ -64,8 +86,6 @@ The \textbf{Car Manager} manage the car status and if a request is legit send a 
 \todo{Trip e User}
 
 \newpage
-
-\subsection{Deployment view}
 
 \subsection{Runtime view}
 \todo{You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases F. }
