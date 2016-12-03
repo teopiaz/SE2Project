@@ -3,7 +3,7 @@
 Both Users and Cars's positions are identified in the system by GPS coordinates (Latitude and Longitude).
 
 
-\noindent When a User $u$ ask for a list of cars the application send to the server his GPS position \begin{equation}
+\noindent When a User $u$ ask for a list of cars the application send to the server his GPS position. \begin{equation}
 \vec{u_p} =\begin{bmatrix}user\_latitude \\ user\_longitude\end{bmatrix}
 \end{equation}
 \\
@@ -11,31 +11,31 @@ Both Users and Cars's positions are identified in the system by GPS coordinates 
 \\\\
 It can be calculated using the following formula:\\
 \begin{equation}
-D = arccos\Big(
-\sin(lat1) * sin(lat2) + cos(lat1) * cos(lat2) * cos(lon1 - lon2)
-\Big)* R
+D = \arccos\Big(
+\sin(lat1) \cdot \sin(lat2) + \cos(lat1) \cdot \cos(lat2) \cdot \cos(lon1 - lon2)
+\Big)\cdot R
 \end{equation}
 \\
-\noindent The first step is to convert latitude and longitude in radians\\
+\noindent The first step is to convert latitude and longitude in radians:\\
 \begin{equation}
-lat_{radians} = lat_{degree} * \pi / 180
+lat_{radians} = lat_{degree} \cdot \frac{\pi}{180}
 \end{equation}
 \\
 In order to utilize indices on Lat and Lon we can use a method like the bounding rectangle method in Cartesian space.\\
 \noindent We need to define $r$ as the angular radius of a circle in which our cars coordinate will be using $R$ as the Earth radius (6371 km) and $d$ as the maximum distance selected by the user.
 \begin{equation}
-	 r = d/R  
+	 r = \frac{d}{R}  
 \end{equation}
-for example $$ (5 km)/(6371 km) = 0.000784806$$
+for example $$ \frac{5 km}{6371 km} = 0.000784806$$
 \\
-\noindent Now we need to compute the Minimum and the Maximum Latitude and Longitude
+\noindent Now we need to compute the Minimum and the Maximum Latitude and Longitude:
 \begin{eqnarray}
 &lat_{min} = lat - r  \\
 &lat_{max} = lat + r  \\
-&\Delta lon = arcsin(sin(r)/cos(lat))\\
-&lat_T = arcsin(sin(lat)/cos(r))\\
-&lon_{min} = lonT1 = lon - \Delta lon  \\
-&lon_{max} = lonT2 = lon + \Delta lon 
+&\Delta lon = \arcsin(\frac{\sin(r)}{\cos(lat)})\\
+&lat_T = \arcsin(  \frac{\sin(lat)} {\cos(r) }  )\\
+&lon_{min} = lon_{T1} = lon - \Delta lon  \\
+&lon_{max} = lon_{T2} = lon + \Delta lon 
 \end{eqnarray}
 \\
 \noindent After that we have computed the bounding coordinates we can use them to query a DB.\\
