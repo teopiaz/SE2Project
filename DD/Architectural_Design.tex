@@ -7,11 +7,11 @@ In this section is provided a complete overview of all the system components, fr
 
 \begin{itemize}
 \item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
-\item{\textbf{Application Server:}} this component will manage the applicative logic.
-\item{\textbf{Web Server:}} this layer is the interface with the world. It will manage the requests from the users and the website.
+\item{\textbf{Application Server:}} this component will manage the Business logic.
+\item{\textbf{HTTP Server:}} this layer is the interface with the world. It will manage the requests from the users and the website.
 \item{\textbf{Mobile Application Interface:}} this is the interface between the Mobile User and the system. The user will use it to send requests to the web Server and see the results sent back through his mobile device. 
 \item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the server and with the car ECU.
-\item{\textbf{Web Site Interface:}} this is the interface between the Web User and the system.The user will use it to send requests to the web Server and see the results sent back through the web site. 
+\item{\textbf{Web Site Interface:}} this is the interface between the Web User and the system.The user will use it to send requests to the Web Server to get static contents and send requests to the Application Server to use the service.
 \end{itemize}
 
 	\begin{figure}[H]	
@@ -45,10 +45,9 @@ In the Backend there all those component that aren't used directly by the user, 
 \item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system. \todo{Forse dobbiamo decidere un sistema di pagamento}
 \end{itemize}
 
-
-	\begin{figure}[H]	
+\begin{figure}[H]	
 	\centering
-	\includegraphics[width=\textwidth]{img/Component_Diagram}
+	\includegraphics[width=\textwidth]{img/backend_component_diagram}
 	\caption{Component Diagram}
 \end{figure}
 
@@ -71,11 +70,6 @@ Using those component the Service Manager can access the model, manage the reque
 
 The system status are represented through various \textbf{Java Beans} object that stay alive for all the time needed for the request processing.
 
-	\begin{figure}[H]	
-	\centering
-	\includegraphics[width=\textwidth]{img/backend_component_diagram}
-	\caption{Back-End Component Diagram}
-\end{figure}
 
 When a request is received all the element from the model needed for the processing are loaded from the persistent data storage through the \textbf{Persistent Data interface}. The abstraction exposed by the Persistent Data interface allow to adopt different data storage solution in a transparent way to the various component that are using it. All the persistent data are stored through a distributed database that can optimize data access.
 
@@ -84,6 +78,13 @@ The \textbf{Position Manager} implements the logic for the manage of the positio
 The \textbf{Car Manager} manage the car status and if a request is legit send a request to the specific On Board device to unlock the car.
 
 \todo{Trip e User}
+
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/deployment_diagram}
+	\caption{Deployment Diagram}
+\end{figure}
 
 \newpage
 
@@ -137,7 +138,7 @@ We realized a 4-tiered architecture. In particular, the data layer, the presenta
 \begin{itemize}
 \item {\textbf{Security:}} Is possible to setup a DMZ for the webserver and filter malicious requests before they reach the application server.
 \item {\textbf{Scalability:}} Because of the separation of the layers, developers can modify existing functions or introduce new ones in any level (presentation, logic or data), leaving the other layers untouched.
-\item {\textbf{Performance: The webserver do a massive use of cache and load balancer to serve only static content to minimize resource and traffic}}
+\item {\textbf{Performance:} The webserver do a massive use of cache and load balancer to serve only static content to minimize resource and traffic}
 \item {\textbf{Reliability:}} \todo{se introduciamo ridondanza con più di un server, possiamo dire che aumentano reliability}
 \item {\textbf{Availability:}}
 \end{itemize}
@@ -147,7 +148,7 @@ We realized a 4-tiered architecture. In particular, the data layer, the presenta
 \subsubsection{Patterns}
 
 \begin{itemize}
-\item {\textbf{Client-Server:}} According to this pattern, in the system there should be 2 entities: a Client, that sends requests, and a Server, that elaborates requests and sends back results to the client. In our architecture there 3 Clients: the Mobile Client, the Web Client and the Driver Client. These all three  clients send requests to the Web Server, that takes care of forward it to the Request Handler and send back and show to the clients the results.
+\item {\textbf{Client-Server:}} According to this pattern, in the system there should be 2 entities: a Client, that sends requests, and a Server, that elaborates requests and sends back results to the client. In our architecture there 3 Clients: the Mobile Client, the Web Client and the Driver Client. These all three  clients send requests to the \st{Web Server}HTTP server on the Application server \todo{il webserver fa serve solo contenuti statici in questo modo l'application server se ne fotte se chi gli manda la richiesta è un app o un sito}, that takes care of forward it to the Request Handler and send back and show to the clients the results.
 
 
 \item{\textbf{Model-View-Controller:}} In the MVC pattern there are 3 entities: The Model, that contains methods to access the data, the View, that shows data to the user and allow him to perform actions, and the Controller, that elaborates the commands sended by the view manipulating and modifying  the data of the model.
