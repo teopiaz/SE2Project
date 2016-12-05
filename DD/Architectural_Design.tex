@@ -73,7 +73,7 @@ The system status are represented through various \textbf{Java Beans} object tha
 
 When a request is received all the element from the model needed for the processing are loaded from the persistent data storage through the \textbf{Persistent Data interface}. The abstraction exposed by the Persistent Data interface allow to adopt different data storage solution in a transparent way to the various component that are using it. All the persistent data are stored through a distributed database that can optimize data access.
 
-The \textbf{Position Manager} implements the logic for the manage of the position and the distance between cars, users and safe area. It also handle which cars show to the user in base of the a chosen radius.
+The \textbf{Position Manager} implements the logic for the manage of the position and the distance between cars, users and safe area. It also handle which cars show to the user in base of the a chosen radius. \ref{algoritmo_posizione}
 
 The \textbf{Car Manager} manage the car status and if a request is legit send a request to the specific On Board device to unlock the car.
 
@@ -143,16 +143,18 @@ We realized a 4-tiered architecture. In particular, the data layer, the presenta
 \item {\textbf{Availability:}}
 \end{itemize}
 
-\todo{Bisogna scegliere se usare un'architettura a 3 o a 4 tier. 3--> web server e application logic insieme, 4--->separate}
 
 \subsubsection{Patterns}
 
 \begin{itemize}
-\item {\textbf{Client-Server:}} According to this pattern, in the system there should be 2 entities: a Client, that sends requests, and a Server, that elaborates requests and sends back results to the client. In our architecture there 3 Clients: the Mobile Client, the Web Client and the Driver Client. These all three  clients send requests to the \st{Web Server}HTTP server on the Application server \todo{il webserver fa serve solo contenuti statici in questo modo l'application server se ne fotte se chi gli manda la richiesta è un app o un sito}, that takes care of forward it to the Request Handler and send back and show to the clients the results.
+\item {\textbf{Client-Server:}} According to this pattern, in the system there should be 2 entities: a Client, that sends requests, and a Server, that elaborates requests and sends back results to the client. In our architecture there 3 Clients: the Mobile Client, the Web Client and the Driver Client. These all three  clients send requests to the \st{Web Server}HTTP server on the Application server, that takes care of forward it to the Request Handler and send back and show to the clients the results.
 
 
 \item{\textbf{Model-View-Controller:}} In the MVC pattern there are 3 entities: The Model, that contains methods to access the data, the View, that shows data to the user and allow him to perform actions, and the Controller, that elaborates the commands sended by the view manipulating and modifying  the data of the model.
 In our system the View is the Client, the Model is the Data Manager and the Controller is the Service Manager. Furthermore, between the View and the Controller we have put 2 middle components, to improve the quality and the performance of the system. The Web Server act as a request receiver and sends the commands of the View to the Request Handler. The Request Handler act as validator and activates the forwarding of the command to the Controller only if the request respects integrity and authentication constraints.
+
+\item{\textbf{Dependency Injection:}} Because of the amount of users  
+
 \end{itemize}
 
 
