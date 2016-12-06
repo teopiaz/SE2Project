@@ -24,7 +24,7 @@ In this section is provided a complete overview of all the system components, fr
 \newpage
 \subsection{Component view} 
 From a lower level perspective, the components of the system can be divided in 2 subsystems: the Frontend system and the Backend system
-\todo{Tutto ok, però qui c'è sia component che deployment. Bisogna splittare le due cose}
+
 
 \subsubsection{Frontend}
 In the Frontend there are all those components that will work as interfaces between the user and system and will allow the user to use the functions of the service. So the Frontend is made by three GUIs:
@@ -39,7 +39,7 @@ In the Backend there all those component that aren't used directly by the user, 
 \begin{itemize}
 \item Data Manager: This component is the one that can access the database. It has the function of inserting, deleting and updating data in the database, when asked by other components. Furthermore, it provides to other components the data needed for their operations.
 \item Request Manager: This component is the one that has the function of managing the requests for reservations coming from the clients.
-\item Account Manager: This component is responsible of managing all the operations concerning the accounts, such as registration, login and logout, modification of personal data.
+\item User Manager: This component is responsible of managing all the operations concerning the accounts, such as registration, login and logout, modification of personal data.
 \item Position Manager: This component has the task of managing the position of the cars provided by the GPS and provide it to the other components that need it. 
 \item Travel Manager: This component is responsible of managing all the information about the travel, such as the current current position of the car, the safe areas and the special parking area. It has to communicate all this information to the Driver Client GUI.
 \item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system. \todo{Forse dobbiamo decidere un sistema di pagamento}
@@ -127,7 +127,85 @@ To enhance the connection, JDBC requires drivers for each database. These driver
 
 The Java Persistence API (JPA) is a Java application programming interface specification that describes the management of relational data in applications using Java Platform, Standard Edition and Java Platform, Enterprise Edition.
 
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/class_diagram}
+	\caption{Class Diagram}
+\end{figure}
 
+\subsubsection{Backend Component Interface Description}
+\begin{itemize}
+	\item{\textbf{ServiceManager:}
+		The Service Manager is instantiate when a new request has been parsed and validate.
+			\begin{itemize}
+				\item \textit{manageRequest(Request)}: Receive as input a new request and instantiate the right component to manage it.
+			\end{itemize}
+		}
+	\item{\textbf{UserManager:}
+	The User Manager is instantiate when ad User action or an User information are required.
+	\begin{itemize}
+		\item \textit{registerUser()}: Check if provided informations are correct and create a new User entity in the model.		
+		\item \textit{updateUserInfo()}: Update the selected User entity in the model.
+		\item \textit{checkLogin()}: Check if provided informations are correct and allow to create a new Session.
+		\item \textit{resetPassword()}: Send to the User email a link to reset the account password.
+		\item \textit{getTripHistory()}: Get a list of the User's past trip.
+	\end{itemize}
+}
+	\item{\textbf{TripManager:}
+	The Trip Manager is instantiate when the User start or end a trip.
+	\begin{itemize}
+		\item \textit{newTrip()}: Create a new Trip instance in the Model. Return a tripID.
+		\item \textit{startTrip(tripID)}: Set the Trip starting position.
+		\item \textit{stopTrip(tripID)}: Set the Trip ending position.
+		\item \textit{getTripInformation(tripID)}: Return the information about a specific Trip (past or current).
+		\item \textit{setPassengerNumber(tripID, int n)}: Set the passengers number for a specific Trip.
+	\end{itemize}
+}
+	\item{\textbf{CarManager:}
+	The Car Manager is instantiate when to manage cars request or get a specific car status.
+	\begin{itemize}
+		\item \textit{findAvailableCars(GPSPosition,radius)}: Return a set of cars in a given radius centered on a GPS position.
+		\item \textit{searchSafeArea(GPSPosition,radius)}: Return a set of SafeArea given radius centered on a GPS position.
+		\item \textit{getCarInformation(Car)}: Return the status of a specific car (example the charge of the battery).
+	\end{itemize}
+}
+	\item{\textbf{PositionManager:}
+	The Position Manager is used when a calculation between GPS Coordinate is needed.
+	\begin{itemize}
+		\item \textit{calculateDistance(GPSPosition,GPSPosition)}: Return a cartesian distance between two coordinate.
+	\end{itemize}
+}
+	\item{\textbf{FeeManager:}
+	The Fee Manager is instantiate to calculate the amount of money that need to charge to the user.
+	\begin{itemize}
+		\item \textit{calculateFee(tripID)}: Calculate the normal fee for the trip in base of the time and distance traveled.
+		\item \textit{calculateDiscount(tripID)}: Apply a discount in base of starting/ending position and state of the car after the travel and the number of passenger.
+	\end{itemize}
+}
+
+	\item{\textbf{RequestHandler:}
+	The Request Handler select a free thread from an allocated pool to handle an HTTP request.
+	\begin{itemize}
+		\item \textit{handleRequest()}: Use the REST parser and the AuthService to validate a request.
+	\end{itemize}
+}
+
+	\item{\textbf{AuthService:}
+	The Authentication Service check if an User session for the request is valid.
+	\begin{itemize}
+		\item \textit{authenticateRequest()}: Check if a valid session token is provided for the request.
+		\item \textit{generateSessionToken()}: Generate a session token to allow user to authenticate the requests.
+	\end{itemize}
+}
+	\item{\textbf{RESTParser:}
+	The REST Parser check te format of the REST request and discard a request if invalid
+	\begin{itemize}
+		\item \textit{parseRequest()}: Check if the request is valid.
+	\end{itemize}
+}
+\end{itemize}
+
+\newpage
 
 \subsection{Selected architectural styles and patterns}
 Please explain which styles/ pattern you used, why, and how
