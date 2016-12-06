@@ -25,12 +25,12 @@
 
 
 \usepackage[unicode=true,
- bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
- breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
- {hyperref}
+bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
+{hyperref}
 \hypersetup{pdftitle={RASD},
- pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
- pdfsubject={DD Documentation}}
+	pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
+	pdfsubject={DD Documentation}}
 
 \usepackage{fancyhdr,graphicx,lastpage}% http://ctan.org/pkg/{fancyhdr,graphicx,lastpage}
 \fancypagestyle{plain}{
@@ -49,11 +49,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \newcommand{\lyxrightaddress}[1]{
-\par {\raggedleft \begin{tabular}{l}\ignorespaces
-#1
-\end{tabular}
-\vspace{1.4em}
-\par}
+	\par {\raggedleft \begin{tabular}{l}\ignorespaces
+			#1
+		\end{tabular}
+		\vspace{1.4em}
+		\par}
 }
 
 \usepackage[font=small,labelfont=bf]{caption}
@@ -67,6 +67,41 @@
 \definecolor{eclipsePurple}{RGB}{127,0,85}
 
 \usepackage{listings}
+\lstdefinelanguage{alloy}{
+	keywords={%
+		assert, pred, all, no, lone, one, some, check, run,
+		but, let, implies, not, iff, in, and, or, set, sig, Int, int,
+		if, then, else, exactly, disj, fact, fun, module, abstract,
+		extends, open, none, univ, iden, seq,
+	},
+	sensitive=true,  % case sensitive
+	morecomment=[l]//,%
+	morecomment=[l]{--},%
+	morecomment=[s]{/*}{*/},%
+	morestring=[b]",
+	numbers=none,
+	firstnumber=1,
+	numberstyle=\tiny,
+	stepnumber=2,
+	basicstyle= \small%\tiny, %or \small or \footnotesize etc.
+	%	basicstyle=\scriptsize\texttt,
+	commentstyle=\textit,
+	keywordstyle=\textbf,
+	ndkeywordstyle=\textbf,
+}
+
+\lstset{%
+	language=alloy, 
+	basicstyle=\ttfamily,
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,
+	captionpos=b, 
+	frame=single,
+	floatplacement={tbp},
+	numberstyle=\color{red}, %style of numbers
+	commentstyle=\color{eclipseGreen}, % style of comments
+	keywordstyle=\color{eclipseBlue}, % style of keywords
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% contatore requirement
@@ -74,8 +109,8 @@
 \setcounter {requirement} {0} 
 
 \newcommand{\reqcounter}{
-\stepcounter{requirement}
-\item \textbf{[R-\arabic{requirement}]}
+	\stepcounter{requirement}
+	\item \textbf{[R-\arabic{requirement}]}
 }
 
 
@@ -90,23 +125,53 @@
 }% 
 
 \newcommand{\goal}[1]{
-{[}G#1{]}\ExecuteMetaData[goals]{#1}
+	{[}G#1{]}\ExecuteMetaData[goals]{#1}
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% comando per la tabella degli use case
+\newcommand{\usecase}[8]{
+	\begin{center}
+		\begin{adjustbox}{max width=\textwidth}	
+			\begin{tabular}{|l|>{\raggedright}p{15cm}|}
+				\hline 
+				Use Case Name & #1\tabularnewline
+				\hline 
+				\hline 
+				Actors & #2\tabularnewline
+				\hline 
+				Goals & #3\tabularnewline
+				\hline 
+				Preconditions & #4\tabularnewline
+				\hline 
+				Postconditions & #5\tabularnewline
+				\hline 
+				Normal Flow & #6
+				\tabularnewline
+				\hline
+				Alternative Flows & #7
+				\tabularnewline
+				\hline
+				Exceptions & #8
+				\tabularnewline
+				\hline 
+			\end{tabular}
+		\end{adjustbox}	
+		\par\end{center}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
 \newcommand{\revisionhistory}{
-
+	
 	\begingroup
 	\fontsize{15pt}{12pt}\selectfont
 	\textbf{Revision History}
 	\endgroup
-
+	
 	\begin{versionhistory}
-		\vhEntry{1.0}{11/12/16}{Piazzolla  Millimaggi }{First document issue}
+		\vhEntry{1.0}{13/11/16}{Piazzolla  Millimaggi }{First document issue}
 		\vhEntry{ }{ }{ }{ }
 		\vhEntry{ }{ }{ }{ }
-	\end{versionhistory}}
+\end{versionhistory}}
 
 
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
@@ -116,84 +181,85 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% inizio documento
 \begin{document}
-
-\title{\includegraphics[scale=0.4]{img/polimi}\\
-Computer Science and Engineering}
-
-\begin{doublespace}
-
-\author{A.A. 2016/2017\\
-Software Engineering 2 Project: \\
-\\
-{\LARGE{}``PowerEnJoy''}\textbf{}\\
-\\
-\textbf{D}esign \textbf{D}ocument\\
-}
-\end{doublespace}
-
-\maketitle
-\thispagestyle{empty}
-\lyxrightaddress{Prof.Luca Mottola\\
-\\
-Matteo Michele Piazzolla Matr. 878554\\
-Andrea Millimaggi Matr. 876062}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage{}
-
-\listoftodos
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage{}
-
-\revisionhistory
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage{}
-
-\tableofcontents{}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage
-
-\listoffigures
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage{}
-
-\input{Introduction}
-\pagebreak
-\input{Architectural_Design}
-\pagebreak
-\input{Algorithm_Design}
-\pagebreak
-\input{UX_Design}
-\pagebreak
-\input{Requirements_Traceability}
-\pagebreak
-\section{Appendix}
-
-\subsection{Used software}
-\begin{enumerate}
-	\item \textbf{TeXstudio:} \url{http://www.texstudio.org/} to redact this document in {\LaTeX} format.
-	\item \textbf{Astah:} \url{http://astah.net} to draw all the UML diagrams presented in this document.
-	\item \textbf{draw.io:} \url{https://www.draw.io} Online diagram software
-	\item \textbf{Balsamiq Mockups 3:} \url{https://balsamiq.com} to draw both mobile and web mockups of the service.
-	\item \textbf{Alloy Analyzer:}  \url{http://alloy.mit.edu/alloy/}to test the world model in compliance with the requirements.
-\end{enumerate}
-
-\subsection{Time effort}
-List of estimated hours spent day by day to redact this document by each components of the group:
+	
+	\title{\includegraphics[scale=0.4]{img/polimi}\\
+		Computer Science and Engineering}
+	
+	\begin{doublespace}
+		
+		\author{A.A. 2016/2017\\
+			Software Engineering 2 Project: \\
+			\\
+			{\LARGE{}``PowerEnJoy''}\textbf{}\\
+			\\
+			\textbf{D}esign \textbf{D}ocument\\
+		}
+	\end{doublespace}
+	
+	\maketitle
+	\thispagestyle{empty}
+	\lyxrightaddress{Prof.Luca Mottola\\
+		\\
+		Matteo Michele Piazzolla Matr. 878554\\
+		Andrea Millimaggi Matr. 876062}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%\newpage{}
+	
+	\listoftodos
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\revisionhistory
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\tableofcontents{}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	\listoffigures
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\input{Introduction}
+	\pagebreak
+	\input{Architectural_Design}
+	\pagebreak
+	\input{Algorithm_Design}
+	\pagebreak
+	\input{UX_Design}
+	\pagebreak
+	\input{Requirements_Traceability}
+	\pagebreak
+	\section{Appendix}
+	
+	\subsection{Used software}
+	\begin{enumerate}
+		\item \textbf{TeXstudio:} \url{http://www.texstudio.org/} to redact this document in {\LaTeX} format.
+		\item \textbf{Astah:} \url{http://astah.net} to draw all the UML diagrams presented in this document.
+		\item \textbf{draw.io:} \url{https://www.draw.io} Online diagram software
+		\item \textbf{Balsamiq Mockups 3:} \url{https://balsamiq.com} to draw both mobile and web mockups of the service.
+		\item \textbf{Alloy Analyzer:}  \url{http://alloy.mit.edu/alloy/}to test the world model in compliance with the requirements.
+	\end{enumerate}
+	
+	\subsection{Time effort}
+	List of estimated hours spent day by day to redact this document by each components of the group:
 	\begin{center}
-	\begin{adjustbox}{max width=\textwidth}	
-		\begin{tabular}{|l|>{\raggedright}p{15cm}|}
+		\begin{adjustbox}{max width=\textwidth}	
+			\begin{tabular}{|l|>{\raggedright}p{15cm}|}
       \hline  18/11/16 & Matteo Michele Piazzolla 3h \\ Andrea Millimaggi 2h \tabularnewline
 
-
-			\hline 
-		\end{tabular}
-	\end{adjustbox}
+				
+				
+				\hline 
+			\end{tabular}
+		\end{adjustbox}
 	\end{center}	
-
-
+	
+	
 \end{document}

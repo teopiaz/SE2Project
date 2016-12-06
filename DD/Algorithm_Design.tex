@@ -41,8 +41,10 @@ for example $$ \frac{5 km}{6371 km} = 0.000784806$$
 \\
 \noindent After that we have computed the bounding coordinates we can use them to query a DB.\\
 \begin{lstlisting}[language=SQL]
-SELECT * FROM Places WHERE
+SELECT * FROM Places 
+WHERE 
 (Lat => $lat_min AND Lat <= $lat_max) AND (Lon >= $lon_min AND Lon <= $lon_max )
 HAVING
-acos(sin( $user_lat) * sin(Lat) + cos($user_lat) * cos(Lat) * cos(Lon - ($user_lon))) <= r;
+acos(sin($user_lat) * sin(Lat) + cos($user_lat) * cos(Lat) * cos(Lon - ($user_lon))) <= r;
 \end{lstlisting}
+
