@@ -2,16 +2,16 @@
 \subsection{Overview} 
 In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service. First of all we give a description of the high level components and their interaction.\newline
 
-\noindent From an high level prospective the service is composed by different modules allowing development and maintenance flexibility.This modularity allow also scalability for future service expansion, \todo{espandere il concetto} \newline
+\noindent From an high level prospective the service is composed by different modules, that are: \newline
 
 
 \begin{itemize}
 \item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
 \item{\textbf{Application Server:}} this component will manage the Business logic.
-\item{\textbf{HTTP Server:}} this layer is the interface with the world. It will manage the requests from the users and the website.
-\item{\textbf{Mobile Application Interface:}} this is the interface between the Mobile User and the system. The user will use it to send requests to the web Server and see the results sent back through his mobile device. 
+\item{\textbf{HTTP Server:}} this layer is the interface with the world, so with che Clients. It will manage the requests coming from both application and website.
+\item{\textbf{Mobile Application:}} this is the interface between the Mobile User and the system. The user will use the application to send requests to the web Server and see the results sent back through his mobile device. 
 \item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the server and with the car ECU.
-\item{\textbf{Web Site Interface:}} this is the interface between the Web User and the system.The user will use it to send requests to the Web Server to get static contents and send requests to the Application Server to use the service.
+\item{\textbf{Web Site:}} this is the interface between the Web User and the system.The user will use it to send requests to the Web Server to get static contents and send requests to the Application Server to use the service.
 \end{itemize}
 
 	\begin{figure}[H]	
@@ -45,55 +45,85 @@ In the Backend there all those component that aren't used directly by the user, 
 \item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system. \todo{Forse dobbiamo decidere un sistema di pagamento}
 \end{itemize}
 
+\todo{aggiungere descrizione del reservation manager}
+
 \begin{figure}[H]	
 	\centering
 	\includegraphics[width=\textwidth]{img/backend_component_diagram}
 	\caption{Component Diagram}
 \end{figure}
 
+The communication between the clients (both mobile application and web site) are realized using a request-response methodology. The client asks for information or to make actions related to the server using \textbf{REST} requests and obtains a response from the server formatted as a \textbf{JSON} object, today the state of the art for web services communications.
+All the REST requests received by the \textbf{HTTP Server} are forward to and, then, processed by the Request Handler component. The Request Handler component is in charge of validating the request integrity, parsing it using the \textbf{REST Parser}component and check the authentication for the requests type that need a valid session.
 
-
-\newpage
-
-\subsection{Deployment view}
-
-
-The communication between the clients (both mobile application and web site) are realized using a request-response methodology. The client ask for information or make action related to the server using \textbf{REST} requests and obtain a response from the server formatted as a \textbf{JSON} object, today the state of the art for web services communications.
-All the REST requests received by the \textbf{HTTP Server} are processed by the Request Handler component. The Request Handler component is in charge of validate the request integrity, parse it using the \textbf{REST Parser }component and check the authentication for the requests type that need a valid session.
-
-
-
-When a requests pass those check is forwarded to the Service Manager where the application logic is applied.
-The \textbf{Service Manager} in base of what request are received process a response using Car Manager, User Manager, Position Manager and Trip Manager.
+When a requests pass these checks is forwarded to the Service Manager where the application logic is applied.
+The \textbf{Service Manager}, depending on the types of request that are received,  processes a response using Car Manager, User Manager, Position Manager, Trip Manager or Fee Manager.
 Using those component the Service Manager can access the model, manage the request and craft a response.Every request can instantiate different component,
-
 
 The system status are represented through various \textbf{Java Beans} object that stay alive for all the time needed for the request processing.
 
-
 When a request is received all the element from the model needed for the processing are loaded from the persistent data storage through the \textbf{Persistent Data interface}. The abstraction exposed by the Persistent Data interface allow to adopt different data storage solution in a transparent way to the various component that are using it. All the persistent data are stored through a distributed database that can optimize data access.
 
-The \textbf{Position Manager} implements the logic for the manage of the position and the distance between cars, users and safe area. It also handle which cars show to the user in base of the a chosen radius. \ref{algoritmo_posizione}
+\newpage
 
-The \textbf{Car Manager} manage the car status and if a request is legit send a request to the specific On Board device to unlock the car.
-
-\todo{Trip e User}
-
-
+\subsection{Deployment view}\label{deployment}
+ 	
 \begin{figure}[H]	
 	\centering
 	\includegraphics[width=\textwidth]{img/deployment_diagram}
 	\caption{Deployment Diagram}
 \end{figure}
-
 \todo{tolto il web server, inserito JSP per gestire pagine statiche, inutile aggiungere un web server solo per quello}
+
+From the deployment perspective, the components described in the Component view will be installed on 3 different machines:
+
+\begin{itemize}
+\item \textbf{JEE Server}: On this machine will be installed a Glassfish server, that is an oper source application server supporting JEE. This Server will contain all the components handling the business and the web logic.
+\item \textbf{Database}: On this machine will be stored all the persistent data. On the database will be installed the latest version (5.6) of MySQL, a relational DBMS distributed by Oracle, that will handle the creation, deleting and updating of the tables of the databases containing the data.
+\item \textbf{Client}: This machine is the one that the user will use to use the Power EnJoy service. It can be a Mobile Device, so a SmartPhone or a Tablet, a PC or the OnBoard Device. On the Mobile Device will run the Mobile Application. If the user uses a PC instead, he will access the service using the WebSite, that runs on any kind of Browser. Lastly, when the user is driving, the Client machine will be the OnBoard Device, that is the device mounted on the Car, on which will run a proprietary software of Power EnJoy.
+\end{itemize}
+
 \newpage
 
 \subsection{Runtime view}
-\todo{You can use sequence diagrams to describe the way components interact to accomplish specific tasks typically related to your use cases F. }
-
-
+In this section we show the runtime behaviour of the system in various situations, in order to show which components have to act and how they interact.
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/sequence_registration}
+	\caption{Sequence Diagram of the Registration process}
+\end{figure}
 \newpage
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/sequence_login}
+	\caption{Sequence Diagram of the Login process}
+\end{figure}
+\newpage
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/sequence_modification}
+	\caption{Sequence Diagram of the Modification of Personal Details process}
+\end{figure}
+\newpage
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/sequence_search}
+	\caption{Sequence Diagram of the Search of Available Cars process}
+\end{figure}
+\newpage
+
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/sequence_trip}
+	\caption{Sequence Diagram of the Trip process}
+\end{figure}
+\newpage
+
+
 
 \subsection{Component interfaces} 
 \subsubsection{REST}
@@ -105,7 +135,6 @@ As explained in the introduction the communication takes place via REST requests
 			\hline 
 			CRUD & REST Http & example &description\tabularnewline
 			\hline 
-			
 			Create & POST/PUT & POST /user/register  & Create a resource \tabularnewline
 			\hline 
 			Read & GET & GET /cars/zone/12 & Retrieve information. \\  Requests must be safe and idempotent.\tabularnewline
@@ -209,17 +238,27 @@ The Java Persistence API (JPA) is a Java application programming interface speci
 \newpage
 
 \subsection{Selected architectural styles and patterns}
-Please explain which styles/ pattern you used, why, and how
+
 \subsubsection{Architecture}
 
-We realized a 4-tiered architecture. In particular, the data layer, the presentation layer, the web server and the application server will have their own dedicated machine. The reasons why we made this choice concern:
+We realized a 3-tiered architecture. In particular there are 3 dedicated machines for:
+
+\begin{itemize}
+\item Data Layer
+\item Presentation Layer
+\item Web Server and Application Server
+\end{itemize}
+
+The reader can see the organization of Tiers in details in \ref{deployment}
+\newline
+
+ The reasons why we made this choice concern:
 
 \begin{itemize}
 \item {\textbf{Security:}} Is possible to setup a DMZ for the webserver and filter malicious requests before they reach the application server.
 \item {\textbf{Scalability:}} Because of the separation of the layers, developers can modify existing functions or introduce new ones in any level (presentation, logic or data), leaving the other layers untouched.
 \item {\textbf{Performance:} The webserver do a massive use of cache and load balancer to serve only static content to minimize resource and traffic}
-\item {\textbf{Reliability:}} \todo{se introduciamo ridondanza con più di un server, possiamo dire che aumentano reliability}
-\item {\textbf{Availability:}}
+\item {\textbf{Reliability and Available:}} because of the partition of tasks in distinct machines, it's easier to check for failures and fix them. So the time the system is down for maintainance is reduced and, as conseguence, the time the system is operating properly and the probability to find a system ready to accomplish users requests is increased. Furthermore, reliability and availability can be further improved further by replicating the servers, so that a failure in a single server doesn't affect the operativity of the system,  but only temporary reduces performances.
 \end{itemize}
 
 
@@ -232,7 +271,8 @@ We realized a 4-tiered architecture. In particular, the data layer, the presenta
 \item{\textbf{Model-View-Controller:}} In the MVC pattern there are 3 entities: The Model, that contains methods to access the data, the View, that shows data to the user and allow him to perform actions, and the Controller, that elaborates the commands sended by the view manipulating and modifying  the data of the model.
 In our system the View is the Client, the Model is the Data Manager and the Controller is the Service Manager. Furthermore, between the View and the Controller we have put 2 middle components, to improve the quality and the performance of the system. The Web Server act as a request receiver and sends the commands of the View to the Request Handler. The Request Handler act as validator and activates the forwarding of the command to the Controller only if the request respects integrity and authentication constraints.
 
-\item{\textbf{Dependency Injection:}} Because of the amount of users  
+\item{\textbf{Resource Injection:}} Because of the amount of users , it is useful to have a mechanism that can inject objects in an application at runtime, so that the application hasn't to care about the creation of object everytime he needs it. So we decided to use JNDI service to name and lookup for resources and the Resource Injection mechanism provide by JEE, that allows to inject any resource in the JNDI into an object.
+\todo{da rivedere}
 
 \end{itemize}
 

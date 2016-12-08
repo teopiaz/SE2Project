@@ -1,4 +1,6 @@
 \section{ALGORITHM DESIGN}
+In this section we present some algorithm that we consider relevant for the work of the developers.
+
 \subsection{Find cars near the user}
 \label{algoritmo_posizione}
 Both Users and Cars's positions are identified in the system by GPS coordinates (Latitude and Longitude).
@@ -48,3 +50,101 @@ HAVING
 acos(sin($user_lat) * sin(Lat) + cos($user_lat) * cos(Lat) * cos(Lon - ($user_lon))) <= r;
 \end{lstlisting}
 
+
+
+\noindent The Java-like code for the managing of the search by the Request Handler:
+\begin{lstlisting}[language=Java]
+public List search(String address, Position pos){
+	List result = new List();
+	
+	if(address != null){
+	Position position = extractCoordinates(address);
+	result = reservationManager.getAvailableCars(position); 
+	}
+	
+	else{
+	result = reservationManager.getAvailableCars(pos);
+	}
+	
+	return result;
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection{Reservation}
+This is a Java-like code for the algorithm implemented in the Reservation Manager for the addition of a reservation and the management of the 1 hour timer of the reservation:
+
+\begin{lstlisting}[language=Java]
+public List reserve(Car c, User u,  String address, Position pos){
+
+ availableCars.delete(c);
+ 
+ reservations.add(new Reservation(u,c);
+ 
+ LocalTime begin = LocalTime.now()
+ int beginHour = begin.getHour();
+ int BeginMin = begin.getMinute();
+ boolean ko = false;
+ 
+ while(!ko){
+  	int hourDiff = LocalTime.now().getHour() - beginHour;
+  
+ 	if(hourDiff == 1){
+     		int minuteDiff= LocalTime.now().getMinute() - beginMin;
+     		if(minuteDiff > 0) {
+      		ko = true;		   
+     		}
+  	}
+ }
+
+notifyOberservers(``time_expired'');
+}
+ 
+
+
+annullaResSeE'FinitoIlTempo();
+
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection{Payment, Discounts and Penalties}
+
+This is a Java-like code for the algorithm implemented in the Fee Manager for the payment and the application of discounts and penalties:
+
+\begin{lstlisting}[language=Java]
+public void getMoney(Travel t, int distanceFromStation){
+	
+	//the parameter distanceFromStation is the distance in km from the parking position to the nearest charging station, calculated by the Trip Manager
+	
+	int discount = 0;
+	int penalty = 0;
+	int fee = t.getFee();
+	
+	if(t.passengers >= 2){
+	discount = discount + 10;
+	}
+	
+	if(t.car.batteryLevel > 50){
+	discount = discount + 20;
+	}
+	
+	if(t.car.isPlugged){
+	discount = discount + 20;
+	}
+	
+	if(distanceFromStation > 3){
+	penalty = penalty + 30;
+	}
+	
+	fee = fee - ((fee*discount)/100) + ((fee*penalty)/100);
+	
+	pay(t.user.getpaymentMethod(), fee); //method that will send a request for the payment to the payment node, according to payment method of the user 
+	
+	
+}
+
+
+\end{lstlisting}
