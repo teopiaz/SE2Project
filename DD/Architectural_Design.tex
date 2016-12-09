@@ -1,17 +1,16 @@
 \section{ARCHITECTURAL DESIGN}
-\subsection{Overview} 
-In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service. First of all we give a description of the high level components and their interaction.\newline
+\subsection{Overview: High level components and their interaction} 
+In this section is provided a complete overview of all the system components, from the logical level to the physical level of the PowerEnJoy service. First of all we give a description of the high level components and their interaction\newline
 
 \noindent From an high level prospective the service is composed by different modules, that are: \newline
 
-
 \begin{itemize}
 \item{\textbf{Database:}} the data layer of the service. All the persistent data will be stored in this layer.
-\item{\textbf{Application Server:}} this component will manage the Business logic.
+\item{\textbf{Application Server:}} this component will manage the Business logic of the system.
 \item{\textbf{HTTP Server:}} this layer is the interface with the world, so with che Clients. It will manage the requests coming from both application and website.
 \item{\textbf{Mobile Application:}} this is the interface between the Mobile User and the system. The user will use the application to send requests to the web Server and see the results sent back through his mobile device. 
-\item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the server and with the car ECU.
 \item{\textbf{Web Site:}} this is the interface between the Web User and the system.The user will use it to send requests to the Web Server to get static contents and send requests to the Application Server to use the service.
+\item{\textbf{Car OnBoard Device:}} this is the module mounted on the car. It will communicate with the Application server and with the car ECU.
 \end{itemize}
 
 	\begin{figure}[H]	
@@ -25,7 +24,6 @@ In this section is provided a complete overview of all the system components, fr
 \subsection{Component view} 
 From a lower level perspective, the components of the system can be divided in 2 subsystems: the Frontend system and the Backend system
 
-
 \subsubsection{Frontend}
 In the Frontend there are all those components that will work as interfaces between the user and system and will allow the user to use the functions of the service. So the Frontend is made by three GUIs:
 \begin{itemize}
@@ -38,22 +36,21 @@ In the Frontend there are all those components that will work as interfaces betw
 In the Backend there all those component that aren't used directly by the user, but they perform operations that allow to satisfy the requests of the users. The components of the Backend are:
 \begin{itemize}
 \item Data Manager: This component is the one that can access the database. It has the function of inserting, deleting and updating data in the database, when asked by other components. Furthermore, it provides to other components the data needed for their operations.
-\item Request Manager: This component is the one that has the function of managing the requests for reservations coming from the clients.
 \item User Manager: This component is responsible of managing all the operations concerning the accounts, such as registration, login and logout, modification of personal data.
 \item Position Manager: This component has the task of managing the position of the cars provided by the GPS and provide it to the other components that need it. 
 \item Travel Manager: This component is responsible of managing all the information about the travel, such as the current current position of the car, the safe areas and the special parking area. It has to communicate all this information to the Driver Client GUI.
-\item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system. \todo{Forse dobbiamo decidere un sistema di pagamento}
-\end{itemize}
+\item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system.
+\item Reservation Manager: This component is responsible of keeping track the reservations that are still active and of the available cars that can be picked up by the user.
 
-\todo{aggiungere descrizione del reservation manager}
+\end{itemize}
 
 \begin{figure}[H]	
 	\centering
-	\includegraphics[width=\textwidth]{img/backend_component_diagram}
+	\includegraphics[width=\textwidth]{img/Component_diagram}
 	\caption{Component Diagram}
 \end{figure}
 
-The communication between the clients (both mobile application and web site) are realized using a request-response methodology. The client asks for information or to make actions related to the server using \textbf{REST} requests and obtains a response from the server formatted as a \textbf{JSON} object, today the state of the art for web services communications.
+The communication between the clients (both mobile application and web site) are realized using a request-response methodology. The client asks for information or to make actions related to the server using \textbf{REST} requests and obtains a response from the server formatted as a \textbf{JSON} object, today the state of the art for web services communications. 
 All the REST requests received by the \textbf{HTTP Server} are forward to and, then, processed by the Request Handler component. The Request Handler component is in charge of validating the request integrity, parsing it using the \textbf{REST Parser}component and check the authentication for the requests type that need a valid session.
 
 When a requests pass these checks is forwarded to the Service Manager where the application logic is applied.
@@ -155,8 +152,6 @@ To enhance the connection, JDBC requires drivers for each database. These driver
 \textbf{ODBC} driver is a level of abstraction that allows programmers to make SQL requests to access data from distinct Database without having to know the proprietary interfaces of each DB. In this way it is easier to change the database without altering the application layer.
 
 
-The Java Persistence API (JPA) is a Java application programming interface specification that describes the management of relational data in applications using Java Platform, Standard Edition and Java Platform, Enterprise Edition.
-
 \begin{figure}[H]	
 	\centering
 	\includegraphics[width=\textwidth]{img/class_diagram}
@@ -166,7 +161,7 @@ The Java Persistence API (JPA) is a Java application programming interface speci
 \subsubsection{Backend Component Interface Description}
 \begin{itemize}
 	\item{\textbf{ServiceManager:}
-		The Service Manager is instantiate when a new request has been parsed and validate.
+		The Service Manager is instantiated when a new request has been parsed and validate.
 			\begin{itemize}
 				\item \textit{manageRequest(Request)}: Receive as input a new request and instantiate the right component to manage it.
 			\end{itemize}
@@ -249,8 +244,7 @@ We realized a 3-tiered architecture. In particular there are 3 dedicated machine
 \item Web Server and Application Server
 \end{itemize}
 
-The reader can see the organization of Tiers in details in \ref{deployment}
-\newline
+The reader can see the organization of Tiers in details in \ref{deployment} \newline
 
  The reasons why we made this choice concern:
 
