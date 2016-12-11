@@ -3,5 +3,4 @@ out/
 *.log
 *.aux
 *.synctex.gz
-*.pdf
 *.bak
