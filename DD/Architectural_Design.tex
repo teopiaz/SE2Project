@@ -265,12 +265,8 @@ The reader can see the organization of Tiers in details in \ref{deployment} \new
 In our system the View is the Client, the Model is the Data Manager and the Controller is the Service Manager. Furthermore, between the View and the Controller we have put 2 middle components, to improve the quality and the performance of the system. The Web Server act as a request receiver and sends the commands of the View to the Request Handler. The Request Handler act as validator and activates the forwarding of the command to the Controller only if the request respects integrity and authentication constraints.
 
 \item{\textbf{Resource Injection:}} Because of the amount of users , it is useful to have a mechanism that can inject objects in an application at runtime, so that the application hasn't to care about the creation of object everytime he needs it. So we decided to use JNDI service to name and lookup for resources and the Resource Injection mechanism provide by JEE, that allows to inject any resource in the JNDI into an object.
-\todo{da rivedere}
+
 
 \end{itemize}
 
 
-
-\subsection{Other design decisions }
-
-\todo{da togliere se non mettiamo niente}
