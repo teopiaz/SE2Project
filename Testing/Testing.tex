@@ -1,0 +1,203 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{todonotes}
+\usepackage{placeins}
+\usepackage[tocentry, tablegrid,nochapter]{vhistory} 
+\usepackage{catchfilebetweentags}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{soul}
+
+
+
+
+
+
+
+
+\usepackage[unicode=true,
+bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
+{hyperref}
+\hypersetup{pdftitle={RASD},
+	pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
+	pdfsubject={DD Documentation}}
+
+\usepackage{fancyhdr,graphicx,lastpage}% http://ctan.org/pkg/{fancyhdr,graphicx,lastpage}
+\fancypagestyle{plain}{
+	\fancyhf{}% Clear header/footer
+	\fancyhead[L]{Design Document }% Right header
+	\fancyhead[R]{\emph{Issue 1}}% Right header
+	\fancyfoot[L]{Piazzolla Matteo Michele - Millimaggi Andrea}% Left footer
+	\fancyfoot[R]{\thepage\  / \pageref{LastPage}}% Right footer
+}
+\pagestyle{plain}% Set page style to plain.
+
+
+\makeatletter
+
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\lyxrightaddress}[1]{
+	\par {\raggedleft \begin{tabular}{l}\ignorespaces
+			#1
+		\end{tabular}
+		\vspace{1.4em}
+		\par}
+}
+
+\usepackage[font=small,labelfont=bf]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% alloy listing
+
+
+\usepackage{color}
+\definecolor{eclipseBlue}{RGB}{42,0,255}
+\definecolor{eclipseGreen}{RGB}{63,127,95}
+\definecolor{eclipsePurple}{RGB}{127,0,85}
+
+\usepackage{listings}
+\lstdefinelanguage{alloy}{
+	keywords={%
+		assert, pred, all, no, lone, one, some, check, run,
+		but, let, implies, not, iff, in, and, or, set, sig, Int, int,
+		if, then, else, exactly, disj, fact, fun, module, abstract,
+		extends, open, none, univ, iden, seq,
+	},
+	sensitive=true,  % case sensitive
+	morecomment=[l]//,%
+	morecomment=[l]{--},%
+	morecomment=[s]{/*}{*/},%
+	morestring=[b]",
+	numbers=none,
+	firstnumber=1,
+	numberstyle=\tiny,
+	stepnumber=2,
+	basicstyle= \small%\tiny, %or \small or \footnotesize etc.
+	%	basicstyle=\scriptsize\texttt,
+	commentstyle=\textit,
+	keywordstyle=\textbf,
+	ndkeywordstyle=\textbf,
+}
+
+\lstset{%
+	language=alloy, 
+	basicstyle=\ttfamily,
+	breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+	breaklines=true,
+	captionpos=b, 
+	frame=single,
+	floatplacement={tbp},
+	numberstyle=\color{red}, %style of numbers
+	commentstyle=\color{eclipseGreen}, % style of comments
+	keywordstyle=\color{eclipseBlue}, % style of keywords
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
+\newcommand{\revisionhistory}{
+	
+	\begingroup
+	\fontsize{15pt}{12pt}\selectfont
+	\textbf{Revision History}
+	\endgroup
+	
+	\begin{versionhistory}
+		\vhEntry{1.0}{13/11/16}{Piazzolla  Millimaggi }{First document issue}
+		\vhEntry{ }{ }{ }{ }
+		\vhEntry{ }{ }{ }{ }
+\end{versionhistory}}
+
+
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% inizio documento
+\begin{document}
+	
+	\title{\includegraphics[scale=0.4]{img/polimi}\\
+		Computer Science and Engineering}
+	
+	\begin{doublespace}
+		
+		\author{A.A. 2016/2017\\
+			Software Engineering 2 Project: \\
+			\\
+			{\LARGE{}``PowerEnJoy''}\textbf{}\\
+			\\
+			\textbf{D}esign \textbf{D}ocument\\
+		}
+	\end{doublespace}
+	
+	\maketitle
+	\thispagestyle{empty}
+	\lyxrightaddress{Prof.Luca Mottola\\
+		\\
+		Matteo Michele Piazzolla Matr. 878554\\
+		Andrea Millimaggi Matr. 876062}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	\revisionhistory
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\tableofcontents{}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	\listoffigures
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\input{Introduction}
+	\pagebreak
+	\input{Integration_Strategy}
+	\pagebreak
+	\input{Individual_Steps_and_Test_Description}
+	\pagebreak
+	\input{Tools_and_Test_Equipment}
+	\pagebreak
+	\input{Program_Stubs_and_Test_Data}
+	\pagebreak
+	\section{Appendix}
+	
+	\subsection{Used software}
+	\begin{enumerate}
+		\item \textbf{TeXstudio:} \url{http://www.texstudio.org/} to redact this document in {\LaTeX} format.
+		
+	\end{enumerate}
+	
+	\subsection{Time effort}
+	List of estimated hours spent day by day to redact this document by each components of the group:
+	\begin{center}
+		\begin{adjustbox}{max width=\textwidth}	
+			\begin{tabular}{|l|>{\raggedright}p{15cm}|}
+      				\hline 		
+      			\end{tabular}
+		\end{adjustbox}
+	\end{center}	
+	
+	
+\end{document}
+
