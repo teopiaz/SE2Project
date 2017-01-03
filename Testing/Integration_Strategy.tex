@@ -1,6 +1,35 @@
 \section{INTEGRATION STRATEGY}
-\subsection{Entry Criteria} Specify the criteria that must be met before integration testing of specific elements may begin (e.g., functions must have been unit tested)
+\subsection{Entry Criteria} 
+Before the integration testing can begin, both the RASD and the DD must be completed. Furthermore at least the 80\% of the lines of the code of all components must have been tested with a Unit Test. We strongly suggest the Junit testing framework for Unit Testing.
 \subsection{Elements to be Integrated} Identify the components to be integrated, refer to the design document to identify such components in a way that is consistent with your design
+\newline 
+
+As we have described in the DD, the main components of the system are:
+\begin{itemize}
+\item Web Client GUI
+\item Mobile Client GUI
+\item Driver Client GUI
+\item Service Manager 
+\item HTTP Server
+\item Request Handler
+\item REST Parser
+\item DBMS
+\end{itemize}
+
+In turn, the Service Manager is composed of:
+\begin{itemize}
+\item Car Manager
+\item Trip Manager
+\item User Manager
+\item Position Manager
+\item Fee Manager
+\end{itemize}
+\noindent
+For a further description of the components refer to the Design Document. 
+\newline 
+Of course, because before the Service Manager can be integrated with other components, the components that compose it have to be integrated.
+
+
 \subsection{Integration Testing Strategy} Describe the integration testing approach (top-down, bottom-up, functional groupings, etc.) and the rationale for the choice of that approach.
 \subsection{Sequence of Component/Function Integration} 
 \subsubsection{Software Integration Sequence} For each subsystem, identify the sequence in which the software components will be integrated within the subsystem; relate this sequence to any product features that are being built up
