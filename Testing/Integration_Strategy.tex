@@ -31,6 +31,20 @@ Of course, because before the Service Manager can be integrated with other compo
 
 
 \subsection{Integration Testing Strategy} Describe the integration testing approach (top-down, bottom-up, functional groupings, etc.) and the rationale for the choice of that approach.
+\begin{itemize}
+\item Top down:
+\begin{itemize}
+\item Advantages: More stable and accurate at the aggregate level
+\item Drawbacks: The accuracy at the lower level are off due to the lower level nuances, which are not captured in rolled-up data
+\end{itemize}
+\item Bottom up
+\begin{itemize}
+\item Advantages: Higher accuracy at the granular level
+\item Drawbacks: Adding up lower-level forecasts leads to less accurate top-level forecasts. \newline Often misses out on opportunities to incorporate external data, which is available at the aggregate level. 
+
+\end{itemize}
+
+\end{itemize}
 \subsection{Sequence of Component/Function Integration} 
 \subsubsection{Software Integration Sequence} For each subsystem, identify the sequence in which the software components will be integrated within the subsystem; relate this sequence to any product features that are being built up
 \subsubsection{Subsystem Integration Sequence} Identify the order in which subsystems will be integrated;  if you have a single subsystem, 2.4.1 and 2.4.2 have to be merged in a single section
