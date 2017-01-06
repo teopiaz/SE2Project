@@ -30,21 +30,17 @@ For a further description of the components refer to the Design Document.
 Of course, because before the Service Manager can be integrated with other components, the components that compose it have to be integrated.
 
 
-\subsection{Integration Testing Strategy} Describe the integration testing approach (top-down, bottom-up, functional groupings, etc.) and the rationale for the choice of that approach.
-\begin{itemize}
-\item Top down:
-\begin{itemize}
-\item Advantages: More stable and accurate at the aggregate level
-\item Drawbacks: The accuracy at the lower level are off due to the lower level nuances, which are not captured in rolled-up data
-\end{itemize}
-\item Bottom up
-\begin{itemize}
-\item Advantages: Higher accuracy at the granular level
-\item Drawbacks: Adding up lower-level forecasts leads to less accurate top-level forecasts. \newline Often misses out on opportunities to incorporate external data, which is available at the aggregate level. 
+\subsection{Integration Testing Strategy} 
 
-\end{itemize}
+We have chosen for the Integration Testing a \textbf{bottom up} approach. This means that the integration will regard first the low-level components. For this type of testing, because we start from the low level components, we will need some \textbf{drivers}. These are temporary modules that simulate the behaviour of the higher level components and do the calls of the functions of lower level components. \newline
+That reason why we have chosen the bottom-up approach are:
 
-\end{itemize}
+\begin{itemize}
+\item The lowest level component of our system is the DBMS, impletemented with MySQL 5.6. MySQL is a well-known software component that is available on the market. So the DBMS is ready to use and is a robust starting point for the Integration Testing. Starting from this we can begin to integrate the component of Backend of our system, that essentialy is the Service Manager component. 
+\item The low level components that compose the Backend of our service are the biggest part of our system and all the other components depends on them. Because of this importance of the low level components, the best choice is to start from them and, when it's sure that they work well together, integrate the other components.
+\end{itemize}  
+
+
 \subsection{Sequence of Component/Function Integration} 
 \subsubsection{Software Integration Sequence} For each subsystem, identify the sequence in which the software components will be integrated within the subsystem; relate this sequence to any product features that are being built up
 \subsubsection{Subsystem Integration Sequence} Identify the order in which subsystems will be integrated;  if you have a single subsystem, 2.4.1 and 2.4.2 have to be merged in a single section
