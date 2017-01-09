@@ -117,23 +117,28 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 		\vhEntry{ }{ }{ }{ }
 \end{versionhistory}}
 
-\newcommand{\teststep}[6]{
+\newcounter{testcounter}
+\setcounter {testcounter} {0} 
+
+
+\newcommand{\teststep}[5]{
+		\stepcounter{testcounter}
 	\begin{center}
 	\begin{adjustbox}{max width=\textwidth}	
 		\begin{tabular}{|l|>{\raggedright}p{15cm}|}
 			\hline 
-			Test Case Identifier & #1\tabularnewline
+			Test Case Identifier &  IT-\arabic{testcounter}\tabularnewline
 			\hline 
 			\hline 
-			Test Item(s) & #2\tabularnewline
+			Test Item(s) & #1\tabularnewline
 			\hline 
-			Input Specification & #3\tabularnewline
+			Input Specification & #2\tabularnewline
 			\hline 
-			Output Specification & #4\tabularnewline
+			Output Specification & #3\tabularnewline
 			\hline 
-			Environmental Needs & #5\tabularnewline
+			Environmental Needs & #4\tabularnewline
 			\hline 
-			Test Description & #6
+			Test Description & #5
 			\tabularnewline
 			\hline 
 		\end{tabular}

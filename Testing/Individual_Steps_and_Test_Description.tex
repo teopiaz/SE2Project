@@ -1,8 +1,62 @@
 \section{INDIVIDUAL STEPS AND TEST DESCRIPTION}
 
-\teststep {}
+\teststep 
+{User Manager -> DMBS}
+{Create a method call that create users }
+{Users data correctly present in the DB}
+{mock of some users data }
+{Test that verify users creation and check if the user is already in the DB}
+
+\teststep 
+{User Manager -> DMBS}
+{Create a method call that check for registered and unregistered users}
+{Correctness response for the registered user, error for unregistered}
+{User data presence in the DB and a mock of  the user data }
+{Test that verify users login and error handling for the unregistered user}
+
+\teststep 
+{User Manager -> DMBS}
+{Create a method call that update for user }
+{Users data presence in the DB}
+{mock of some user data }
+{Test that verify user data update and error handling for unregistered user}
+
+\teststep 
+{User Manager -> DMBS}
+{Create a method call that delete user }
+{User information no longer in the DB}
+{mock of some user data }
+{Test that verify user deletion and error handling for unregistered user}
+
+\newpage
+
+\todo[inline]{ServiceManager -> User Manager -> DBMS}
+
+\newpage
+
+\teststep 
+{Reservation Manager -> DMBS}
+{Create a method call that create a reservation for an user }
+{Reservation correctly created}
+{mock of some user and reservation data }
+{Test that verify that the reservation is created for an existing user and error handling for incorrect data }
+
+\teststep 
+{Reservation Manager -> DMBS}
+{Create a method call that delete a reservation  }
+{Reservation correctly marked as deleted}
+{mock of some reservation data }
+{Test that verify that the reservation is marked as deleted but still present in the DB and error handling for incorrect data }
+
+
+\newpage
+
+\teststep 
+{Service Manager -> Fee Manager -> Payment System <<stub>>}
+{Create a method call that calculate a fee for  a reservation and call the Payment System }
+{fare are correctly calculated and the Payment System receive a payment request}
+{mock of some reservation data and a stub for the Payment System }
 {}
-{}
-{}
-{}
-{}
+
+
+
