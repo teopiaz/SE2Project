@@ -42,8 +42,11 @@ When the integration testing regards the Service Manager, the bottom up approach
 \subsection{Sequence of Component/Function Integration} 
 \subsubsection{Software Integration Sequence} For each subsystem, identify the sequence in which the software components will be integrated within the subsystem; relate this sequence to any product features that are being built up
 \newline
+\todo{i componenti che vengono aggiunti a livello più alto devono essere dei driver, non i componenti stessi}
 Because we have chosen a bottom up approach, the first components to be tested are the low level ones, so the ones that compose the Service Manager. After we have completed the integration for the subcomponents of the Service Manager, we will integrate the components that are directly interfaced with that subsystem, that are the Car Manager and the Request Manager. At the end, we will integrate the remaining front-end components, that are the Web Client and the Mobile Client.
+At each step of the integration, a driver for the new component to be integrated has to be constructed. When the integration testing regarding that component stops, the driver is replaced with the actual component.
 \paragraph{User Manager}
+\todo{vanno messe le didascalie giuste alle immagini}
 The first component that will be tested is the User Manager, because he has a relation with the DBMS, that is a component ready to use, as we mentioned in the previous paragraph. In particular it has to manipulate data about the users and their account.
 So first the User Manager is integrated with the DBMS:
 
@@ -137,6 +140,31 @@ Then, the Service Manager will be integrated with the OnBoard Device:
 	\includegraphics[width=\textwidth]{img/SrvMan_ReqHan_int}
 	\caption{Component Diagram}
 \end{figure}
+
+\paragraph{Request Handler}
+After the integration of the Request Handler and OnBoard Device, we can integrate the resulting subsystem with the HTTP Server. In particular the focus is on the interaction between the Request Handler and the HTTP Server:
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/ReqHan_HTTP_int}
+	\caption{Component Diagram}
+\end{figure}
+
+\paragraph{HTTP Server}
+In the end, when the HTTP Server driver is substituted by the real component, the remaining two frontend components are integrated: the Mobile Client and the Web Client. The order in which this two components are chosen doesn't matter:
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/HTTP_MobCli_int}
+	\caption{Component Diagram}
+\end{figure}
+
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=\textwidth]{img/HTTP_WebCli_int}
+	\caption{Component Diagram}
+\end{figure}
+
+After these two integration tests, the all components of the system can be tested together.
+
 \subsubsection{Subsystem Integration Sequence} Identify the order in which subsystems will be integrated;  if you have a single subsystem, 2.4.1 and 2.4.2 have to be merged in a single section
 
 
