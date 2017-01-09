@@ -117,6 +117,30 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 		\vhEntry{ }{ }{ }{ }
 \end{versionhistory}}
 
+\newcommand{\teststep}[6]{
+	\begin{center}
+	\begin{adjustbox}{max width=\textwidth}	
+		\begin{tabular}{|l|>{\raggedright}p{15cm}|}
+			\hline 
+			Test Case Identifier & #1\tabularnewline
+			\hline 
+			\hline 
+			Test Item(s) & #2\tabularnewline
+			\hline 
+			Input Specification & #3\tabularnewline
+			\hline 
+			Output Specification & #4\tabularnewline
+			\hline 
+			Environmental Needs & #5\tabularnewline
+			\hline 
+			Test Description & #6
+			\tabularnewline
+			\hline 
+		\end{tabular}
+		\end{adjustbox}	
+	\par\end{center}
+	}
+
 
 \def\arraystretch{1.5}%  1 is the default, change whatever you need
 
