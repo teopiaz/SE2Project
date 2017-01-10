@@ -38,7 +38,7 @@ In the Backend there all those component that aren't used directly by the user, 
 \item Data Manager: This component is the one that can access the database. It has the function of inserting, deleting and updating data in the database, when asked by other components. Furthermore, it provides to other components the data needed for their operations.
 \item User Manager: This component is responsible of managing all the operations concerning the accounts, such as registration, login and logout, modification of personal data.
 \item Position Manager: This component has the task of managing the position of the cars provided by the GPS and provide it to the other components that need it. 
-\item Travel Manager: This component is responsible of managing all the information about the travel, such as the current current position of the car, the safe areas and the special parking area. It has to communicate all this information to the Driver Client GUI.
+\item Car Manager: This component is responsible of managing all the information about the travel, such as the current current position of the car, the safe areas and the special parking area. It has to communicate all this information to the Driver Client GUI. It has also the task of handling the locking and unlocking of the car and of communicating the end of the travel.
 \item Fee Manager: This component is responsible for the calculation and the application of discounts on the fee of the travels has the task of charging the user. For these reason it is interfaced with an external payment system.
 \item Reservation Manager: This component is responsible of keeping track the reservations that are still active and of the available cars that can be picked up by the user.
 
@@ -46,16 +46,18 @@ In the Backend there all those component that aren't used directly by the user, 
 
 \begin{figure}[H]	
 	\centering
-	\includegraphics[width=\textwidth]{img/Component_diagram}
+	\includegraphics[width=\textwidth]{img/Component_Diagram}
 	\caption{Component Diagram}
 \end{figure}
 
 The communication between the clients (both mobile application and web site) are realized using a request-response methodology. The client asks for information or to make actions related to the server using \textbf{REST} requests and obtains a response from the server formatted as a \textbf{JSON} object, today the state of the art for web services communications. 
-All the REST requests received by the \textbf{HTTP Server} are forward to and, then, processed by the Request Handler component. The Request Handler component is in charge of validating the request integrity, parsing it using the \textbf{REST Parser}component and check the authentication for the requests type that need a valid session.
+All the REST requests received by the \textbf{HTTP Server} are forward to and, then, processed by the Request Handler component. The Request Handler component is in charge of validating the request integrity, parsing it using the \textbf{REST Parser} component and check the authentication for the requests type that need a valid session.
+
+The OnBoard device of the car does not interact with the HTTP Server, but he has its own interface between it and the Service Manager, that forwards its requests to the Car Manager.
 
 When a requests pass these checks is forwarded to the Service Manager where the application logic is applied.
 The \textbf{Service Manager}, depending on the types of request that are received,  processes a response using Car Manager, User Manager, Position Manager, Trip Manager or Fee Manager.
-Using those component the Service Manager can access the model, manage the request and craft a response.Every request can instantiate different component,
+Using those component the Service Manager can access the model, manage the request and craft a response.Every request can instantiate different component.
 
 The system status are represented through various \textbf{Java Beans} object that stay alive for all the time needed for the request processing.
 
