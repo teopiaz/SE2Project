@@ -1,3 +1,24 @@
 \section{TOOLS AND TEST EQUIPMENT REQUIRED}
-Identify all tools and test equipment needed to accomplish the integration. Refer to the tools presented during the lectures. Explain why and how you are going to use them. Also manual testing may be used for some part. Consider manual testing as one of the possible tools you have available.
+\subsection{Testing Tools}
+For the testing phase of the development of our system, we have chosen four tools to support the work of testers:
+\begin{itemize}
+\item \textbf{JUnit:}
+This is a framework suitable for unit testing. JUnit will be used for the unit tests regarding the single components of the system. We remind that the unit testing must precede the integration testing phase.
+\item \textbf{Mockito:}
+This is a testing framework that allows the creation of mock components which simulate the behaviour of actual components of the system. Furthermore, it allows testing of the interaction between components. So this tool will be used for the creation of drivers and stubs needed for our integration testing and for testing interactions between components.
+\item \textbf{Arquillian:}
+This is a testing platform particularly suitable for the testing of EJBs(Enterprise Java Beans) and their interaction with their own Java EE Container. Because the subcomponents of the Service Manager are implemented with EJBs, Arquillian will be used to test them.
+\item \textbf{JMeter:}
+This is an application that allows to measure the performances of a server and to check its load tolerance. We will apply this tool to the HTTP Server to check its performance and its tolerance to heavy loads.
+\end{itemize}
+
+\subsection{Test Equipment}
+The equipments needed for the right execution of integration testing includes all the devices with which users will use the PowerEnJoy service:
+\begin{itemize}
+\item A mobile phone running the latest version of the Android operating system.
+\item A mobile phone running the latest version of the iOS operating system.
+\item A computer running the Windows operating system. The latest versions of Google Chrome, Mozilla Firefox and Microsoft Edge browsers must be installed on this machine.
+\item A computer running the macOS operating system. The latest version of the Safari browser must be installed on this machine.
+\item One of the OnBoard Devices that will be mounted on the cars of PowerEnJoy
+\end{itemize}
 

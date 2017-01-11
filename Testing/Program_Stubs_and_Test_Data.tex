@@ -1,2 +1,63 @@
 \section{PROGRAM STUBS AND TEST DATA REQUIRED}
-Based on the test strategy and test design, ientify any program stub or special test data required for each integration step.
+\subsection{Drivers and Stubs}
+Because we have chosen a bottom up approach, for each step of integration a driver is needed for the simulation of the latter component that has been added.
+\subsubsection{User Manager/Service Manager Integration}
+For this set of test we need a driver for the functionalities of the Service Manager which calls functions that make the User Manager create, delete or modify the users accounts and retrieve information for the authentication of users
+\subsubsection{Reservation Manager/Service Manager Integration}
+For this set of test we need a driver for the functionalities of the Service Manager which calls functions that make the Reservation Manager begin, end or delete a reservation and search cars.
+\subsubsection{Fee Manager/Payment System Integration}
+For this set of tests we need a stub for the simulation of the payment system. This stub has to send to the Fee Manager information about payments, like the confirmation of a payment or possible errors.
+\subsubsection{Fee Manager/Service Manager Integration}
+For this set of test we need a driver for the functionalities of the Service Manager which calls functions that make the Fee Manager calculate the fee for a travel and charge the user with that fee.
+\subsubsection{Position Manager/Service Manager Integration}
+For this set of test we need a driver for the functionalities of the Service Manager which calls functions that make the Position Manager retrieve and return the positions of users and cars.
+\subsubsection{Car Manager/Service Manager Integration}
+For this set of test we need a driver for the functionalities of the Service Manager which calls functions that make the Car Manager send an unlock request to a car and to communicate the end of a trip.
+\subsubsection{Service Manager/Request Handler Integration}
+For this set of test we need a driver for the Request Handler which calls functions that forwards requests to the Service Manager. So it must have functions that send requests for the creation, deletion or modification of an account, for the search of a car, for the begin or the end of a reservation.
+\subsubsection{Service Manager/OnBoard Device Integration}
+For this set of test we need a driver for the OnBoard Device which call a function that sends the communication of the end of a trip to the Service Manager.
+\subsubsection{Request Handler/HTTP Server Integration}
+For this set of test we need a driver for the HTTP Server which calls functions that forward requests coming from the clients to the Request Handler. So it must have functions that send requests for the creation, deletion or modification of an account, for the search of a car, for the begin or the end of a reservation, similarly to the Request Handler.
+\subsubsection{HTTP Server/Mobile Client Integration}
+For this set of test we need a driver for the Mobile Client which call functions that send requests to the HTTP Server. So those functions must send requests for the creation, deletion or modification of an account, the search of a car, the begin or the end of a reservation to the HTTP Server.
+\subsubsection{HTTP Server/Web Client Integration}
+For this set of tests we need a driver for the Web Client which call functions that send requests to the HTTP Server. So it is similar to the Mobile Client driver, but it has less functionalities. The functions this driver must have must send  requests for the creation, deletion or modification of an account and for the search of a car.
+
+\subsection{Test Data}
+In addition to drivers and stubs, to perform integration tests some sets of data to use in those tests:
+\begin{itemize}
+
+\item A set of account data. This data include name, surname, username, email address, password, telephone number and driving license number. The set must contain:
+	\begin{itemize}[label={-}]
+	\item At least a null value for each information
+	\item At least an invalid value for email address, password, telephone number and driving license number.
+	\item At least two duplicate values for the couple name/surname and for username, email address, telephone number and driving license number. 	
+	\end{itemize}	 
+This data will be used for tests regarding components the send requests for or manage the creation, deletion and modification of accounts.
+
+\item A set of username/password couples. This set must contain:
+	\begin{itemize}[label={-}]
+	\item At least a couple with a null value for the username
+	\item At least a couple with a null value for the password
+	\item At least a couple with a null value for both username and password
+	\item At least a couple with an invalid value for the username
+	\item At least a couple with an invalid value for the password
+	\item At least a couple with an invalid value for both username and password
+	\end{itemize}
+This data will be used for tests concerning components that request or manage authentication of users.
+\item A set of reservations. A reservation have fields, that are: username, driving license number, plate number of the car, the time of the beginning of the reservation.
+This set must contain:
+	\begin{itemize}[label={-}]
+	\item At least a null value for each field
+	\item At least an invalid value for each field
+	\end{itemize}
+This data will be used for tests involving components that request the beginning of a reservation and components that manage reservations
+\item A set of bills. A bill contains the name and the surname of the user, his payment information and the amount to pay. This set must contain:
+	\begin{itemize}[label={-}]
+	\item At least a bill with a null value for each field.
+	\item At least a bill with a invalid value for the name/surname couple and for the payment information
+	\item At least a bill with a negative value for the amount to pay.
+	\end{itemize}
+This data will be used for tests regarding components that manage fees and payments.
+\end{itemize}
