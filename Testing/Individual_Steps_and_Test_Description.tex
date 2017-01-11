@@ -1,62 +1,132 @@
 \section{INDIVIDUAL STEPS AND TEST DESCRIPTION}
 
+All this tests can be split in different and more specific tests. 
 \teststep 
 {User Manager -> DMBS}
 {Create a method call that create users }
 {Users data correctly present in the DB}
-{mock of some users data }
+{Mock of some users data }
 {Test that verify users creation and check if the user is already in the DB}
 
 \teststep 
 {User Manager -> DMBS}
-{Create a method call that check for registered and unregistered users}
-{Correctness response for the registered user, error for unregistered}
-{User data presence in the DB and a mock of  the user data }
-{Test that verify users login and error handling for the unregistered user}
+{Create a method call that create a new user }
+{Users data presence in the DB}
+{Mock of some user data }
+{Test that verify user data insert and error handling for already present user}
 
 \teststep 
 {User Manager -> DMBS}
 {Create a method call that update for user }
 {Users data presence in the DB}
-{mock of some user data }
+{Mock of some user data }
 {Test that verify user data update and error handling for unregistered user}
 
 \teststep 
 {User Manager -> DMBS}
 {Create a method call that delete user }
 {User information no longer in the DB}
-{mock of some user data }
+{Mock of some user data }
 {Test that verify user deletion and error handling for unregistered user}
 
-\newpage
 
-\todo[inline]{ServiceManager -> User Manager -> DBMS}
 
-\newpage
+\teststep
+{ServiceManager -> User Manager -> DBMS}
+{Create a method call that check for registered and unregistered users}
+{Correctness response for the registered user, error for unregistered}
+{User data presence in the DB and a mock of  the user data }
+{Test that verify users login and error handling for the unregistered user}
+
+
 
 \teststep 
 {Reservation Manager -> DMBS}
 {Create a method call that create a reservation for an user }
 {Reservation correctly created}
-{mock of some user and reservation data }
+{Mock of some user and reservation data }
 {Test that verify that the reservation is created for an existing user and error handling for incorrect data }
 
 \teststep 
 {Reservation Manager -> DMBS}
 {Create a method call that delete a reservation  }
 {Reservation correctly marked as deleted}
-{mock of some reservation data }
+{Mock of some reservation data }
 {Test that verify that the reservation is marked as deleted but still present in the DB and error handling for incorrect data }
 
 
-\newpage
 
 \teststep 
 {Service Manager -> Fee Manager -> Payment System <<stub>>}
-{Create a method call that calculate a fee for  a reservation and call the Payment System }
-{fare are correctly calculated and the Payment System receive a payment request}
-{mock of some reservation data and a stub for the Payment System }
-{}
+{Create a method call that calculate a fee for a reservation and call the Payment System }
+{Payment accepted}
+{Mock of some reservation data, pre-calculated fare and a stub for the Payment System }
+{Test check that the fare are correctly calculated and the payment system receive the payment request}
+
+\teststep 
+{ Position Manager -> GPS}
+{Create a method call that update the GPS position for a list of cars }
+{Cars position correctly update}
+{Mock of some cars object  }
+{Test check if the Position Manager handle correctly the various format of GPS coordinate}
 
 
+\teststep 
+{ Service Manager -> Position Manager -> GPS}
+{Create a method call that return a list of cars inside a given radius list }
+{The returned list are the same of the cars mock lists per radius}
+{Mock of some cars object and a list of radius  }
+{Test check if the Position Manager handle correctly the request}
+
+\teststep 
+{ Service Manager -> Car Manager }
+{Create a method call that request information about a car }
+{Returned information are correct}
+{Mock of a car object}
+{Test check if the Car Manager correctly handle request for car information}
+
+\teststep 
+{ Service Manager -> Car Manager }
+{Create a method call that update information about a car }
+{Car information are correctly updated}
+{Mock of a car object}
+{Test check if the Car Manager correctly handle update for car information}
+
+\teststep 
+{ Request Handler -> Service Manager }
+{Create different method calls for all the possible valid requests and an invalid request }
+{Service Manager handle correctly all the requests and return an error for invalid request}
+{mock data for all the valid request}
+{Test check if the service manager handle all the valid requests}
+
+\teststep 
+{OnBoard Device -> Service Manager }
+{Phisically or virtually send data from the OnBoard Device to the Service Manager }
+{Service Manager accept the connection }
+{OnBoard Device or an OnBoard device simulator}
+{The test check the connection between the OnBoard Device and the System}
+
+
+\teststep 
+{ HTTP Server -> Request Handler }
+{All the possible CRUD REST Requests sent to the HTTP Server }
+{Request Handler correctly parse all the request and return a valid response for all request}
+{Mock of all the CRUD Requests and some bad formatted HTTP requests}
+{Test check for the REST parser}
+
+
+\teststep 
+{Mobile Client -> HTTP Server }
+{Send all the possible REST Requests from the mobile application to the HTTP Server }
+{Mobile application receive a correct response for all the request sent}
+{Physical Device or a simulator to run PowerEnJoy mobile application}
+{Test check for the connection between the Mobile Application and the HTTP Server}
+
+
+\teststep 
+{Web Client -> HTTP Server }
+{Send all the possible REST Requests from the website to the HTTP Server }
+{The website receive a correct response for all the request sent and update the page}
+{Web browser}
+{Test check for the connection between the website and the HTTP Server}
 
