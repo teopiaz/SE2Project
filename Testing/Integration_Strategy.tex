@@ -10,14 +10,12 @@ As we have described in the DD, the main components of the system are:
 \item Service Manager 
 \item HTTP Server
 \item Request Handler
-\item REST Parser
 \item DBMS
 \end{itemize}
 
 In turn, the Service Manager is composed of:
 \begin{itemize}
 \item Car Manager
-\item Trip Manager
 \item User Manager
 \item Position Manager
 \item Fee Manager
@@ -34,14 +32,13 @@ We have chosen for the Integration Testing a \textbf{bottom up} approach. This m
 That reason why we have chosen the bottom-up approach are:
 
 \begin{itemize}
-\item The lowest level component of our system is the DBMS, impletemented with MySQL 5.6. MySQL is a well-known software component that is available on the market. So the DBMS is ready to use and is a robust starting point for the Integration Testing. Starting from this we can begin to integrate the component of Backend of our system, that essentialy is the Service Manager component. 
+\item The lowest level component of our system is the DBMS, impletemented with MySQL 5.6. MySQL is a well-known software component that is available on the market. So the DBMS is ready to use and is a robust starting point for the Integration Testing. Starting from this we can begin to integrate the components of the Backend of our system, that essentialy is the Service Manager component. 
 \item The low level components that compose the Backend of our service are the biggest part of our system and all the other components depends on them. Because of this importance of the low level components, the best choice is to start from them and, when it's sure that they work well together, integrate the other components.
 \end{itemize}  
 
 When the integration testing regards the Service Manager, the bottom up approach will be mixed with the \textbf{functional testing} approach. With functional testing, not the entire components are tested, but only some functionalities of them. In our case, when the components that compose the Service Manager will be tested together with the Service, only some functionalities of the Service Manager will be tested, that are the ones that call the specific subcomponent that is being tested.
 \subsection{Sequence of Component/Function Integration} 
-\subsubsection{Software Integration Sequence} For each subsystem, identify the sequence in which the software components will be integrated within the subsystem; relate this sequence to any product features that are being built up
-\newline
+\subsubsection{Software Integration Sequence}
 Because we have chosen a bottom up approach, the first components to be tested are the low level ones, so the ones that compose the Service Manager. After we have completed the integration for the subcomponents of the Service Manager, we will integrate the components that are directly interfaced with that subsystem, that are the Car Manager and the Request Manager. At the end, we will integrate the remaining front-end components, that are the Web Client and the Mobile Client.
 At each step of the integration, a driver for the new component to be integrated has to be constructed. When the integration testing regarding that component stops, the driver is replaced with the actual component.
 \paragraph{Integration of the components of the Service Manager}
@@ -95,7 +92,7 @@ In addition to the Service Manager, the Position Manager has to interact also wi
 
 \begin{figure}[H]	
 	\centering
-	\includegraphics[width=\textwidth]{img/PosMan_SrvMan_int}
+	\includegraphics[width=\textwidth]{img/PosMan_GPS_int}
 	\caption{Integration of Position Managere and GPS}
 \end{figure}
 

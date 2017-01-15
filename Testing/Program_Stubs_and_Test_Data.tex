@@ -14,18 +14,18 @@ For this set of test we need a driver for the functionalities of the Service Man
 \subsubsection{Car Manager/Service Manager Integration}
 For this set of test we need a driver for the functionalities of the Service Manager which calls functions that make the Car Manager send an unlock request to a car and to communicate the end of a trip.
 \subsubsection{Service Manager/Request Handler Integration}
-For this set of test we need a driver for the Request Handler which calls functions that forwards requests to the Service Manager. So it must have functions that send requests for the creation, deletion or modification of an account, for the search of a car, for the begin or the end of a reservation.
+For this set of test we need a driver for the Request Handler which calls functions that forwards requests to the Service Manager. So it must have functions that send requests for the creation, deletion or modification of an account, for the search of a car, for the begin or the end of a reservation and the authentication of users.
 \subsubsection{Service Manager/OnBoard Device Integration}
 For this set of test we need a driver for the OnBoard Device which call a function that sends the communication of the end of a trip to the Service Manager.
 \subsubsection{Request Handler/HTTP Server Integration}
-For this set of test we need a driver for the HTTP Server which calls functions that forward requests coming from the clients to the Request Handler. So it must have functions that send requests for the creation, deletion or modification of an account, for the search of a car, for the begin or the end of a reservation, similarly to the Request Handler.
+For this set of test we need a driver for the HTTP Server which calls functions that forward requests coming from the clients to the Request Handler. So it must have functions that send requests for the creation, deletion or modification of an account, for the search of a car, for the begin or the end of a reservation and the authentication of users, similarly to the Request Handler.
 \subsubsection{HTTP Server/Mobile Client Integration}
-For this set of test we need a driver for the Mobile Client which call functions that send requests to the HTTP Server. So those functions must send requests for the creation, deletion or modification of an account, the search of a car, the begin or the end of a reservation to the HTTP Server.
+For this set of test we need a driver for the Mobile Client which call functions that send requests to the HTTP Server. So those functions must send requests for the creation, deletion or modification of an account, the search of a car, the begin or the end of a reservation and the authentication of users to the HTTP Server.
 \subsubsection{HTTP Server/Web Client Integration}
-For this set of tests we need a driver for the Web Client which call functions that send requests to the HTTP Server. So it is similar to the Mobile Client driver, but it has less functionalities. The functions this driver must have must send  requests for the creation, deletion or modification of an account and for the search of a car.
+For this set of tests we need a driver for the Web Client which call functions that send requests to the HTTP Server. So it is similar to the Mobile Client driver, but it has less functionalities. The functions this driver must have must send  requests for the creation, deletion or modification of an account, for the search of a car and the authentication of users.
 
 \subsection{Test Data}
-In addition to drivers and stubs, to perform integration tests some sets of data to use in those tests:
+In addition to drivers and stubs, to perform integration tests some sets of data to use in those tests are needed:
 \begin{itemize}
 
 \item A set of account data. This data include name, surname, username, email address, password, telephone number and driving license number. The set must contain:
