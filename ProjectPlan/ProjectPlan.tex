@@ -1,0 +1,172 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{todonotes}
+\usepackage{placeins}
+\usepackage[tocentry, tablegrid,nochapter]{vhistory} 
+\usepackage{catchfilebetweentags}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{soul}
+\usepackage{enumitem}
+
+
+
+
+
+
+
+
+\usepackage[unicode=true,
+bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
+{hyperref}
+\hypersetup{pdftitle={ITPD},
+	pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
+	pdfsubject={Testing}}
+
+\usepackage{fancyhdr,graphicx,lastpage}% http://ctan.org/pkg/{fancyhdr,graphicx,lastpage}
+\fancypagestyle{plain}{
+	\fancyhf{}% Clear header/footer
+	\fancyhead[L]{Project Plan }% Right header
+	\fancyhead[R]{\emph{Issue 1}}% Right header
+	\fancyfoot[L]{Piazzolla Matteo Michele - Millimaggi Andrea}% Left footer
+	\fancyfoot[R]{\thepage\  / \pageref{LastPage}}% Right footer
+}
+\pagestyle{plain}% Set page style to plain.
+
+
+\makeatletter
+
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\lyxrightaddress}[1]{
+	\par {\raggedleft \begin{tabular}{l}\ignorespaces
+			#1
+		\end{tabular}
+		\vspace{1.4em}
+		\par}
+}
+
+\usepackage[font=small,labelfont=bf]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% alloy listing
+
+
+
+\usepackage{listings}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
+\newcommand{\revisionhistory}{
+	
+	\begingroup
+	\fontsize{15pt}{12pt}\selectfont
+	\textbf{Revision History}
+	\endgroup
+	
+	\begin{versionhistory}
+		\vhEntry{1.0}{13/11/16}{Piazzolla  Millimaggi }{First document issue}
+		\vhEntry{ }{ }{ }{ }
+		\vhEntry{ }{ }{ }{ }
+\end{versionhistory}}
+
+
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% inizio documento
+\begin{document}
+	
+	\title{\includegraphics[scale=0.4]{img/polimi}\\
+		Computer Science and Engineering}
+	
+	\begin{doublespace}
+		
+		\author{A.A. 2016/2017\\
+			Software Engineering 2 Project: \\
+			\\
+			{\LARGE{}``PowerEnJoy''}\textbf{}\\
+			\\
+			\textbf{P}roject \textbf{P}lan \\
+		}
+	\end{doublespace}
+	
+	\maketitle
+	\thispagestyle{empty}
+	\lyxrightaddress{Prof.Luca Mottola\\
+		\\
+		Matteo Michele Piazzolla Matr. 878554\\
+		Andrea Millimaggi Matr. 876062}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	\revisionhistory
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\tableofcontents{}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	\listoftodos
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	\listoffigures
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+
+
+	\input{Introduction}
+	\pagebreak
+	\input{function_points}
+	\pagebreak
+	\section{Appendix}
+
+
+	\subsection{Used software}
+	\begin{enumerate}
+		\item \textbf{TeXstudio:} \url{http://www.texstudio.org/} to redact this document in {\LaTeX} format.
+		\item \textbf{Astah:} \url{http://astah.net/} to draw diagrams.		
+	\end{enumerate}
+	
+	
+	\subsection{Time effort}
+	The estimated time spent by us to redact this document:
+	\begin{center}
+		\begin{adjustbox}{max width=\textwidth}	
+			\begin{tabular}{|l|>{\raggedright}p{15cm}|}
+				
+				\hline  Andrea Millimaggi & XXh \tabularnewline
+				\hline 	Matteo Michele Piazzolla & XXh \tabularnewline
+				\hline 		
+			\end{tabular}
+		\end{adjustbox}
+	\end{center}	
+	
+	
+\end{document}
+
+
+
