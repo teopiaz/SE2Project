@@ -1,0 +1,62 @@
+\section{Resources Allocation}
+Through a Gantt chart, all activities are represented for blocks over time in order to highlight how resources are allocate to the various tasks. The beginning and the end of the block correspond to the beginning and at the end of the activity. Start of some activities are linked to the end of other.
+\\
+	\begin{center}
+\begin{sideways}
+
+\begin{ganttchart}[
+	y unit title=0.5cm,
+	y unit chart=0.5cm,
+	vgrid={ dotted},
+	time slot format=isodate,
+	compress calendar,
+	today={\the\year-\the\month-\the\day}, 
+	title/.append style={shape=rectangle, fill=black!10},
+	title height=1,
+	bar/.append style={fill=green!90, rounded corners=3pt},
+	bar height=.45,
+	bar label font=\normalsize\color{black!50},
+	group top shift=.6,
+	group height=.3,
+	group peaks height=.2,
+	bar incomplete/.append style={fill=green!40},	
+	]{2016-08-01}{2018-05-31}
+	\gantttitlecalendar{year} \\
+  \gantttitlecalendar{ month} \\
+
+
+
+	\ganttset{progress label text={},
+		bar incomplete/.append style={fill=green!40},
+		group/.append style={draw=black, fill=green},} % this suppresses percentage done labels
+	\ganttgroup{Requierements and Design}{2016-10-16}{2017-01-01} \\
+	\ganttbar[progress=00, name=rasd]{Requirements Analysis}{2016-10-16}{2016-11-13} \\
+	\ganttlinkedbar[progress=00, name=pdd]{Preliminary Design}{2016-11-13}{2016-12-11} \\
+	\ganttbar[progress=00, name=itpd]{Integrated Test Plan}{2016-12-11}{2017-01-15} \\
+	\ganttbar[progress=00, name=pp]{Project Plan}{2016-12-11}{2017-01-22} \\
+	\ganttset{bar incomplete/.append style={fill=red!40},
+		group/.append style={draw=black, fill=red}}
+	\ganttgroup{Implementation}{2017-2-01}{2017-09-30} \\
+	\ganttbar[progress=00, name=impl_database]{Database}{2017-02-01}{2017-03-31} \\
+	\ganttbar[progress=00, name=impl_server]{Server Infrastructure}{2017-03-31}{2017-04-30} \\
+	\ganttbar[progress=00, name=impl_backend]{Backend Logic}{2017-04-01}{2017-06-31} \\
+	\ganttbar[progress=00, name=impl_obsw]{OnBoard Device Software}{2017-05-01}{2017-07-15} \\
+	\ganttbar[progress=00, name=impl_app]{Mobile Application}{2017-07-01}{2017-09-30} \\
+	\ganttbar[progress=00, name=impl_webd]{Website}{2017-07-01}{2017-09-30} \\
+	\ganttset{bar incomplete/.append style={fill=blue!40},
+		group/.append style={draw=black, fill=blue},}
+	\ganttgroup{Testing}{2017-10-1}{2018-3-31} \\
+	\ganttbar[progress=00, name=test_unit]{Unit Test}{2017-10-1}{2017-11-30} \\
+	\ganttbar[progress=00, name=test_integration]{Integration Test}{2017-11-30}{2018-1-31} \\
+	\ganttlinkedbar[progress=00, name=test_profiling]{Performance Test and Profiling}{2018-02-01}{2018-03-01} \\
+	% misc links
+	\ganttset{progress label text={}}
+
+	\ganttlink[link mid=0.4]{pdd}{itpd}
+	\ganttlink[link mid=0.2]{pdd}{pp}
+	\ganttlink[link mid=0.3]{impl_database}{impl_backend}
+
+\end{ganttchart}
+
+\end{sideways}
+\end{center}
