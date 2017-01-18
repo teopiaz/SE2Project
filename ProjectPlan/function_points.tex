@@ -1,21 +1,47 @@
 
 \section{Function Points: size estimation}
 \subsection{Overview} % (fold)
+
+\todo[inline]{inserire la legenda dei fp per ogni categoria}
+
+ILF 6 8 10 \\
+EIF 4 7 9
+
+\todo[inline]{remove the example table}
+EXAMPLE TABLE
 \fptable{			
 	\fprow{User}{0}{2}	
 	\fprow{GPS Position}{1}{4}	
 	\fprow{Fare }{2}{8}
 }{14}
 
-\fptable{			
-	\fprow{Test2 }{1}{2}	
-	\fprow{PowerEnjoy }{2}{10}
-}{12}
 
 \subsection{Internal Logic Files} % (fold)
 
+The PowerEnjoy Service needs to store information about:
 
-\subsection{External Interface File} % (fold)
+\begin{itemize}
+	\item \textbf{User:} This data consist in a small set of user information, for this reason its complexity has been considered \textbf{Simple}
+	\item \textbf{Car:} This data consist in a small set of car information, for this reason its complexity has been considered \textbf{Simple}
+	\item \textbf{Safe Area:} This data consist in a small set of safe area information, for this reason its complexity has been considered \textbf{Simple}
+	\item \textbf{Trip:} This data consist in a small set of trip information, for this reason its complexity has been considered \textbf{Simple}
+\end{itemize}
+\fptable{			
+	\fprow{User}{0}{6}	
+	\fprow{Car}{0}{6}	
+	\fprow{Safe Area }{0}{6}
+	\fprow{Trip }{0}{6}
+}{24}
+
+\subsection{External Logic File} % (fold)
+
+\begin{itemize}
+	\item \textbf{GPS positioning:} This data consist on information received by user or by OnBoard device of the car. Because of the managing involve some algorithms it's considered \textbf{Medium}
+\end{itemize}
+
+\fptable{			
+	\fprow{GPS positioning}{1}{7}	
+}{7}
 
 \subsection{External Input} % (fold)
 
