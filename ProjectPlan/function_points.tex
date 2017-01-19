@@ -1,8 +1,29 @@
-
 \section{Function Points: size estimation}
 \subsection{Overview}
+We use the Function Points approach to estimate the size of the project. This approach makes an estimation of the size of the project based on the functionalities of system. In particular it analyses:
+\begin{itemize}
+\item Data structures. These can be of two types:
+	\begin{itemize}[label={-}]
+	\item Internal Logic Files, that are logically related data which are used and managed by the application.
+	\item External Interface Files, that are logically related data which are used by the application, but are generated, reside and are managed in other applications.
+	\end{itemize}
+\item External Input operations, that are operations that elaborate data coming from external systems
+\item External Output operations, that are operations that generate data to send to external systems .
+\item External Inquiries, that are operations that involve both input and output and allow to retrieve data from Internal Logic Files and External.
+\end{itemize} 
+To each element of those types a weight is given, based on the complexity of the table.\newline
+Multiplying the elements by their weights and summing the results we obtain the overall Function Points:\newline
 
+\begin{equation}
+FP = \sum_{}{}{Number\hspace{0.1 cm} of\hspace{0.1 cm} elements\hspace{0.1 cm} of\hspace{0.1 cm} a\hspace{0.1 cm} type * weight} 
+\end{equation}
 
+At the end, using the number of FPs, an estimation of the LOC of the project is estimated with the following formula:
+\begin{equation}
+LOC = AVC * number\hspace{0.1 cm} of\hspace{0.1 cm} function\hspace{0.1 cm} points
+\end{equation}
+
+AVC is a parameter that depends on the programming language used. We have chosen to use the Average value for Java among the values of the table that can be found in \cite{AVCTable}, because Java is the main language used in the project. 
 
 \begin{figure}[h]
 	\centering
@@ -57,10 +78,22 @@ The PowerEnjoy Service needs to store information about:
 \fprow{Unlock car}{2}{6}
 }{20}
 
-\subsection{External Inquiry} % (fold)
-
+\subsection{External Inquiries} % (fold)
+A PowerEnJoy user can ask the system for the retrieval of some data:
+\begin{itemize}
+\item He can request the list of cars available in a certain area or address.
+\item He can request the list of special parking areas.
+\item He can request the list of parking areas.
+\item He can request to see its personal data.
+\item He can request the list of trips done in a certain period.
+\end{itemize}
 \subsection{External Output} % (fold)
-
+Beyond answers to External Inquiries, the system has to send other types of messages to the user:
+\begin{itemize}
+\item A notification of the confirmation of a reservation
+\item A notification of the end of a trip
+\item A notification of the confirmation of the payment.
+\end{itemize}
 
 
 \subsection{Results} % (fold)
