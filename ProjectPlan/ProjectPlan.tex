@@ -30,7 +30,7 @@
 bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
 breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 {hyperref}
-\hypersetup{pdftitle={ITPD},
+\hypersetup{pdftitle={PP},
 	pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
 	pdfsubject={Testing}}
 
@@ -80,28 +80,39 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 		\vhEntry{ }{ }{ }{ }
 		\vhEntry{ }{ }{ }{ }
 \end{versionhistory}}
+
+  \newcounter{total_fp}
+ \newcounter{fp}
+
+ \setcounter{total_fp}{0}
+ \setcounter{fp}{0}
+
+
 \usepackage{xstring}
 \newcommand{\fprow}[3]{
-	\textbf{#1} &  \IfEqCase{#2}{%
+\textbf{#1} &  \IfEqCase{#2}{%
 		{0}{Simple}%
 		{1}{Medium}%
 		{2}{Complex}%
 	} & #3 \tabularnewline \hline
+\addtocounter{fp}{#3}
 }
 
-\newcommand{\fptable}[2]{
+\newcommand{\fptable}[1]{
 	\begin{center}
 		\begin{adjustbox}{max width=\textwidth}	
 			\begin{tabular}{|c|c|c|}
 				\hline 
 				\textbf{Data} &  \textbf{Weight Type }& \textbf{Weight} \tabularnewline
-				\hline 
-				\hline 
-		#1
-				\textbf{TOT} & \multicolumn{2}{c|}{\textbf{#2}}\tabularnewline \hline
+\hline 
+\hline 
+#1
+			 \addtocounter{total_fp}{\arabic{fp}}
+\textbf{TOT} & \multicolumn{2}{c|}{\textbf{\arabic{fp}}}\tabularnewline \hline
 			\end{tabular}
 		\end{adjustbox}	
 		\par\end{center}
+	 \setcounter{fp}{0}
 }
 
 

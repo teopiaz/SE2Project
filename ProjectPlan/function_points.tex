@@ -34,7 +34,7 @@ AVC is a parameter that depends on the programming language used. We have chosen
 \FloatBarrier
 
 
-\subsection{Internal Logic Files} % (fold)
+\subsection{Internal Logic Files} 
 
 The PowerEnjoy Service needs to store information about:
 
@@ -47,27 +47,27 @@ The PowerEnjoy Service needs to store information about:
 \fptable{			
 	\fprow{User}{0}{7}	
 	\fprow{Car}{0}{7}	
-	\fprow{Safe Area }{0}{7}
-	\fprow{Trip }{0}{7}
-}{28}
+	\fprow{Safe Area}{0}{7}
+	\fprow{Trip}{0}{7}
+}
 
-\subsection{External Interfaces File} % (fold)
+\subsection{External Interfaces File} 
 
 \begin{itemize}
-	\item \textbf{GPS positioning:} This data consist on information received by user or by OnBoard device of the car. Because of the managing involve some algorithms it's considered \textbf{High}
+	\item \textbf{GPS positioning:} This data consist on information received by user or by OnBoard device of the car. \\Because of the managing involve some algorithms it's considered \textbf{High}
 \end{itemize}
 
 \fptable{			
 	\fprow{GPS positioning}{2}{10}	
-}{10}
+}
 
-\subsection{External Input} % (fold)
+\subsection{External Input} 
 \begin{itemize}
-	\item \textbf{Sign-Up:} Create a new user in the system. The complexity has been considered \textbf{Simple}
-	\item \textbf{Log-In/Log-Out:} Manage the user authentication. The complexity has been considered \textbf{Medium}
-	\item \textbf{Update user information:} Update users information in the system. The complexity has been considered \textbf{Simple}
-	\item \textbf{Request car reservation:} Manage the car reservation in the system. The complexity has been considered \textbf{Medium}
-	\item \textbf{Unlock car:} Check if the user is nearby the reserved car and send an unlock request to the car. The complexity has been considered \textbf{Complex}
+	\item \textbf{Sign-Up:} Create a new user in the system. \\The complexity has been considered \textbf{Simple}
+	\item \textbf{Log-In/Log-Out:} Manage the user authentication. \\The complexity has been considered \textbf{Medium}
+	\item \textbf{Update user information:} Update users information in the system. \\The complexity has been considered \textbf{Simple}
+	\item \textbf{Request car reservation:} Manage the car reservation in the system. \\The complexity has been considered \textbf{Medium}
+	\item \textbf{Unlock car:} Check if the user is nearby the reserved car and send an unlock request to the car. \\The complexity has been considered \textbf{Complex}
 \end{itemize}
 
 \fptable{			
@@ -76,26 +76,53 @@ The PowerEnjoy Service needs to store information about:
 \fprow{Update user information}{0}{3}	
 \fprow{Request car reservation}{1}{4}	
 \fprow{Unlock car}{2}{6}
-}{20}
+}
 
-\subsection{External Inquiries} % (fold)
+\subsection{External Inquiries} 
 A PowerEnJoy user can ask the system for the retrieval of some data:
 \begin{itemize}
-\item He can request the list of cars available in a certain area or address.
-\item He can request the list of special parking areas.
-\item He can request the list of parking areas.
-\item He can request to see its personal data.
-\item He can request the list of trips done in a certain period.
+\item \textbf{Car list:} He can request the list of cars available in a certain area or address. \\The complexity has been considered \textbf{Meduim}
+\item  \textbf{Special Parking Area request:} He can request the list of special parking areas. \\The complexity has been considered \textbf{Meduim}
+\item  \textbf{Parking Area request:} He can request the list of parking areas. \\The complexity has been considered \textbf{Meduim}
+\item  \textbf{Personal Data request:} He can request to see its personal data. \\The complexity has been considered \textbf{Simple}
+\item  \textbf{Trip list:} He can request the list of trips done in a certain period.\\
+The complexity has been considered \textbf{Complex}
 \end{itemize}
-\subsection{External Output} % (fold)
+
+\fptable{			
+	\fprow{Car list}{1}{4}
+	\fprow{Special Parking Area request}{1}{4}
+	\fprow{Parking Area request}{1}{4}
+	\fprow{Personal Data request}{0}{3}
+	\fprow{Trip list}{2}{6}
+}
+
+\subsection{External Output} 
 Beyond answers to External Inquiries, the system has to send other types of messages to the user:
 \begin{itemize}
-\item A notification of the confirmation of a reservation
-\item A notification of the end of a trip
-\item A notification of the confirmation of the payment.
+\item \textbf{Reservation confirmation:} A notification of the confirmation of a reservation.  \\The complexity has been considered \textbf{Simple}
+\item \textbf{End Trip notification:} A notification of the end of a trip. \\The complexity has been considered \textbf{Medium}
+\item \textbf{Payment notification:} A notification of the confirmation of the payment. \\The complexity has been considered \textbf{Medium}
 \end{itemize}
 
+\fptable{			
+	\fprow{Reservation confirmation}{0}{4}
+	\fprow{End Trip notification}{1}{5}
+	\fprow{Payment notification}{1}{5}
+}
 
-\subsection{Results} % (fold)
+\subsection{Results} 
+According to the element in each section and their weight in complexity the total of the UFP (Unadjusted Function Points) that provide an indication of the size of the system in functional terms:
+
+\begin{equation}
+FP=ILF+EIF+EI+EQ+EO 
+\end{equation}
+
+Total Function Points: \textbf{\arabic{total_fp}}
 
 
+Using 46 as AVC the final value of the estimated line of code is:
+
+\begin{equation}
+LOC = 46 * 93 = 4278
+\end{equation}
