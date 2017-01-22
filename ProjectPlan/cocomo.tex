@@ -13,7 +13,7 @@ where:
 	\begin{itemize}[label = {-}]
 		\item \textbf{Precedentedness:} It is high if the project is similar to several previous projects
 		\item \textbf{Development Flexibility:} It is high if there are no specific constraints to conform to pre-established     requirements and external interface specifications.
-		\item \textbf{Architecture / Risk Resolution:}It is high if the project plan includes a good risk management plan, a clear definition of budget and schedule, with a focus on architectural definition
+		\item \textbf{Architecture/Risk Resolution:} It is high if the project plan includes a good risk management plan, a clear definition of budget and schedule, with a focus on architectural definition
 		\item \textbf{Team Cohesion:} It is high if all stakeholders are able to work in a team and share the same vision and commitment.
 		\item \textbf{Process Maturity:} Refers to a well known method for assessing the maturity of a software organization, CMMI, that is a process level improvement training and appraisal program.
 	\end{itemize}
@@ -28,27 +28,25 @@ where:
 	E = B + 0.01 * \sum_{1<=j<=5}^{} SF_{j}
 	\end{equation}
 	where B=0.91
-\item \textbf{EM} stands for Effort Multiplier and is derived from cost drivers
-\item \textbf{n} is the number of cost drivers
 \end{itemize}
 
 
 \subsection{Scale Factors}
 \subsubsection{Precedentedness}
-For our development team is the first project done in the field of Car Sharing involving electric cars and so the personnel has no previous knowledge about it. For this reason we consider the Precedentedness of our project \textbf{very low}.\\
+For our development team is the first project done in the field of Car Sharing involving electric cars and so the personnel has no previous knowledge about it. For this reason we consider the Precedentedness of our project \textbf{Very low}.\\
 \textbf{PREC=6.20}
 
 \subsubsection{Development Flexibility}
 As for pre-established requirements, the development team is provided with a lot of requirements about the application and the service to be considered. On the other hand, there is no constraint on external interfaces to be considered.
-So, taking the average of the low flexibility for requirements and the high flexibility on external interfaces, the resulting Development Flexibility is \textbf{nominal}.\\
+So, taking the average of the low flexibility for requirements and the high flexibility on external interfaces, the resulting Development Flexibility is \textbf{Nominal}.\\
 \textbf{FLEX=3.04}
 
-\subsubsection{Architecture / Risk Resolution}
-Considering that the people in charge of project planning are new to this job, but they are also very motivated and able to learn fast, we can consider that their work on the risk management plan and the definition of budget and schedule has a \textbf{nominal} rate, taking the average of the low experience and the personnel characteristics.\\
+\subsubsection{Architecture/Risk Resolution}
+Considering that the people in charge of project planning are new to this job, but they are also very motivated and able to learn fast, we can consider that their work on the risk management plan and the definition of budget and schedule has a \textbf{Nominal} rate, taking the average of the low experience and the personnel characteristics.\\
 \textbf{RESL=4.24}
 
 \subsubsection{Team Cohesion}
-The group working on the project has newly been assembled, so its cohesion is in general unknown. Nevertheless, the people selected to join the group are all young, motivated, open-minded and suitable for group-works, so we can consider the Team Cohesion \textbf{nominal}, taking the average of high uncertainty and good skills of the personnel.\\
+The group working on the project has newly been assembled, so its cohesion is in general unknown. Nevertheless, the people selected to join the group are all young, motivated, open-minded and suitable for group-works, so we can consider the Team Cohesion \textbf{Nominal}, taking the average of high uncertainty and good skills of the personnel.\\
 \textbf{TEAM=3.29}
 
 \subsubsection{Process Maturity}
@@ -61,20 +59,18 @@ The maturity level of the project is \textbf{2}, for this reasons:
 	\item We have the purpose of involving in the processes all the stakeholders as much as possible, to have frequent feedbacks and suggestions on the works
 	\item Having the purpose of receiving feedbacks, we will use them and other evaluations to check the adherence of the project to requirements.
 	\item The development team is focused only on the PowerEnJoy project, so of course the processes are planned, documented, performed,monitored and controlled at the project level.
-	\item Because the development team has no previous knowledge about the field of car sharing, it will have mainly a reactive behaviour, because it cannot predict problems that it doesn't know.  
+	\item Because the development team has no previous knowledge about the field of car sharing, it will have mainly a reactive behavior, because it cannot predict problems that it doesn't know.  
 \end{itemize}  
 \textbf{PAMT=4.68}
 
 \pagebreak
 \subsection{Effort Multiplier}
-\textbf{EM} stands for Effort Multiplier. Effort multipliers are derived from \textbf{Cost drivers}. The selection of these cost drivers depends on whether the project regards a \textbf{Post-Architecture} system or a \textbf{Early Design} system. We are in the Early Design case, because we are not extending an existing product and our system will be developed from scratch. So the cost drivers are:
+\textbf{EM} stands for Effort Multiplier. Effort multipliers are derived from \textbf{Cost drivers}. The selection of these cost drivers depends on wh1ether the project regards a \textbf{Post-Architecture} system or a \textbf{Early Design} system. We are in the Early Design case, because we are extending an existing product and our system will be developed from scratch. So the cost drivers are:
 
 \subsubsection{Personnel Capability}
-Personnel Capability (PERS) is a combination of Analyst Capability(ACAP), Programmer Capability(PCAP) and Personnel Continuity cost driver of Post-Architecture.
-
-			In our case we have little experience in the software analysis but this is balanced by good programming skills. The combination of ACAP and PCAP can be considered as \textbf{"Nominal"}
-			
-			\textbf{PERS=1.0}
+Personnel Capability (PERS) is a combination of Analyst Capability(ACAP), Programmer Capability(PCAP) and Personnel Continuity cost driver of Post-Architecture.\\
+In our case we have little experience in the software analysis but this is balanced by good programming skills. The combination of ACAP and PCAP can be considered as \textbf{"Nominal"}
+\textbf{PERS=1.0}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale = 0.6]{img/PERS.png}
@@ -89,9 +85,8 @@ Personnel Capability (PERS) is a combination of Analyst Capability(ACAP), Progra
 			The software reliability is very important because a failure of the system can potentially cause a huge financial loss.\\
 			The DATA cost driver attempts to capture the effect large test data requirements have on product development. For this particular driver we don’t have enough information to do a reliable estimation so the value can be considered \textbf{"Nominal"}.\\
 			We decided to assign the complexity of the system a value \textbf{"High"}
-			
-		
-			\textbf{RCPX=1.33}
+\\
+\textbf{RCPX=1.33}
 
 \begin{figure}[H] 
 	\centering
@@ -101,9 +96,9 @@ Personnel Capability (PERS) is a combination of Analyst Capability(ACAP), Progra
 	
 		
 \subsubsection{Developed for Reusability}		
-			There are no requirement on Reusability so the value is considered \textbf{"Nominal"}
-			
-			\textbf{RUSE=1.0}
+		There are no requirement on Reusability so the value is considered \textbf{"Nominal"}
+\\
+\textbf{RUSE=1.0}
 			
 		\begin{figure}[H] 
 			\centering

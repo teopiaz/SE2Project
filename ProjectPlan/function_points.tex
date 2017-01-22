@@ -7,8 +7,8 @@ We use the Function Points approach to estimate the size of the project. This ap
 	\item Internal Logic Files, that are logically related data which are used and managed by the application.
 	\item External Interface Files, that are logically related data which are used by the application, but are generated, reside and are managed in other applications.
 	\end{itemize}
-\item External Input operations, that are operations that elaborate data coming from external systems
-\item External Output operations, that are operations that generate data to send to external systems .
+\item External Input operations, that are operations that elaborate data coming from external systems.
+\item External Output operations, that are operations that generate data to send to external systems.
 \item External Inquiries, that are operations that involve both input and output and allow to retrieve data from Internal Logic Files and External.
 \end{itemize} 
 To each element of those types a weight is given, based on the complexity of the table.\newline
@@ -39,10 +39,10 @@ AVC is a parameter that depends on the programming language used. We have chosen
 The PowerEnjoy Service needs to store information about:
 
 \begin{itemize}
-	\item \textbf{User:} This data consist in a small set of user information, for this reason its complexity has been considered \textbf{Simple}
-	\item \textbf{Car:} This data consist in a small set of car information, for this reason its complexity has been considered \textbf{Simple}
-	\item \textbf{Safe Area:} This data consist in a small set of safe area information, for this reason its complexity has been considered \textbf{Simple}
-	\item \textbf{Trip:} This data consist in a small set of trip information, for this reason its complexity has been considered \textbf{Simple}
+	\item \textbf{User:} This data consist in a small set of user information, for this reason its complexity has been considered \textbf{Simple}.
+	\item \textbf{Car:} This data consist in a small set of car information, for this reason its complexity has been considered \textbf{Simple}.
+	\item \textbf{Safe Area:} This data consist in a small set of safe area information, for this reason its complexity has been considered \textbf{Simple}.
+	\item \textbf{Trip:} This data consist in a small set of trip information, for this reason its complexity has been considered \textbf{Simple}.
 \end{itemize}
 \fptable{			
 	\fprow{User}{0}{7}	
@@ -54,7 +54,7 @@ The PowerEnjoy Service needs to store information about:
 \subsection{External Interfaces File} 
 
 \begin{itemize}
-	\item \textbf{GPS positioning:} This data consist on information received by user or by OnBoard device of the car. \\Because the managing involve some algorithms it's considered \textbf{High}
+	\item \textbf{GPS positioning:} This data consist on information received by user or by OnBoard device of the car. \\Because the managing involve some algorithms it's considered \textbf{Complex}.
 \end{itemize}
 
 \fptable{			
@@ -64,9 +64,9 @@ The PowerEnjoy Service needs to store information about:
 \subsection{External Input} 
 \begin{itemize}
 	\item \textbf{Sign-Up:} Create a new user entry in the system Database. \\The complexity has been considered \textbf{Simple}
-	\item \textbf{Log-In/Log-Out:} Manage the user authentication. Require a module to generate an auth token\\The complexity has been considered \textbf{Medium}
-	\item \textbf{Update user information:} Update users information in the system Database. \\The complexity has been considered \textbf{Simple}
-	\item \textbf{Request car reservation:} Manage the car reservation in the system. Require many check on the availability.  \\The complexity has been considered \textbf{Medium}
+	\item \textbf{Log-In/Log-Out:} Manage the user authentication. Require a module to generate an auth token\\The complexity has been considered \textbf{Medium}.
+	\item \textbf{Update user information:} Update users information in the system Database. \\The complexity has been considered \textbf{Simple}.
+	\item \textbf{Request car reservation:} Manage the car reservation in the system. Require many check on the availability.  \\The complexity has been considered \textbf{Medium}.
 	\item \textbf{Unlock car:} Check if the user is nearby the reserved car and send an unlock request to the car. Require algorithm on user position.  \\The complexity has been considered \textbf{Complex}
 \end{itemize}
 
@@ -81,12 +81,12 @@ The PowerEnjoy Service needs to store information about:
 \subsection{External Inquiries} 
 A PowerEnJoy user can ask the system for the retrieval of some data:
 \begin{itemize}
-\item \textbf{Car list:} User can request the list of cars available in a certain area or address. Involve Geolocalization algorithms.  \\The complexity has been considered \textbf{Medium}
-\item  \textbf{Special Parking Area request:} User can request the list of available special parking areas. Require to query the status of the nearby special parking area.\\The complexity has been considered \textbf{Medium}
-\item  \textbf{Parking Area request:} User can request the list of parking areas. Require to query the status of the nearby special parking area. \\The complexity has been considered \textbf{Medium}
-\item  \textbf{Personal Data request:} User can request to see its personal data. Data can be obtained with a simple Database Query. \\The complexity has been considered \textbf{Simple}
+\item \textbf{Car list:} User can request the list of cars available in a certain area or address. Involve Geolocalization algorithms.  \\The complexity has been considered \textbf{Medium}.
+\item  \textbf{Special Parking Area request:} User can request the list of available special parking areas. Require to query the status of the nearby special parking area.\\The complexity has been considered \textbf{Medium}.
+\item  \textbf{Parking Area request:} User can request the list of parking areas. Require to query the status of the nearby special parking area. \\The complexity has been considered \textbf{Medium}.
+\item  \textbf{Personal Data request:} User can request to see its personal data. Data can be obtained with a simple Database Query. \\The complexity has been considered \textbf{Simple}.
 \item  \textbf{Trip list:} User can request the list of trips done in a certain period.\\
-The complexity has been considered \textbf{Complex}
+The complexity has been considered \textbf{Complex}.
 \end{itemize}
 
 \fptable{			
@@ -100,9 +100,9 @@ The complexity has been considered \textbf{Complex}
 \subsection{External Output} 
 Beyond answers to External Inquiries, the system has to send other types of messages to the user:
 \begin{itemize}
-\item \textbf{Reservation confirmation:} A notification of the confirmation of a reservation. Require email or push notification system. \\The complexity has been considered \textbf{Simple}
-\item \textbf{End Trip notification:} A notification of the end of a trip. Require the status of the car through the OnBoard device \\The complexity has been considered \textbf{Medium}
-\item \textbf{Payment notification:} A notification of the confirmation of the payment. Require an integration with the payment system \\The complexity has been considered \textbf{Medium}
+\item \textbf{Reservation confirmation:} A notification of the confirmation of a reservation. Require email or push notification system. \\The complexity has been considered \textbf{Simple}.
+\item \textbf{End Trip notification:} A notification of the end of a trip. Require the status of the car through the OnBoard device. \\The complexity has been considered \textbf{Medium}.
+\item \textbf{Payment notification:} A notification of the confirmation of the payment. Require an integration with the payment system. \\The complexity has been considered \textbf{Medium}.
 \end{itemize}
 
 \fptable{			
