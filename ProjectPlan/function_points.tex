@@ -63,11 +63,11 @@ The PowerEnjoy Service needs to store information about:
 
 \subsection{External Input} 
 \begin{itemize}
-	\item \textbf{Sign-Up:} Create a new user in the system. \\The complexity has been considered \textbf{Simple}
-	\item \textbf{Log-In/Log-Out:} Manage the user authentication. \\The complexity has been considered \textbf{Medium}
-	\item \textbf{Update user information:} Update users information in the system. \\The complexity has been considered \textbf{Simple}
-	\item \textbf{Request car reservation:} Manage the car reservation in the system. \\The complexity has been considered \textbf{Medium}
-	\item \textbf{Unlock car:} Check if the user is nearby the reserved car and send an unlock request to the car. \\The complexity has been considered \textbf{Complex}
+	\item \textbf{Sign-Up:} Create a new user entry in the system Database. \\The complexity has been considered \textbf{Simple}
+	\item \textbf{Log-In/Log-Out:} Manage the user authentication. Require a module to generate an auth token\\The complexity has been considered \textbf{Medium}
+	\item \textbf{Update user information:} Update users information in the system Database. \\The complexity has been considered \textbf{Simple}
+	\item \textbf{Request car reservation:} Manage the car reservation in the system. Require many check on the availability.  \\The complexity has been considered \textbf{Medium}
+	\item \textbf{Unlock car:} Check if the user is nearby the reserved car and send an unlock request to the car. Require algorithm on user position.  \\The complexity has been considered \textbf{Complex}
 \end{itemize}
 
 \fptable{			
@@ -81,11 +81,11 @@ The PowerEnjoy Service needs to store information about:
 \subsection{External Inquiries} 
 A PowerEnJoy user can ask the system for the retrieval of some data:
 \begin{itemize}
-\item \textbf{Car list:} He can request the list of cars available in a certain area or address. \\The complexity has been considered \textbf{Meduim}
-\item  \textbf{Special Parking Area request:} He can request the list of special parking areas. \\The complexity has been considered \textbf{Meduim}
-\item  \textbf{Parking Area request:} He can request the list of parking areas. \\The complexity has been considered \textbf{Meduim}
-\item  \textbf{Personal Data request:} He can request to see its personal data. \\The complexity has been considered \textbf{Simple}
-\item  \textbf{Trip list:} He can request the list of trips done in a certain period.\\
+\item \textbf{Car list:} User can request the list of cars available in a certain area or address. Involve Geolocalization algorithms.  \\The complexity has been considered \textbf{Medium}
+\item  \textbf{Special Parking Area request:} User can request the list of available special parking areas. Require to query the status of the nearby special parking area.\\The complexity has been considered \textbf{Medium}
+\item  \textbf{Parking Area request:} User can request the list of parking areas. Require to query the status of the nearby special parking area. \\The complexity has been considered \textbf{Medium}
+\item  \textbf{Personal Data request:} User can request to see its personal data. Data can be obtained with a simple Database Query. \\The complexity has been considered \textbf{Simple}
+\item  \textbf{Trip list:} User can request the list of trips done in a certain period.\\
 The complexity has been considered \textbf{Complex}
 \end{itemize}
 
@@ -100,9 +100,9 @@ The complexity has been considered \textbf{Complex}
 \subsection{External Output} 
 Beyond answers to External Inquiries, the system has to send other types of messages to the user:
 \begin{itemize}
-\item \textbf{Reservation confirmation:} A notification of the confirmation of a reservation.  \\The complexity has been considered \textbf{Simple}
-\item \textbf{End Trip notification:} A notification of the end of a trip. \\The complexity has been considered \textbf{Medium}
-\item \textbf{Payment notification:} A notification of the confirmation of the payment. \\The complexity has been considered \textbf{Medium}
+\item \textbf{Reservation confirmation:} A notification of the confirmation of a reservation. Require email or push notification system. \\The complexity has been considered \textbf{Simple}
+\item \textbf{End Trip notification:} A notification of the end of a trip. Require the status of the car through the OnBoard device \\The complexity has been considered \textbf{Medium}
+\item \textbf{Payment notification:} A notification of the confirmation of the payment. Require an integration with the payment system \\The complexity has been considered \textbf{Medium}
 \end{itemize}
 
 \fptable{			

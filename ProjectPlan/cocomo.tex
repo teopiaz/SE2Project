@@ -29,15 +29,23 @@ E = B + 0.01 * \sum_{1<=j<=5}^{} SF_{j}
 \end{equation}
 where B=0.91
 
-\item \textbf{EM} stands for Effort Multiplier. Effort multipliers are derived from \textbf{Cost drivers}. The selection of these cost drivers depends on wh1ether the project regards a \textbf{Post-Architecture} system or a \textbf{Early Design} system. We are in the Early Design case, because we are extending an existing product and our system will be developed from scratch. So the cost drivers are:
+\item\textbf{EM} stands for Effort Multiplier. Effort multipliers are derived from \textbf{Cost drivers}. The selection of these cost drivers depends on wh1ether the project regards a \textbf{Post-Architecture} system or a \textbf{Early Design} system. We are in the Early Design case, because we are extending an existing product and our system will be developed from scratch. So the cost drivers are:
 \begin{itemize}[label = {-}]
-\item Personnel Capability (PERS): it is a combination of Analyst Capability(ACAP), Programmer Capability(PCAP) and Personnel Continuity cost driver of Post-Architecture.
+\item {Personnel Capability (PERS): it is a combination of Analyst Capability(ACAP), Programmer Capability(PCAP) and Personnel Continuity cost driver of Post-Architecture.
 \begin{figure}[H]	
 	\centering
 	\includegraphics[scale = 0.6]{img/PERS.png}
 	\caption{EMs of PERS}
 \end{figure}
-\item Product Reliability and Complexity(RCPX): it is a combination of Required Software Reliability(RELY), Data Base Size(DATA), Product Complexity(CPLX) and Documentation Match to Lif-Cycle Need(DOCU) cost drivers of Post-Architecture. 
+
+
+In our case we have little experience in the software analysis but this is balanced by good programming skills. The combination of ACAP and PCAP can be considered as "Nominal"
+\\
+\textbf{PERS=1.0}
+
+
+}
+\item Product Reliability and Complexity(RCPX): it is a combination of Required Software Reliability(RELY), Data Base Size(DATA), Product Complexity(CPLX) and Documentation Match to Life-Cycle Need(DOCU) cost drivers of Post-Architecture. 
 \begin{figure}[H]	
 	\centering
 	\includegraphics[scale = 0.6]{img/RCPX.png}
@@ -49,6 +57,7 @@ where B=0.91
 	\includegraphics[scale = 0.6]{img/RUSE.png}
 	\caption{EMs of RUSE}
 \end{figure}
+
 
 \item Platform Difficulty(PDIF): it is a combination of Execution Time Constraint(TIME), Main Storage Constraint(STOR) and Platform Volatility(PVOL) cost drivers of Post-Architecture. 
 \begin{figure}[H]	
