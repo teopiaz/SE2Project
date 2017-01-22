@@ -86,7 +86,7 @@ Personnel Capability (PERS) is a combination of Analyst Capability(ACAP), Progra
 			\\
 			The software reliability is very important because a failure of the system can potentially cause a huge financial loss.\\
 			The DATA cost driver attempts to capture the effect large test data requirements have on product development. For this particular driver we don’t have enough information to do a reliable estimation so the value can be considered \textbf{"Nominal"}.\\
-			We decided to assign the complexity of the system a value \textbf{"Very high"}
+			We decided to assign the complexity of the system a value \textbf{"High"}
 			
 		
 			\textbf{RCPX=1.33}
@@ -112,7 +112,7 @@ Personnel Capability (PERS) is a combination of Analyst Capability(ACAP), Progra
 \subsubsection{Platform Difficulty}		
 Platform Difficulty (PDIF) is a combination of Execution Time Constraint(TIME), Main Storage Constraint(STOR) and Platform Volatility(PVOL) cost drivers of Post-Architecture. 
 		\\
-		The OnBoard device is real-time embedded product so the execution time is important, but on the rest of the system there are no particular constraint about the execution time. Same as before there are no requirements on Storage.
+		The OnBoard device is real-time embedded product so the execution time is important, but on the rest of the system there are no particular constraint about the execution time. Same as before there are no requirements on Storage so both can be considered ad \textbf{"Nominal"}.
 		Platform Volatility can be considered \textbf{"Very high"} because the system is composed of different part on different system (OnBoard Device, Application Logic on server, Client on smartphone or browser).
 		\\
 		\textbf{PDIF=1.29}
@@ -126,7 +126,7 @@ Platform Difficulty (PDIF) is a combination of Execution Time Constraint(TIME), 
 \subsubsection{Personnel Experience}		
 {Personnel Experience (PREX) is a combination of Application Experience(APEX), Platform Experience(PLEX), Language and Tool Experience(LTEX) cost drivers of Post-Architecture. 
 			\\
-			Because of the team inexperience the overall value is considered \textbf{"low" }
+			Because of the team inexperience the overall value is considered \textbf{"Low" }
 			\\
 			\textbf{PREX=1.22}
 		\begin{figure}[H] 
@@ -196,7 +196,7 @@ Duration = 3.67 * (PM)^{(0.28+0.2 * (E - 0.91))} = 11.4924
 \end{equation}
 This equation brings us to a estimated duration of approximately 11.5 months.
 \begin{equation}
-Number of developers = \frac{Effort}{Duration}
+Number of developers = \frac{Effort}{Duration} \approx3
 \end{equation}
 This brings to an estimation of 3 developers to allocate to this project.
 
