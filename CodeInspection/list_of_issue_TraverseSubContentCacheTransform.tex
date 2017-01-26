@@ -1,5 +1,3 @@
-\todo[inline]{List of issue and issue latex command}
-
 
 \subsection{Naming Conventions}
 \subsection{Indention}
@@ -11,27 +9,54 @@
 \subsection{Package and Import Statements}
 \subsection{Class and Interface Declarations}
 \subsection{Initialization and Declarations}
+\begin{itemize}
+	\item \textbf{Lines 52-53:}\code{ public static final String [] upSaveKeyNames [...]
+		public static final String [] saveKeyNames = [...]
+	 }\\
+\textit{ The keyword }\code{final} \textit{for arrays does not reflect to the content of the array. There is no good reason to have a mutable object as} \code{public}. \\
+\textbf{Solution: }Make this member \code{protected}. 
+\end{itemize}
+
 \subsection{Method Calls}
+\todo[inline]{Method Calls}
+
 \subsection{Arrays}
+\begin{itemize}
+	\item No arrays are used in the class behavior.
+\end{itemize}
+
 \subsection{Object Comparison}
+\todo[inline]{no problem}
+
 \subsection{Output Format}
+\todo[inline]{l'output delle exception?}
+
 \subsection{Computation, Comparisons and Assignments}
+\begin{itemize}
+	\item \textbf{Line 153:}\code{ if (globalNodeTrail.size() > 0) \{ }\\
+\code{isEmpty()}\textit{ generally is O(1),} \code{size()} \textit{is O(n).}\\
+	\textbf{Solution:}	Use isEmpty() makes the code more readable and can be more performant. \\
+	 
+\end{itemize}
+
 \subsection{Exceptions}
 \begin{itemize}
 \item \textbf{Lines 98-105:}
-Catch \code{GeneralException} (org.ofbiz.base.util.GeneralException) and retrow a \code{RuntimeException}.
-Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.\\
+Catch \code{GeneralException} (org.ofbiz.base.util.GeneralException) and retrow a \code{RuntimeException}.\\
+\textit{Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.}\\
 \textbf{Solution:} Define an application-specific exception.
 
 \item \textbf{Line 235:} \code{boolean bEquals = contentIdStart.equals(contentIdEnd);}
-\textit{NullPointerException might be thrown as 'contentIdStart' is nullable here.}
-Solution: Check the \code{null} value before de-reference \code{contentIdStart}.
+\textit{NullPointerException might be thrown as 'contentIdStart' is nullable here.}\\
+\textbf{Solution: }Check the \code{null} value before de-reference \code{contentIdStart}.
 \end{itemize}
+
 \subsection{Flow of Control}
 \begin{itemize}
 	\item No \code{switch} statement are used in the class.\\
 	No loop statements are used in the class. 
 \end{itemize}
+
 \subsection{Files}
 \begin{itemize}
 	\item No files are used in the class behavior.
