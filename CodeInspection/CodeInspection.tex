@@ -73,7 +73,10 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 \newcommand{\Hilight}{\makebox[0pt][l]{\color{orangered}\rule[-0.45em]{\linewidth}{1.5em}}}
 
 
-
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\issue}[3][?]{
+	\paragraph{[#1] #2} \mbox{}\\ #3
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
 \newcommand{\revisionhistory}{
@@ -167,10 +170,17 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 
 
 
-	
 	\section{Assigned Classes}
+	\input{assigned_classes}
+	\pagebreak
 	\section{Functional role}
-	\section{List of issues}
+	\input{functional_role}
+	\pagebreak
+	\section{List of issues OFBizSolrRedirectServlet}
+	\input{list_of_issue_OFBizSolrRedirectServlet}
+	\section{List of issues TraverseSubContentCacheTransform}
+	\input{list_of_issue_TraverseSubContentCacheTransform}
+	\pagebreak
 	\section{Other problem}
 	\pagebreak
 	\section{Appendix}
