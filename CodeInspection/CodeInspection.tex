@@ -1,0 +1,208 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{todonotes}
+\usepackage{placeins}
+\usepackage[tocentry, tablegrid,nochapter]{vhistory} 
+\usepackage{catchfilebetweentags}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{subfigure}
+\usepackage{listings}
+
+\usepackage{pgfgantt,rotating}
+\definecolor{barblue}{RGB}{153,204,254}
+
+
+\usepackage{color}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{orangered}{rgb}{1.0, 0.27, 0.0}
+
+
+
+\usepackage[unicode=true,
+bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
+{hyperref}
+\hypersetup{pdftitle={CI},
+	pdfauthor={Piazzolla Matteo Michele - Millimaggi Andrea},
+	pdfsubject={Testing}}
+
+\usepackage{fancyhdr,graphicx,lastpage}% http://ctan.org/pkg/{fancyhdr,graphicx,lastpage}
+\fancypagestyle{plain}{
+	\fancyhf{}% Clear header/footer
+	\fancyhead[L]{Code Inspection }% Right header
+	\fancyhead[R]{\emph{Issue 1}}% Right header
+	\fancyfoot[L]{Piazzolla Matteo Michele - Millimaggi Andrea}% Left footer
+	\fancyfoot[R]{\thepage\  / \pageref{LastPage}}% Right footer
+}
+\pagestyle{plain}% Set page style to plain.
+
+
+\makeatletter
+
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newcommand{\lyxrightaddress}[1]{
+	\par {\raggedleft \begin{tabular}{l}\ignorespaces
+			#1
+		\end{tabular}
+		\vspace{1.4em}
+		\par}
+}
+
+\usepackage[font=small,labelfont=bf]{caption}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% alloy listing
+
+\newcommand{\Hilight}{\makebox[0pt][l]{\color{orangered}\rule[-0.45em]{\linewidth}{1.5em}}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% tabella dei vari issue 
+\newcommand{\revisionhistory}{
+	
+	\begingroup
+	\fontsize{15pt}{12pt}\selectfont
+	\textbf{Revision History}
+	\endgroup
+	
+	\begin{versionhistory}
+		\vhEntry{1.0}{29/01/17}{Piazzolla  Millimaggi }{First document issue}
+		\vhEntry{ }{ }{ }{ }
+		\vhEntry{ }{ }{ }{ }
+\end{versionhistory}}
+
+
+\lstset{language=Java,
+	showspaces=false,
+	showtabs=false,
+	breaklines=true,
+	showstringspaces=false,
+	breakatwhitespace=true,
+	commentstyle=\color{pgreen},
+	keywordstyle=\color{pblue},
+	stringstyle=\color{pred},
+	basicstyle=\ttfamily,
+	moredelim=[il][\textcolor{pgrey}]{$$},
+	moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+	basicstyle=\small\sffamily,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	columns=fullflexible,
+	breaklines=true
+}
+
+\def\arraystretch{1.5}%  1 is the default, change whatever you need
+
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% inizio documento
+\begin{document}
+	
+	\title{\includegraphics[scale=0.4]{img/polimi}\\
+		Computer Science and Engineering}
+	
+	\begin{doublespace}
+		
+		\author{A.A. 2016/2017\\
+			Software Engineering 2 Project: \\
+			\\
+			{\LARGE{}``PowerEnJoy''}\textbf{}\\
+			\\
+			\textbf{C}ode \textbf{I}spection \\
+		}
+	\end{doublespace}
+	
+	\maketitle
+	\thispagestyle{empty}
+	\lyxrightaddress{Prof.Luca Mottola\\
+		\\
+		Matteo Michele Piazzolla Matr. 878554\\
+		Andrea Millimaggi Matr. 876062}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	\revisionhistory
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+	
+	\tableofcontents{}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	%\listoftodos
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage{}
+
+
+
+	
+	\section{Assigned Classes}
+	\section{Functional role}
+	\section{List of issues}
+	\section{Other problem}
+	\pagebreak
+	\section{Appendix}
+	\input{classes_source}
+
+
+	\subsection{Used software}
+	\begin{enumerate}
+		\item \textbf{TeXstudio:} \url{http://www.texstudio.org/} to redact this document in {\LaTeX} format.
+		\item \textbf{SonarQube:} \url{http://www.sonarqube.org/} open source platform for continuous inspection of code quality.
+		\item \textbf{CheckStyle 7.3:} \url{http://checkstyle.sourceforge.net/} automated code review tool.
+			
+	\end{enumerate}
+	
+	
+	\subsection{Time effort}
+	The estimated time spent by us to redact this document:
+	\begin{center}
+		\begin{adjustbox}{max width=\textwidth}	
+			\begin{tabular}{|l|>{\raggedright}p{15cm}|}
+				
+				\hline  Andrea Millimaggi & 15h \tabularnewline
+				\hline 	Matteo Michele Piazzolla & 15h \tabularnewline
+				\hline 		
+			\end{tabular}
+		\end{adjustbox}
+	\end{center}	
+\begin{thebibliography}{5}
+	\bibitem{AVCTable} 
+	http://www.qsm.com/resources/function-point-languages-table
+\end{thebibliography}
+\end{document}
+
+
+
