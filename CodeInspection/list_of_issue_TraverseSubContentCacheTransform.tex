@@ -17,5 +17,22 @@
 \subsection{Output Format}
 \subsection{Computation, Comparisons and Assignments}
 \subsection{Exceptions}
+\begin{itemize}
+\item \textbf{Lines 98-105:}
+Catch \code{GeneralException} (org.ofbiz.base.util.GeneralException) and retrow a \code{RuntimeException}.
+Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.\\
+\textbf{Solution:} Define an application-specific exception.
+
+\item \textbf{Line 235:} \code{boolean bEquals = contentIdStart.equals(contentIdEnd);}
+\textit{NullPointerException might be thrown as 'contentIdStart' is nullable here.}
+Solution: Check the \code{null} value before de-reference \code{contentIdStart}.
+\end{itemize}
 \subsection{Flow of Control}
+\begin{itemize}
+	\item No \code{switch} statement are used in the class.\\
+	No loop statements are used in the class. 
+\end{itemize}
 \subsection{Files}
+\begin{itemize}
+	\item No files are used in the class behavior.
+\end{itemize}
