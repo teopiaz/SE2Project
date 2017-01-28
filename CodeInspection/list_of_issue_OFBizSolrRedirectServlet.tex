@@ -2,22 +2,81 @@
 
 
 \subsection{Naming Conventions}
-\subsection{Indention}
-\subsection{Braces}
-\todo[inline]{no problem}
-\subsection{File Organization}
-\subsection{Wrapping Lines}
-\subsection{Comments}
-\subsection{Java Source Files}
-\subsection{Package and Import Statements}
 \begin{itemize}
+\item[1] No issue
+\item[2] No issue - No one-character variable is used
+\item[3] No issue
+\item[4] No issue - There isn't any interface
+\item[5] Issue at line 46 - The first letter of the method "DoGet(HttpServletRequest request, HttpServletResponse response)" is capitalized
+\item[6] No issue
+\item[7] No issue - There isn't any constant
+\end{itemize}
+\subsection{Indention}
+\begin{itemize}
+\item[8] No issue - Always three spaces are used for indention
+\item[9] No issue - No tabs found in the code
+\end{itemize}
+\subsection{Braces}
+\begin{itemize}
+\item[10] No issue - Kernighan and Ritchie style is used consistently.
+\item[11] No issue - There are only \textit{if} statements and they are all surrounded by curly braces.
+\end{itemize}
+
+\subsection{File Organization}
+\begin{itemize}
+\item[12] No issue - All sections are separated by a blank line.
+\item[13] \begin{itemize}
+\item Issue at line 35 - Length = 82 - It is impractical to split the last word.
+\item Issue at line 40 - Length = 82 - It is impratical to split the method "getName()"
+\item Issue at line 43 - Length = 128 - "javax.servlet.http.HttpServletResponse)" could be put in the following line
+\item Issue at line 46 - Length = 119 - impractical to put the \textit{throw} declaration in the following line
+\item Issue at line 55 - Length = 119 - impractical to put the \textit{throw} declaration in the following line
+\item Issue at line 57 - Length = 83 - impractical to split the method.
+\item Issue at line 70 - Length = 87 - impractical to split the method
+\item Issue at line 74 - Length = 87 - impractical to split the method
+\end{itemize}
+\item[14] Issue at line 43 - Length = 128 - See [13]
+\end{itemize}
+\subsection{Wrapping Lines}
+\begin{itemize}
+\item[15] No issue - No line breaks
+\item[16] No issue - No line breaks
+\item[17] No issue - Expressions are all aligned.
+\end{itemize}
+\subsection{Comments}
+\begin{itemize}
+\item[18] Comments are used only for briefly explain what the class does and to give a reference to the method that the "doGet" method overrides. There are no comments for the "forwardUrl" method and for blocks of code.
+\item[19] No issue - There is no commented out code 
+\end{itemize}
+\subsection{Java Source Files}
+\begin{itemize}
+\item[20] No issue
+\item[21] No issue
+\item[22] No issue
+\item[23] No issue
+\end{itemize}
+\subsection{Package and Import Statements}
+\begin{itemize}[24]
 	\item \textbf{Lines 31:}\code{ import org.apache.ofbiz.security.Security;	}\\
 	\textbf{Unused import.}\\
 	\textbf{Solution: } Remove the unused import line.
 	
 \end{itemize}
 \subsection{Class and Interface Declarations}
+\begin{itemize}
+\item[25]
+\begin{itemize}
+\item[a] No issue
+\item[b] No issue
+\item[c] No issue - No implementation comments
+\item[d] No issue
+\item[e] No issue - No instance variables
+\item[f] No issue - No constructors
+\item[g] No issue
+\end{itemize}
+\end{itemize}
 \subsection{Initialization and Declarations}
+
 \subsection{Method Calls}
 \subsection{Arrays}
 \begin{itemize}
