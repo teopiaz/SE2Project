@@ -56,8 +56,8 @@
 \item[23] No issue
 \end{itemize}
 \subsection{Package and Import Statements}
-\begin{itemize}[24]
-	\item \textbf{Lines 31:}\code{ import org.apache.ofbiz.security.Security;	}\\
+\begin{itemize}
+	\item[24] \textbf{Lines 31:}\code{ import org.apache.ofbiz.security.Security;	}\\
 	\textbf{Unused import.}\\
 	\textbf{Solution: } Remove the unused import line.
 	
@@ -74,22 +74,64 @@
 \item[f] No issue - No constructors
 \item[g] No issue
 \end{itemize}
+\item[26] No issue - There are only two methods
+\item[27]
+\begin{itemize}
+\item No duplicates
+\item Methods aren't too long (24 lines for forwardUrl and 7 lines for doGet)
+\item The class isn't too big (45 lines)
+\item No breaking encapsulation - The only attribute (module) is final.
+\item The cohesion is high, because all the methods work to implement the main functionality of the server, that is get and forward information.
+\item Coupling is low, because the methods are independent.
 \end{itemize}
-\subsection{Initialization and Declarations}
+\end{itemize}
 
+\subsection{Initialization and Declarations}
+\begin{itemize}
+\item[28] No issue
+\item[29] No issue
+\item[30] No issue 
+\item[31] No issue
+\item[32] No issue
+\item[33] No issue
+\end{itemize}
 \subsection{Method Calls}
+\begin{itemize}
+\item[34] No issue
+\item[35] No issue
+\item[36] No issue 
+\end{itemize}
+
 \subsection{Arrays}
 \begin{itemize}
 	\item No arrays are used in the class behavior.
 \end{itemize}
 \subsection{Object Comparison}
-\todo[inline]{no problem}
+\begin{itemize}
+\item[40] There isn't any comparison
+\end{itemize}
 \subsection{Output Format}
-\todo[inline]{no problem}
+There is no displayed output.
 \subsection{Computation, Comparisons and Assignments}
+\begin{itemize}
+\item[44] No issue - All the operations seem to be effective and concise and there is no evidence of the use of brute force solutions
+\item[45-46] No issue - The only operations present in the code are the AND operations at lines 70 and 74 and they involve only one operation between two elements, so they don't need the management of precedences.
+\item[47] No issue - There isn't any division
+\item[48] No issue - There isn't any arithmetic expression
+\item[49] No issue- There isn't any comparison
+\item[50] No issue - There isn't any throw-catch expression
+\item[51] No issue - There is only one type conversion and is explicit (line 57):
+\begin{lstlisting}[language=java]
+GenericValue userLogin = (GenericValue) session.getAttribute("userLogin");
+\end{lstlisting}
+\end{itemize}
 \subsection{Exceptions}
+\begin{itemize}
+\item[52] No issue - The two methods throw appropriate exceptions, declared in their header
+\item[53] No issue - There isn't any throw-catch statement. The exception handled are declared in the headers and they are well-known and reliable java exceptions 
+\end{itemize}
 \subsection{Flow of Control}
 No \code{switch} statement are used in the class.\\
 No loop statements are used in the class.
 \subsection{Files}
-No files are used in the class behavior.
+No files are used in the class.
