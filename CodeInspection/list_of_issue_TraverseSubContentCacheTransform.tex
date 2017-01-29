@@ -1,65 +1,187 @@
 
 \subsection{Naming Conventions}
+\begin{itemize}
+	\item[1] No issue
+	\item[2] No issue - No one-character variable is used
+	\item[3] No issue
+	\item[4] No issue - There isn't any interface
+	\item[5] No issue
+	\item[6] No issue
+	\item[7]  \textbf{Lines 52:}\\
+	\code{public static final String module = TraverseSubContentCacheTransform.class.getName\(\);}. \\
+	\textbf{Solution: } rename to \code{MODULE}.
+	
+\end{itemize}
 \subsection{Indention}
+\begin{itemize}
+	\item[8] No issue - Always four spaces are used for indention
+	\item[9] No issue - No tabs found in the code
+\end{itemize}
 \subsection{Braces}
-\todo[inline]{no problem}
+\begin{itemize}
+	\item[10] No issue - Kernighan and Ritchie style is used consistently.
+	\item[11] No issue 
+\end{itemize}
 \subsection{File Organization}
+\begin{itemize}
+	\item[12] No issue - All sections are separated by a blank line.
+	\item[13] \begin{itemize}
+\item Issue at line 51 - Length = 90 
+\item Issue at line 68 - Length = 89 
+\item Issue at line 84 - Length = 93 
+\item Issue at line 86 - Length = 89 
+\item Issue at line 89 - Length = 89 
+\item Issue at line 90 - Length = 89 
+\item Issue at line 91 - Length = 94
+\item Issue at line 93 - Length = 92
+\item Issue at line 95 - Length = 85 
+\item Issue at line 96 - Length = 94 
+\item Issue at line 104 - Length = 90 
+\item Issue at line 107 - Length = 83 
+\item Issue at line 112 - Length = 87 
+\item Issue at line 113 - Length = 85 
+\item Issue at line 157 - Length = 102 
+\item Issue at line 159 - Length = 87
+\item Issue at line 165 - Length = 90 
+\item Issue at line 166 - Length = 95 
+\item Issue at line 182 - Length = 97
+\item Issue at line 192 - Length = 88
+\item Issue at line 195 - Length = 97
+\item Issue at line 209 - Length = 116
+\item Issue at line 215 - Length = 84
+\item Issue at line 226 - Length = 107
+\item Issue at line 231 - Length = 86
+\item Issue at line 237 - Length = 92
+	\end{itemize}
+	\item[14] 
+	\begin{itemize}
+		\item Issue at line 53 - Length = 218 - Strings can be split in multiple lines.
+		\item Issue at line 76 - Length = 97 - Function parameters can be split.
+		\item Issue at line 94 - Length = 123 - Impractical to split.
+		\item Issue at line 97 - Length = 147 - Line can be split after before \code{\&\&} 
+		\item Issue at line 102 - Length = 142 - Function parameters can be split.
+		\item Issue at line 151 - Length = 131 - Function parameter can be split in a second line.
+		\item Issue at line 210 - Length = 122 - Impractical to split.
+		\item Issue at line 222 - Length = 128 - Function parameter can be split in a second line.
+	\end{itemize}
+\end{itemize}
 \subsection{Wrapping Lines}
+\begin{itemize}
+	\item[15] No issue - No line breaks
+	\item[16] No issue - No line breaks
+	\item[17] No issue - Expressions are all aligned.
+\end{itemize}
 \subsection{Comments}
+\begin{itemize}
+	\item[18] No JavaDoc.
+	\item[19] No issue - There is no commented out code 
+\end{itemize}
 \subsection{Java Source Files}
+
+\begin{itemize}
+	\item[20] No issue
+	\item[21] No issue
+	\item[22] No issue
+	\item[23] No JavaDoc.
+\end{itemize}
+
 \subsection{Package and Import Statements}
+\begin{itemize}
+	\item[24] No issue
+\end{itemize}
 \subsection{Class and Interface Declarations}
+
+\begin{itemize}
+	\item[25]
+	\begin{itemize}
+		\item[a] No issue
+		\item[b] No issue
+		\item[c] No issue - No implementation JavaDoc
+		\item[d] No issue
+		\item[e] No issue 
+		\item[f] No issue 
+		\item[g] No issue
+	\end{itemize}
+	\item[26] No issue 
+	\item[27] No issue 
+\end{itemize}
+
 \subsection{Initialization and Declarations}
 \begin{itemize}
-	\item \textbf{Lines 52-53:}\code{ public static final String [] upSaveKeyNames [...]
-		public static final String [] saveKeyNames = [...]
-	 }\\
-\textit{ The keyword }\code{final} \textit{for arrays does not reflect to the content of the array. There is no good reason to have a mutable object as} \code{public}. \\
-\textbf{Solution: }Make this member \code{protected}. 
 
+\item[28] No issue -  \textbf{Lines 52-53:}\code{ public static final String [] upSaveKeyNames [...]
+		public static final String [] saveKeyNames = [...]
+	}\\
+	\textit{ The keyword }\code{final} \textit{for arrays does not reflect to the content of the array. There is no good reason to have a mutable object as} \code{public}. \\
+	\textbf{Solution: }Make this member \code{protected}. 
+\item[29] No issue
+\item[30] No issue
+\item[31] No issue 
+\item[32] No issue 
+\item[33] No issue 
 \end{itemize}
 
 \subsection{Method Calls}
-\todo[inline]{Method Calls}
-
+\begin{itemize}
+	\item[34] No issue
+	\item[35] No issue
+	\item[36] No issue 
+\end{itemize}
 \subsection{Arrays}
 \begin{itemize}
-	\item No arrays are used in the class behavior.
+	\item[37] No issue - No arrays are used in the class behavior.
+	\item[38] No issue - No arrays are used in the class behavior.
+	\item[39] No issue - No arrays are used in the class behavior.
 \end{itemize}
 
 \subsection{Object Comparison}
-\todo[inline]{no problem}
-
+\begin{itemize}
+\item[40] No issue 
+\end{itemize}
 \subsection{Output Format}
-\todo[inline]{l'output delle exception?}
-
+\begin{itemize}
+\item[41] No issue 
+\item[42] No issue
+\item[43] No issue 
+\end{itemize}
 \subsection{Computation, Comparisons and Assignments}
 \begin{itemize}
-	\item \textbf{Line 153:}\code{ if (globalNodeTrail.size() > 0) \{ }\\
+\item[44]  \textbf{Line 153:}\code{ if (globalNodeTrail.size() > 0) \{ }\\
 \code{isEmpty()}\textit{ generally is O(1),} \code{size()} \textit{is O(n).}\\
-	\textbf{Solution:}	Use isEmpty() makes the code more readable and can be more performant. \\
-	 
+\textbf{Solution:}	Use isEmpty() makes the code more readable and can be more performant.  
+\item[45] No issue 
+\item[46] No issue 
+\item[47] No issue
+\item[48] No issue 
+\item[49] No issue 
+\item[50] No issue
+\item[51] No issue 
+
 \end{itemize}
 
 \subsection{Exceptions}
 \begin{itemize}
-\item \textbf{Lines 98-105:}
-Catch \code{GeneralException} (org.ofbiz.base.util.GeneralException) and retrow a \code{RuntimeException}.\\
-\textit{Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.}\\
-\textbf{Solution:} Define an application-specific exception.
 
-\item \textbf{Line 235:} \code{boolean bEquals = contentIdStart.equals(contentIdEnd);}
-\textit{NullPointerException might be thrown as 'contentIdStart' is nullable here.}\\
-\textbf{Solution: }Check the \code{null} value before de-reference \code{contentIdStart}.
+\item[52] \textbf{Line 235:} \code{boolean bEquals = contentIdStart.equals(contentIdEnd);}
+	\textit{NullPointerException might be thrown as 'contentIdStart' is nullable here.}\\
+	\textbf{Solution: }Check the \code{null} value before de-reference \code{contentIdStart}.
+\item[53]  \textbf{Lines 98-105:}
+	Catch \code{GeneralException} (org.ofbiz.base.util.GeneralException) and retrow a \code{RuntimeException}.\\
+	\textit{Using such generic exceptions as Error, RuntimeException, Throwable, and Exception prevents calling methods from handling true, system-generated exceptions differently than application-generated errors.}\\
+	\textbf{Solution:} Define an application-specific exception.
 \end{itemize}
 
 \subsection{Flow of Control}
 \begin{itemize}
-	\item No \code{switch} statement are used in the class.\\
-	No loop statements are used in the class. 
+	\item[54] No issue - No \code{switch} statement are used in the class.
+	\item[55] No issue - No \code{switch} statement are used in the class.
+	\item[56] No issue - No loop statements are used in the class.
 \end{itemize}
 
 \subsection{Files}
 \begin{itemize}
-	\item No files are used in the class behavior.
+	\item[57] No issue - No files are used in the class behavior.
+	\item[58] No issue - No files are used in the class behavior.
+	\item[59] No issue - No files are used in the class behavior.
+	\item[60] No issue - No files are used in the class behavior.
 \end{itemize}
