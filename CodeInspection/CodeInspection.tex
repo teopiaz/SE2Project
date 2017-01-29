@@ -54,7 +54,6 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 
 
 \makeatletter
-
 \providecommand{\tabularnewline}{\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
@@ -178,15 +177,12 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 	\pagebreak
 	\section{List of issues OFBizSolrRedirectServlet}
 	\input{list_of_issue_OFBizSolrRedirectServlet}
+	\pagebreak
 	\section{List of issues TraverseSubContentCacheTransform}
 	\input{list_of_issue_TraverseSubContentCacheTransform}
 	\pagebreak
-	\section{Other problem}
-	\pagebreak
+
 	\section{Appendix}
-	\input{classes_source}
-
-
 	\subsection{Used software}
 	\begin{enumerate}
 		\item \textbf{TeXstudio:} \url{http://www.texstudio.org/} to redact this document in {\LaTeX} format.
@@ -194,8 +190,10 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 		\item \textbf{CheckStyle 7.3:} \url{http://checkstyle.sourceforge.net/} automated code review tool.
 			
 	\end{enumerate}
-	
-	
+	\pagebreak
+	\subsection{Source Code}
+		\input{classes_source}
+	\pagebreak
 	\subsection{Time effort}
 	The estimated time spent by us to redact this document:
 	\begin{center}
@@ -208,10 +206,7 @@ breaklinks=false,pdfborder={0 1 1},backref=false,colorlinks=false]
 			\end{tabular}
 		\end{adjustbox}
 	\end{center}	
-\begin{thebibliography}{5}
-	\bibitem{AVCTable} 
-	http://www.qsm.com/resources/function-point-languages-table
-\end{thebibliography}
+
 \end{document}
 
 
